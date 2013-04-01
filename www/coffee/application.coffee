@@ -1,5 +1,6 @@
 document.addEventListener('deviceready', ->
     navigator.splashscreen.hide()
-    $(document).trigger('click')
 , false)
 
+$.ready ->
+    $(document).trigger('click')
