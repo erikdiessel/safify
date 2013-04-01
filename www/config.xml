@@ -26,6 +26,8 @@
     -->
     <preference name="permissions" value="none" />
     
+    <preference name="splash-screen-duration" value="1000" />
+    
     <icon src="icon.png" />
     <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
     <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
