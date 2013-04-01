@@ -3,4 +3,4 @@ document.addEventListener('deviceready', ->
 , false)
 
 $.ready ->
-    $(document).trigger('click')
+    $(document).trigger('touchstart')

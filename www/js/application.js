@@ -5,7 +5,7 @@
   }, false);
 
   $.ready(function() {
-    return $(document).trigger('click');
+    return $(document).trigger('touchstart');
   });
 
 }).call(this);
