@@ -7,4 +7,10 @@
     });
   }, false);
 
+  $(document).click(function() {
+    return $('expander').UIExpander({
+      status: 'collapsed'
+    });
+  });
+
 }).call(this);
