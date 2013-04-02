@@ -2,7 +2,7 @@
 (function() {
   document.addEventListener('deviceready', function() {
     navigator.splashscreen.hide();
-    return $('expander').uiExpander({
+    return $('expander').UIExpander({
       status: 'collapsed'
     });
   }, false);
