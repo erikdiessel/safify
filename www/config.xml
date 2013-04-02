@@ -33,6 +33,6 @@
     <icon src="res/icon/android/icon-72-hdpi.png"   gap:platform="android"    gap:density="hdpi" />
     <icon src="res/icon/android/icon-96-xhdpi.png"  gap:platform="android"    gap:density="xhdpi" />
     
-    <access origin="*" /> <!-- allow local pages -->
+    <access origin="*" /> <!-- allow everything-->
     
 </widget>
