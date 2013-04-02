@@ -2,7 +2,10 @@
 (function() {
   $(document).ready(function() {
     return document.addEventListener('deviceready', function() {
-      return navigator.splashscreen.hide();
+      navigator.splashscreen.hide();
+      return navigator.notification.alert("Started", function() {
+        return console.log('Nothing');
+      });
     }, false);
   });
 
