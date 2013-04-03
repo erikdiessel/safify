@@ -4,3 +4,4 @@ document.addEventListener('deviceready', ->
 
 $(document).ready ->
     $('expander').UIExpander({status: 'collapsed'})
+    console.log('ready-event fired')

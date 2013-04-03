@@ -5,9 +5,10 @@
   }, false);
 
   $(document).ready(function() {
-    return $('expander').UIExpander({
+    $('expander').UIExpander({
       status: 'collapsed'
     });
+    return console.log('ready-event fired');
   });
 
 }).call(this);
