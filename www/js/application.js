@@ -4,4 +4,10 @@
     return navigator.splashscreen.hide();
   }, false);
 
+  $(document).ready(function() {
+    return $('expander').UIExpander({
+      status: 'collapsed'
+    });
+  });
+
 }).call(this);
