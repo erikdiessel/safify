@@ -4,42 +4,29 @@
     <title>Fortress of Keys</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-    <link rel="stylesheet" type="text/css" href="css/chui.android.css" />
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" type="text/css" href="css/jquery-mobile.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-</head>
-<body>
-    <app>
-        <view ui-navigation-status="current">
-            <navbar>
-                <h1>Fortress of Keys</h1>
-                <uibutton ui-kind="icon" ui-implements="icon" ui-bar-align="left">
-                    <icon style="background: url(res/icon/logo.png);"/>
-                </uibutton>
-            </navbar>
-            <subview ui-associations="withNavBar">
-                <scrollpanel>
-                    <expander>
-                        <panel>
-                            <tableview ui-kind="grouped">
-                                <tablecell>
-                                    <cellTitle>Username</cellTitle>
-                                </tablecell>
-                                <tablecell>
-                                    <cellTitle>Password</cellTitle>
-                                </tablecell>
-                            </tableview>
-                        </panel>
-                    </expander>
-                </scrollpanel>
-            </subview>
-        </view>
-    </app>
+    
     <script src="js/jquery-1.9.1.js"></script>
-    <script src="js/iscroll.js"></script>
-    <script src="js/chui.android.js"></script>
+    <script src="js/jquery-mobile.js"></script>
     <script src="js/knockout.js"></script>
     <script src="js/application.js"></script>
-    <script src="http://debug.phonegap.com/target/target-script-min.js#diessel"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header">
+            <h1>Fortress of Keys</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li>Amazon</li>
+                <li>Google</li>
+                <li>Facebook</li>
+                <li>Dropbox</li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
