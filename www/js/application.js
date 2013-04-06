@@ -4,4 +4,11 @@
     return navigator.splashscreen.hide();
   }, false);
 
+  $(document).on('pageinit', function() {
+    $('.selectable').click(function() {
+      return $(this).selectText();
+    });
+    return console.log('called');
+  });
+
 }).call(this);

@@ -6,11 +6,12 @@
     <meta name="format-detection" content="telephone=no" />
      <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <link rel="stylesheet" type="text/css" href="css/jquery-mobile.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery-mobile.css" /> 
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     
     <script src="js/jquery-1.9.1.js"></script>
     <script src="js/jquery-mobile.js"></script>
+    <script src="js/selection-plugin.js"></script>
     <script src="js/knockout.js"></script>
     <script src="js/application.js"></script>
 </head>
@@ -20,12 +21,18 @@
             <h1>Fortress of Keys</h1>
         </div>
         <div data-role="content">
-            <ul data-role="listview">
-                <li>Amazon</li>
-                <li>Google</li>
-                <li>Facebook</li>
-                <li>Dropbox</li>
-            </ul>
+
+            <div data-role="collapsible">
+                <h1>Amazon</h1>
+                <h5 class="description">Username</h5>
+                <h2 class="selectable">some_user73</h2>
+                <h5 class="description">Password</h5>
+                <h2 class="selectable">tz&3Nk)</h2>
+            </div>
+    
+        </div>
+        <div data-role="footer">
+            <h6>by Erik Diessel</h6>
         </div>
     </div>
 </body>
