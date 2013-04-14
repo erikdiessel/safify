@@ -11,4 +11,8 @@
     return console.log('called');
   });
 
+  window.addEventListener('load', function() {
+    return new FastClick(document.body);
+  }, false);
+
 }).call(this);

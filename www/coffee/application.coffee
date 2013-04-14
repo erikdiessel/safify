@@ -7,3 +7,7 @@ $(document).on 'pageinit', ->
         $(this).selectText()
         #console.log('called')
     console.log('called')
+    
+window.addEventListener('load', ->
+    new FastClick(document.body)
+, false)
