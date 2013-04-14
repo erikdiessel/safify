@@ -4,3 +4,7 @@
 .description {
     font-weight: normal;
 }
+
+.monospace {
+    font-family: monospace;
+}
