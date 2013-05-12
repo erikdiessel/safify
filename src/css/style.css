@@ -1,0 +1,90 @@
+.monospace {
+    font-family: monospace;
+}
+
+.danger .ui-btn-inner {
+   background-color: red;
+}
+
+dt {
+   color: grey;
+}
+
+dd {
+   font-weight: bold;
+   margin-left: 0;
+   font-family: monospace;
+}
+
+dl {
+   margin: 0;
+}
+
+[data-role="listview"] dd {
+   font-size: 1.3rem;
+}
+
+[data-role="listview"] h1 {
+   text-align: center;
+   font-size: 1.6rem;
+   margin-top: -0.5rem;
+   margin-bottom: 0.3rem;
+}
+
+[data-role="listview"] + [data-role="button"] {
+   margin-top: 15px;
+   margin-left: -16px;
+   margin-right: -16px;
+}
+
+[data-role="listview"] .ui-link-inherit {
+   padding-bottom: 0 !important;
+}
+
+#copying h2 {
+   text-align: center;
+   margin: 0;
+   font-size: 1.5rem;
+}
+
+#copying dt {
+   font-size: 0.9rem;
+}
+
+#copying dd {
+   font-size: 1.3rem;
+   padding-bottom: 1rem;
+}
+
+@media (min-width: 25rem) {
+   #passwords .ui-block-b > * {
+      margin-left: 3rem;
+   }
+}
+
+@media (max-width: 25rem) {
+   .ui-block-a,
+   .ui-block-b {
+      width: 100%;
+      float: none;
+   }
+   
+   #passwords .ui-block-b > * {
+      margin-left: 0;
+   }
+   
+}
+
+@media (max-width: 40rem) {
+   [data-role="listview"] dd {
+      font-size: 1.1rem;
+   }
+   
+   [data-role="listview"] dt {
+      font-size: 0.8rem;
+   }
+   
+   [data-role="listview"] h1 {
+      font-size: 1.3rem;
+   }
+}
