@@ -24,6 +24,8 @@ localization = {
       special_characters: "Special Characters"
       length: "Length"
       generate: "Generate"
+      generator: "Generator"
+      passwords: "Passwords"
    }
    de: {
       username: "Benutzername"
@@ -46,5 +48,7 @@ localization = {
       special_characters: "Sonderzeichen"
       length: "Länge"
       generate: "Generieren"
+      generator: "Generator"
+      passwords: "Passwörter"
    }
 }
