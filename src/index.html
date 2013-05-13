@@ -19,7 +19,7 @@
 <body>
 
    <div id="login" data-role="page">
-      <div data-role="header">
+      <div data-role="header" data-position="fixed">
          <a href="#register-server" data-icon="edit"> <span data-bind="text: l.register"/> </a>
          <h1> <span data-bind="text: l.login"></span> </h1>
          <a href="#login-server" data-theme="b" data-icon="check"> <span data-bind="text: l.login"/> </a>
@@ -42,7 +42,7 @@
    </div>
 
     <div id="passwords" data-role="page">
-        <div data-role="header">
+        <div data-role="header" data-position="fixed">
             <h1> </h1>
             <img src="images/logo.png" height="32" class="ui-btn-left">
             <a href="#new" class="ui-btn-right" data-icon="plus" data-theme="b" data-transition="none"> <span data-bind="text: l.new_entry"/> </a>
@@ -71,7 +71,7 @@
     </div>
     
     <div id="new" data-role="page">   
-      <div data-role="header">
+      <div data-role="header" data-position="fixed">
          <a href="#passwords" data-icon="back" data-transition="none"> <span data-bind="text: l.back"/> </a>
          <h1> <span data-bind="text: l.new_entry"></span> </h1>
          <a href="#save-current" data-role="button" data-icon="check" data-theme="b"> <span data-bind="text: l.save"/> </a>
@@ -86,7 +86,7 @@
     </div>
     
     <div id="edit" data-role="page">
-       <div data-role="header">
+       <div data-role="header" data-position="fixed">
          <a href="#passwords" data-icon="back" data-transition="none"> <span data-bind="text: l.back"/> </a>
          <h1> <span data-bind="text: l.edit"></span> </h1>
          <a href="#delete-current" class="danger" data-icon="delete"> <span data-bind="text: l.delete"/> </a>
@@ -117,7 +117,7 @@
    </div>
    
    <div id="generator" data-role="page">
-      <div data-role="header">
+      <div data-role="header" data-position="fixed">
          <h1><span data-bind="text: l.generator"></span></h1>
       </div>
       
