@@ -57,19 +57,19 @@ dl {
 }
 
 @media (min-width: 25rem) {
-   #passwords .ui-block-b > * {
+   #passwords [data-role="content"] .ui-block-b > * {
       margin-left: 3rem;
    }
 }
 
 @media (max-width: 25rem) {
-   .ui-block-a,
-   .ui-block-b {
+   #passwords [data-role="content"] .ui-block-a,
+   #passwords [data-role="content"] .ui-block-b {
       width: 100%;
       float: none;
    }
    
-   #passwords .ui-block-b > * {
+   #passwords [data-role="content"] .ui-block-b > * {
       margin-left: 0;
    }
    

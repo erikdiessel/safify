@@ -35,7 +35,7 @@
       <div data-role="footer" data-position="fixed">
          <div data-role="navbar">
             <ul>
-               <li><a href="#passwords" class="ui-btn-active ui-state-persistent"> <span data-bind="text: l.passwords"></span> </a></li>
+               <li><a href="#passwords" class="ui-btn-active ui-state-persist"> <span data-bind="text: l.passwords"></span> </a></li>
                <li><a href="#generator"> <span data-bind="text: l.generator"></span> </a></li>
             </ul>
          </div>
@@ -69,6 +69,15 @@
             </ul>
             <a href="#new" data-role="button" data-corners="false" data-icon="plus" data-theme="b" data-transition="none"> <span data-bind="text: l.new_entry"/> </a>
         </div>
+        
+      <div data-role="footer" data-position="fixed">
+         <div data-role="navbar">
+            <ul>
+               <li><a href="#passwords" class="ui-btn-active ui-state-persist"> <span data-bind="text: l.passwords"></span> </a></li>
+               <li><a href="#generator"> <span data-bind="text: l.generator"></span> </a></li>
+            </ul>
+         </div>
+      </div>
     </div>
     
     <div id="new" data-role="page">   
@@ -129,7 +138,7 @@
             <a href="#generate" data-role="button" data-theme="b"> <span data-bind="text: l.generate"></span> </a>
             <div data-role="fieldcontain">
                <label for="slider_length" data-bind="text:l.length"></label>
-               <input type="range" id="slider_length" data-bind="value: generator.length" value="8" min="4" max="16">
+               <input type="range" id="slider_length" data-bind="slider_value: generator.length" value="8" min="4" max="16">
             </div>
             <fieldset data-role="controlgroup">
                <input type="checkbox" id="cb_uppercase" data-bind="checked: generator.uppercase">
@@ -140,6 +149,15 @@
                <label for="cb_special_characters" data-bind="text: l.special_characters"></label>
             </fieldset>
          </form>
+      </div>
+      
+      <div data-role="footer" data-position="fixed">
+         <div data-role="navbar">
+            <ul>
+               <li><a href="#passwords"> <span data-bind="text: l.passwords"></span> </a></li>
+               <li><a href="#generator" class="ui-btn-active ui-state-persist"> <span data-bind="text: l.generator"></span> </a></li>
+            </ul>
+         </div>
       </div>
    </div>
     

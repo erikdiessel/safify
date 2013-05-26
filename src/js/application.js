@@ -106,6 +106,37 @@
   }, false);
 
   $(document).ready(function() {
+    ko.bindingHandlers.slider_value = {
+      init: function(element, valueAccessor) {
+        var el, val;
+
+        val = valueAccessor()();
+        el = $(element);
+        console.log('init fired');
+        console.log(element);
+        return el.on("input", function(event, ui) {
+          var value;
+
+          console.log('changed');
+          value = valueAccessor()();
+          if (value !== el.val) {
+            return valueAccessor()(parseInt(el.val()));
+          }
+        });
+      },
+      update: function(element, valueAccessor) {
+        var el, value;
+
+        el = $(element);
+        if (el.is('.ui-slider-input')) {
+          value = ko.utils.unwrapObservable(valueAccessor()());
+          if (value !== el.val()) {
+            el.val(value);
+            return el.slider("refresh");
+          }
+        }
+      }
+    };
     window.model = {
       l: getLocalized(),
       list: new List(),
@@ -350,7 +381,9 @@
       numbers: "Numbers",
       special_characters: "Special Characters",
       length: "Length",
-      generate: "Generate"
+      generate: "Generate",
+      generator: "Generator",
+      passwords: "Passwords"
     },
     de: {
       username: "Benutzername",
@@ -372,7 +405,9 @@
       numbers: "Zahlen",
       special_characters: "Sonderzeichen",
       length: "Länge",
-      generate: "Generieren"
+      generate: "Generieren",
+      generator: "Generator",
+      passwords: "Passwörter"
     }
   };
 
