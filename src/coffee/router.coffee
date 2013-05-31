@@ -20,3 +20,13 @@ class Router
             func.apply(this, bindings)
             
 router = new Router()
+
+routes = {}
+   
+setupRoutes = ->
+   router.set_routes(routes)
+   $(document).bind "pagebeforechange", ( e, data ) ->
+      if typeof data.toPage == "string"
+         data.options.dataUrl = data.toPage
+         router.route(data.toPage)
+         data.toPage = data.toPage.replace(/#([^\~]+)~.+/i, "#$1")

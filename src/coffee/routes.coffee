@@ -1,19 +1,6 @@
 get_API_URL = (path) ->
    baseURL = 'https://fortressofkeys-api.herokuapp.com/'
    baseURL + path
-
-routes = {}
-
-route = (path, func) ->
-   routes[path] = func
-   
-setupRoutes = ->
-   router.set_routes(routes)
-   $(document).bind "pagebeforechange", ( e, data ) ->
-      if typeof data.toPage == "string"
-         data.options.dataUrl = data.toPage
-         router.route(data.toPage)
-         data.toPage = data.toPage.replace(/#([^\~]+)~.+/i, "#$1")
          
 save_changes = ->
    $.ajax
@@ -46,9 +33,7 @@ routes =
       $.mobile.changePage("#passwords")
    
    'copying~:index': (index) ->
-      model.current.title(model.list.entries()[index].title())
-      model.current.username(model.list.entries()[index].username())
-      model.current.password(model.list.entries()[index].password())
+      model.list.new_current(index)
       
    'login-server': ->
       $.ajax

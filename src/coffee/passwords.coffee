@@ -32,9 +32,11 @@ class List
       entry.password(@current_entry.password())
       
    delete_current: =>
-      @entries.remove (entry) =>
-         entry.index() == @current_entry.index()
-      @actualize_indices()
+      #@entries.remove (entry) =>
+         #entry.index() == @current_entry.index()
+      #@actualize_indices()
+      @entries.splice(@current_entry.index(), 1)
+      actualize_indices()
    
    actualize_indices: =>
       for entry, i in @entries()
@@ -56,9 +58,3 @@ class List
       @entries( for entry in entries
          new Entry(entry.index, entry.title, entry.username, entry.password)
       )
-      
-class Current
-   constructor: ->
-      @title = ko.observable("")
-      @username = ko.observable("")
-      @password = ko.observable("")
