@@ -26,8 +26,8 @@
       </div>
       
       <div data-role="content">
-         <input data-bind="value: login.username, attr: { placeholder: l.username }">
-         <input type="password" data-bind="value: login.password, attr: { placeholder: l.password }">
+         <input data-bind="value: login.username, attr: { placeholder: l.username }" autofocus>
+         <input type="password" data-bind="value: login.password, attr: { placeholder: l.password }" class="login_on_enter">
          <a href="#login-server" data-role="button" data-theme="b" data-icon="check"> <span data-bind="text: l.login"/> </a>
          <a href="#register-server" data-mini="true" data-role="button" data-icon="edit"> <span data-bind="text: l.register"/> </a>
       </div>
@@ -52,7 +52,7 @@
         <div data-role="content">
             <ul data-role="listview" data-bind="foreach: list.entries" data-split-icon="edit" data-filter="true" data-filter-placeholder="">
                <li>
-                  <a data-bind="attr: { href: '#copying~' + index() }" data-rel="dialog" data-transition="none">
+                  <a data-bind="attr: { href: '#details~' + index() }" data-rel="dialog" data-transition="none">
                   <h1  data-bind="text: title"></h1>
                   <dl class="ui-grid-a">
                      <div class="ui-block-a">
@@ -110,7 +110,7 @@
        </div>
     </div>
     
-   <div id="copying" data-role="page">
+   <div id="details" data-role="page">
       <div data-role="header">
          <h1><span data-bind="text: l.details"></span></h1>
       </div>
@@ -122,6 +122,7 @@
             <dt data-bind="text: l.password">/dt>
             <dd data-bind="text: list.current_entry.password"></dd>
          </dl>
+         <a data-bind="attr: { href: list.current_entry.to_mail() }" data-role="button"> <span data-bind="text: l.share"></span> </a>
          <a href="#passwords" data-role="button" data-theme="b" data-transition="none"> <span data-bind="text: l.back"/> </a>
       </div>
    </div>

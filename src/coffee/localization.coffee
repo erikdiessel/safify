@@ -26,6 +26,7 @@ localization = {
       generate: "Generate"
       generator: "Generator"
       passwords: "Passwords"
+      share: "Send per Email"
    }
    de: {
       username: "Benutzername"
@@ -50,5 +51,6 @@ localization = {
       generate: "Generieren"
       generator: "Generator"
       passwords: "Passwörter"
+      share: "Per E-Mail versenden"
    }
 }

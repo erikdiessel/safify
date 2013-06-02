@@ -32,7 +32,7 @@ routes =
       save_changes()
       $.mobile.changePage("#passwords")
    
-   'copying~:index': (index) ->
+   'details~:index': (index) ->
       model.list.new_current(index)
       
    'login-server': ->
@@ -46,6 +46,7 @@ routes =
             decrypted = sjcl.decrypt(model.login.client_password(), data)
             model.list.fromJSON(decrypted)
             $.mobile.changePage('#passwords')
+            $('[data-role="listview"]').listview('refresh')
             
    'register-server': ->
       $.ajax
@@ -59,4 +60,4 @@ routes =
       
    'generate': ->
       # trigger re-evaluation of password
-      model.generator.password()
+      model.generator.regenerate()

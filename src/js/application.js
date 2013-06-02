@@ -43,7 +43,7 @@
       save_changes();
       return $.mobile.changePage("#passwords");
     },
-    'copying~:index': function(index) {
+    'details~:index': function(index) {
       return model.list.new_current(index);
     },
     'login-server': function() {
@@ -58,7 +58,8 @@
 
           decrypted = sjcl.decrypt(model.login.client_password(), data);
           model.list.fromJSON(decrypted);
-          return $.mobile.changePage('#passwords');
+          $.mobile.changePage('#passwords');
+          return $('[data-role="listview"]').listview('refresh');
         }
       });
     },
@@ -74,7 +75,7 @@
       return $.mobile.changePage('#passwords');
     },
     'generate': function() {
-      return model.generator.password();
+      return model.generator.regenerate();
     }
   };
 
@@ -94,11 +95,18 @@
       generator: new Generator()
     };
     ko.applyBindings(model);
-    return setupRoutes();
+    setupRoutes();
+    return $('.login_on_enter').keypress(function(event) {
+      if (event.which === 13) {
+        $('a[href="#login-server"]').focus();
+        return $('a[href="#login-server"]').click();
+      }
+    });
   });
 
   Entry = (function() {
     function Entry(index, title, username, password) {
+      this.to_mail = __bind(this.to_mail, this);
       this.toObject = __bind(this.toObject, this);
       this.reset = __bind(this.reset, this);      this.index = ko.observable(index || 0);
       this.title = ko.observable(title || "");
@@ -119,6 +127,10 @@
         username: this.username(),
         password: this.password()
       };
+    };
+
+    Entry.prototype.to_mail = function() {
+      return "mailto:?to=&body=" + encodeURIComponent('\r\n' + this.title() + '\r\n') + encodeURIComponent(model.l.username + ': ' + this.username() + '\r\n') + encodeURIComponent(model.l.password + ': ' + this.password() + '\r\n');
     };
 
     return Entry;
@@ -260,7 +272,7 @@
 
   router = new Router();
 
-  routes = {};
+  routes || (routes = {});
 
   setupRoutes = function() {
     router.set_routes(routes);
@@ -330,7 +342,8 @@
       length: "Length",
       generate: "Generate",
       generator: "Generator",
-      passwords: "Passwords"
+      passwords: "Passwords",
+      share: "Send per Email"
     },
     de: {
       username: "Benutzername",
@@ -354,7 +367,8 @@
       length: "Länge",
       generate: "Generieren",
       generator: "Generator",
-      passwords: "Passwörter"
+      passwords: "Passwörter",
+      share: "Per E-Mail versenden"
     }
   };
 
@@ -381,6 +395,7 @@
 
   Generator = (function() {
     function Generator() {
+      this.regenerate = __bind(this.regenerate, this);
       this.generate = __bind(this.generate, this);
       var _this = this;
 
@@ -402,6 +417,10 @@
         password += allowed_characters[random(allowed_characters.length)];
       }
       return password;
+    };
+
+    Generator.prototype.regenerate = function() {
+      return this.length.valueHasMutated();
     };
 
     return Generator;

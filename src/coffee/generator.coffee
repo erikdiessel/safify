@@ -24,3 +24,6 @@ class Generator
       for i in [0..@length()-1]
          password += allowed_characters[random(allowed_characters.length)]
       password
+      
+   regenerate: =>
+      @length.valueHasMutated() # triggers re-evaluation of password

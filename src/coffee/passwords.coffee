@@ -4,10 +4,12 @@ class Entry
       @title = ko.observable(title || "")
       @username = ko.observable(username || "")
       @password = ko.observable(password || "")
+      
    reset: =>
       @title("")
       @username("")
       @password("")
+      
    toObject: =>
       {
          index: @index()
@@ -16,6 +18,11 @@ class Entry
          password: @password()
       }
       
+   to_mail: =>
+      "mailto:?to=&body=" + 
+      encodeURIComponent('\r\n' + @title() + '\r\n') +
+      encodeURIComponent(model.l.username + ': ' + @username() + '\r\n') + 
+      encodeURIComponent(model.l.password + ': ' + @password() + '\r\n')
       
 class List
    constructor: ->
