@@ -4,7 +4,7 @@
     <title>Fortress of Keys</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="format-detection" content="telephone=no" />
-     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     
     <link rel="stylesheet" type="text/css" href="css/jquery-mobile.css" /> 
     <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -67,7 +67,7 @@
                   <a data-bind="attr: { href: '#edit~' + index() }" data-transition="none"> </a>
                </li>
             </ul>
-            <a href="#new" data-role="button" data-corners="false" data-icon="plus" data-theme="b" data-transition="none"> <span data-bind="text: l.new_entry"/> </a>
+            <a href="#new" data-role="button"  data-icon="plus" data-theme="b" data-transition="none"> <span data-bind="text: l.new_entry"/> </a>
         </div>
         
       <div data-role="footer" data-position="fixed">
@@ -135,7 +135,7 @@
       <div data-role="content">
          <form>
             <label for="tb_password"></label>
-            <input id="tb_password" data-bind="value: generator.password">
+            <input id="tb_password" data-bind="value: generator.password" readonly>
             <a href="#generate" data-role="button" data-theme="b"> <span data-bind="text: l.generate"></span> </a>
             <div data-role="fieldcontain">
                <label for="slider_length" data-bind="text:l.length"></label>

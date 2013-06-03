@@ -88,6 +88,31 @@
   }, false);
 
   $(document).ready(function() {
+    ko.bindingHandlers.slider_value = {
+      init: function(element, valueAccessor) {
+        return setInterval(function() {
+          var el, value;
+
+          el = $(document.getElementById(element.id));
+          value = valueAccessor()();
+          if (value !== parseInt(el.val(), 10)) {
+            return valueAccessor()(parseInt(el.val(), 10));
+          }
+        }, 100);
+      },
+      update: function(element, valueAccessor) {
+        var el, value;
+
+        el = $(element);
+        if (el.is('.ui-slider-input')) {
+          value = ko.utils.unwrapObservable(valueAccessor()());
+          if (value !== el.val()) {
+            el.val(value);
+            return el.slider("refresh");
+          }
+        }
+      }
+    };
     window.model = {
       l: getLocalized(),
       list: new List(),

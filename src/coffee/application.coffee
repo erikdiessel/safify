@@ -9,28 +9,23 @@ document.addEventListener('deviceready', ->
 
 
 $(document).ready ->
-   #ko.bindingHandlers.slider_value = {
-      #init: (element, valueAccessor) ->
-         #setTimeout ( ->
-            #val = valueAccessor()()
-            #el = $(element)
-            #console.log('init fired')
-            #console.log(element)
-            #el.on "input", (event, ui) ->
-               #console.log('changed')
-               #value = valueAccessor()();
-               #if value != el.val
-                  #valueAccessor()(parseInt(el.val()));
-         #, 0)
-   #
-      #update: (element, valueAccessor) ->
-         #el = $(element)
-         #if el.is('.ui-slider-input')
-            #value = ko.utils.unwrapObservable(valueAccessor()())
-            #if value != el.val()
-               #el.val(value)
-               #el.slider("refresh")
-   #}
+   ko.bindingHandlers.slider_value = {
+      init: (element, valueAccessor) ->
+         setInterval ->
+            el = $(document.getElementById(element.id))
+            value = valueAccessor()()
+            if value != parseInt(el.val(), 10)
+               valueAccessor() parseInt(el.val(), 10)
+         , 100
+   
+      update: (element, valueAccessor) ->
+         el = $(element)
+         if el.is('.ui-slider-input')
+            value = ko.utils.unwrapObservable(valueAccessor()())
+            if value != el.val()
+               el.val(value)
+               el.slider("refresh")
+   }
    
    window.model = {
       l: getLocalized()
@@ -41,7 +36,8 @@ $(document).ready ->
    ko.applyBindings(model)
    setupRoutes()
    
-   $('.login_on_enter').keypress (event) ->
+   $('.login_on_enter').keypress( (event) ->
       if event.which == 13
          $('a[href="#login-server"]').focus()
          $('a[href="#login-server"]').click()
+   )
