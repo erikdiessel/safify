@@ -2,7 +2,7 @@
    "name": "Fortress of Keys",
    "description": "This app is not a game as the name may suggest. But it makes managing your passwords feeling like playing your favorite game. Without containing any violence. Defeat the evil witch who wants to steal your passwords by storing your passwords securely without the help of the wise wizard who knows all passwords by heart.",
    "icons": {
-      "92": "images/logo.png"
+      "128": "images/logo/128.png"
    },
    "developer": {
       "name": "Erik Diessel",
