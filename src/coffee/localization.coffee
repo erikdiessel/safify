@@ -27,6 +27,7 @@ localization = {
       generator: "Generator"
       passwords: "Passwords"
       share: "Send per Email"
+      username_not_found: "Your entered username does not exist. As a new user you should register first."
    }
    de: {
       username: "Benutzername"
@@ -52,5 +53,6 @@ localization = {
       generator: "Generator"
       passwords: "Passwörter"
       share: "Per E-Mail versenden"
+      username_not_found: "Der angegebene Benutzername existiert nicht. Als neuer Benutzer musst du dich erst registrieren"
    }
 }

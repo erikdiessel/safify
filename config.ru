@@ -3,7 +3,7 @@ use Rack::Static,
    :urls => [""],
    :index => 'index.html',
    :header_rules => [
-      [ ['.webapp'], { 'Content-Type' => 'application/x-web-app-manifest+json' } ]
+      [ ['webapp'], { 'Content-Type' => 'application/x-web-app-manifest+json' } ]
    ]
 
 run lambda { |env|
