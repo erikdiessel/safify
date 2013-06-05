@@ -45,6 +45,7 @@ routes =
          success: (data, textStatus, jqXHR) ->
             decrypted = sjcl.decrypt(model.login.client_password(), data)
             model.list.fromJSON(decrypted)
+            model.login.logged_in(true)
             $.mobile.changePage('#passwords')
             $('[data-role="listview"]').listview('refresh')
             
@@ -61,3 +62,7 @@ routes =
    'generate': ->
       # trigger re-evaluation of password
       model.generator.regenerate()
+      
+   # redirect not logged-in users to the login-page
+   'passwords': ->
+      

@@ -3,9 +3,10 @@ use Rack::Static,
    :urls => [""],
    :index => 'index.html',
    :header_rules => [
-      [ ['webapp'], { 'Content-Type' => 'application/x-web-app-manifest+json' } ]
+      [ ['webapp', 'something_else'], { 'Content-Type' => 'application/x-web-app-manifest+json' } ]
    ]
 
+# The following part is required
 run lambda { |env|
   [
     404, 

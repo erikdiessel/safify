@@ -2,6 +2,7 @@ class Login
    constructor: ->
       @username = ko.observable("")
       @password = ko.observable("")
+      @logged_in = ko.observable(false)
 
    server_password: =>
       salt = [184, 83, 26, 133, 22, 40, 115, 123, 141, 115, 39, 53, 168, 172, 49, 165, 106, 215, 114, 180]
@@ -16,3 +17,4 @@ class Login
       JSON.stringify(
          sjcl.misc.pbkdf2(@password(), salt.concat(sjcl.hash.sha256.hash(@username())), iterations)
       )
+   

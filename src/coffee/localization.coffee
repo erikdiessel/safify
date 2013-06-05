@@ -28,6 +28,7 @@ localization = {
       passwords: "Passwords"
       share: "Send per Email"
       username_not_found: "Your entered username does not exist. As a new user you should register first."
+      authentification_failed: "The entered username or password is incorrect"
    }
    de: {
       username: "Benutzername"
@@ -53,6 +54,7 @@ localization = {
       generator: "Generator"
       passwords: "Passwörter"
       share: "Per E-Mail versenden"
-      username_not_found: "Der angegebene Benutzername existiert nicht. Als neuer Benutzer musst du dich erst registrieren"
+      username_not_found: "Der angegebene Benutzername existiert nicht. Als neuer Benutzer musst du dich erst registrieren."
+      authentification_failed: "Der angegebene Benutzername oder das Passwort ist falsch."
    }
 }

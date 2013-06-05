@@ -27,6 +27,7 @@
       
       <div data-role="content">
          <span class="error" data-bind="if: login.username_not_found, text: l.username_not_found"></span>
+         <span class="error" data-bind="if: login.authentification_failed, text: l.authentification_failed"></span>
          <input data-bind="value: login.username, attr: { placeholder: l.username }" autofocus>
          <input type="password" data-bind="value: login.password, attr: { placeholder: l.password }" class="login_on_enter">
          <a href="#login-server" data-role="button" data-theme="b" data-icon="check"> <span data-bind="text: l.login"/> </a>
