@@ -58,8 +58,19 @@
 
           decrypted = sjcl.decrypt(model.login.client_password(), data);
           model.list.fromJSON(decrypted);
+          model.login.logged_in(true);
           $.mobile.changePage('#passwords');
           return $('[data-role="listview"]').listview('refresh');
+        },
+        statusCode: {
+          404: function() {
+            model.login.username_not_found(true);
+            return model.login.authentification_failed(false);
+          },
+          403: function() {
+            model.login.authentification_failed(true);
+            return model.login.username_not_found(false);
+          }
         }
       });
     },
@@ -76,6 +87,12 @@
     },
     'generate': function() {
       return model.generator.regenerate();
+    },
+    'passwords': function() {
+      if (!model.login.logged_in()) {
+        this.preventDefault();
+        return $.mobile.changePage('#login');
+      }
     }
   };
 
@@ -263,7 +280,7 @@
       return this.routes = routes;
     };
 
-    Router.prototype.route = function(path) {
+    Router.prototype.route = function(path, event_object) {
       var bindings, func, matchings, pattern, _ref, _results;
 
       matchings = function(pattern, path) {
@@ -283,7 +300,7 @@
         func = _ref[pattern];
         bindings = matchings(pattern, path);
         if (bindings != null) {
-          _results.push(func.apply(this, bindings));
+          _results.push(func.apply(event_object, bindings));
         } else {
           _results.push(void 0);
         }
@@ -301,10 +318,10 @@
 
   setupRoutes = function() {
     router.set_routes(routes);
-    return $(document).bind("pagebeforechange", function(e, data) {
+    return $(document).bind("pagebeforechange", function(event, data) {
       if (typeof data.toPage === "string") {
         data.options.dataUrl = data.toPage;
-        router.route(data.toPage);
+        router.route(data.toPage, event);
         return data.toPage = data.toPage.replace(/#([^\~]+)~.+/i, "#$1");
       }
     });
@@ -315,6 +332,9 @@
       this.client_password = __bind(this.client_password, this);
       this.server_password = __bind(this.server_password, this);      this.username = ko.observable("");
       this.password = ko.observable("");
+      this.logged_in = ko.observable(false);
+      this.username_not_found = ko.observable(false);
+      this.authentification_failed = ko.observable(false);
     }
 
     Login.prototype.server_password = function() {
@@ -368,7 +388,9 @@
       generate: "Generate",
       generator: "Generator",
       passwords: "Passwords",
-      share: "Send per Email"
+      share: "Send per Email",
+      username_not_found: "Your entered username does not exist. As a new user you should register first.",
+      authentification_failed: "The entered username or password is incorrect."
     },
     de: {
       username: "Benutzername",
@@ -393,7 +415,9 @@
       generate: "Generieren",
       generator: "Generator",
       passwords: "Passwörter",
-      share: "Per E-Mail versenden"
+      share: "Per E-Mail versenden",
+      username_not_found: "Der angegebene Benutzername existiert nicht. Als neuer Benutzer musst du dich erst registrieren.",
+      authentification_failed: "Der angegebene Benutzername oder das Passwort ist falsch."
     }
   };
 

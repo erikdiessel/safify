@@ -12,7 +12,7 @@ localization = {
       title: "Title"
       edit: "Edit"
       'delete': "Delete"
-      login: "Login"
+      login: "Show Passwords"
       register: "Register"
       back: "Back"
       passwords: "Passwords"
@@ -28,7 +28,7 @@ localization = {
       passwords: "Passwords"
       share: "Send per Email"
       username_not_found: "Your entered username does not exist. As a new user you should register first."
-      authentification_failed: "The entered username or password is incorrect"
+      authentification_failed: "The entered username or password is incorrect."
    }
    de: {
       username: "Benutzername"
@@ -39,7 +39,7 @@ localization = {
       title: "Titel"
       edit: "Bearbeiten"
       'delete': "Löschen"
-      login: "Login"
+      login: "Passwörter anzeigen"
       register: "Registrieren"
       back: "Zurück"
       passwords: "Passwörter"

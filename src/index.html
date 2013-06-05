@@ -26,8 +26,13 @@
       </div>
       
       <div data-role="content">
-         <span class="error" data-bind="if: login.username_not_found, text: l.username_not_found"></span>
-         <span class="error" data-bind="if: login.authentification_failed, text: l.authentification_failed"></span>
+         <div data-bind="if: login.username_not_found">
+            <span class="error" data-bind="text: l.username_not_found"></span>
+         </div>
+         <div data-bind="if: login.authentification_failed">
+            <span class="error" data-bind="text: l.authentification_failed"></span>         
+         </div>
+
          <input data-bind="value: login.username, attr: { placeholder: l.username }" autofocus>
          <input type="password" data-bind="value: login.password, attr: { placeholder: l.password }" class="login_on_enter">
          <a href="#login-server" data-role="button" data-theme="b" data-icon="check"> <span data-bind="text: l.login"/> </a>
@@ -47,7 +52,7 @@
     <div id="passwords" data-role="page">
         <div data-role="header" data-position="fixed">
             <h1> </h1>
-            <img src="images/logo.png" height="32" class="ui-btn-left">
+            <img src="images/logo/128.png" height="32" class="ui-btn-left">
             <a href="#new" class="ui-btn-right" data-icon="plus" data-theme="b" data-transition="none"> <span data-bind="text: l.new_entry"/> </a>
         </div>
         

@@ -2,7 +2,8 @@ class Router
    set_routes: (routes) =>
       @routes = routes
    
-   route: (path) =>
+   # event_object is passed to the matched functions as *this*
+   route: (path, event_object) =>
       matchings = (pattern, path) ->
          parsed_pattern = new RegExp(
             "#{pattern.replace(/:([a-z]|[0-9])+/g, '([a-z]|[0-9])+')}\/?$", 'i'
@@ -17,7 +18,8 @@ class Router
       for pattern, func of @routes
          bindings = matchings(pattern, path)
          if bindings?
-            func.apply(this, bindings)
+            func.apply(event_object, bindings) # this = event_object
+            
             
 router = new Router()
 
@@ -25,8 +27,8 @@ routes ||= {}
    
 setupRoutes = ->
    router.set_routes(routes)
-   $(document).bind "pagebeforechange", ( e, data ) ->
+   $(document).bind "pagebeforechange", ( event, data ) ->
       if typeof data.toPage == "string"
          data.options.dataUrl = data.toPage
-         router.route(data.toPage)
+         router.route(data.toPage, event)
          data.toPage = data.toPage.replace(/#([^\~]+)~.+/i, "#$1")

@@ -55,6 +55,11 @@ dl {
    background-color: red;
 }
 
+.error {
+   color: red;
+   font-weight: bold;
+}
+
 
 @media (min-width: 25em) {
    #passwords [data-role="content"] .ui-block-b > * {

@@ -49,6 +49,14 @@ routes =
             $.mobile.changePage('#passwords')
             $('[data-role="listview"]').listview('refresh')
             
+         statusCode:
+            404: ->
+               model.login.username_not_found(true)
+               model.login.authentification_failed(false)
+            403: ->
+               model.login.authentification_failed(true)
+               model.login.username_not_found(false)
+            
    'register-server': ->
       $.ajax
          type: 'POST'
@@ -65,4 +73,6 @@ routes =
       
    # redirect not logged-in users to the login-page
    'passwords': ->
-      
+      if not model.login.logged_in()
+         this.preventDefault() # *this* is an event-object
+         $.mobile.changePage('#login')
