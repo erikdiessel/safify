@@ -1,10 +1,11 @@
+Rack::Mime::MIME_TYPES.merge!({
+   '.webapp' => 'application/x-web-app-manifest+json'
+})
+
 use Rack::Static, 
    :root => "src",
    :urls => [""],
-   :index => 'index.html',
-   :header_rules => [
-      [ ['webapp', 'something_else'], { 'Content-Type' => 'application/x-web-app-manifest+json' } ]
-   ]
+   :index => 'index.html'
 
 # The following part is required
 run lambda { |env|
