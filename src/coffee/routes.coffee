@@ -64,8 +64,12 @@ routes =
          data: 
             username: model.login.username()
             password: model.login.server_password()
-      
-      $.mobile.changePage('#passwords')
+         success: (data, textStatus, jqXHR) ->
+            $.mobile.changePage('#passwords')
+         statusCode:
+            409:
+               model.login.username_already_used(true)
+
       
    'generate': ->
       # trigger re-evaluation of password

@@ -75,15 +75,20 @@
       });
     },
     'register-server': function() {
-      $.ajax({
+      return $.ajax({
         type: 'POST',
         url: get_API_URL('register'),
         data: {
           username: model.login.username(),
           password: model.login.server_password()
+        },
+        success: function(data, textStatus, jqXHR) {
+          return $.mobile.changePage('#passwords');
+        },
+        statusCode: {
+          409: model.login.username_already_used(true)
         }
       });
-      return $.mobile.changePage('#passwords');
     },
     'generate': function() {
       return model.generator.regenerate();
@@ -335,6 +340,7 @@
       this.logged_in = ko.observable(false);
       this.username_not_found = ko.observable(false);
       this.authentification_failed = ko.observable(false);
+      this.username_already_used = ko.observable(false);
     }
 
     Login.prototype.server_password = function() {
@@ -378,7 +384,7 @@
       register: "Register",
       back: "Back",
       passwords: "Passwords",
-      search: "Search entries",
+      search: "Search Entry ...",
       uppercase: "Uppercase",
       details: "Details",
       generator: "Generator",
@@ -389,8 +395,10 @@
       generator: "Generator",
       passwords: "Passwords",
       share: "Send per Email",
-      username_not_found: "Your entered username does not exist. As a new user you should register first.",
-      authentification_failed: "The entered username or password is incorrect."
+      username_not_found: "Your entered username does not exist. New users should register first.",
+      authentification_failed: "The entered username or password is incorrect.",
+      sign_in: "Sign In",
+      username_already_used: "The username is already used."
     },
     de: {
       username: "Benutzername",
@@ -401,11 +409,11 @@
       title: "Titel",
       edit: "Bearbeiten",
       'delete': "Löschen",
-      login: "Login",
+      login: "Passwörter anzeigen",
       register: "Registrieren",
       back: "Zurück",
       passwords: "Passwörter",
-      search: "Einträge durchsuchen",
+      search: "Eintrag suchen ...",
       uppercase: "Großbuchstaben",
       details: "Details",
       generator: "Generator",
@@ -417,7 +425,9 @@
       passwords: "Passwörter",
       share: "Per E-Mail versenden",
       username_not_found: "Der angegebene Benutzername existiert nicht. Als neuer Benutzer musst du dich erst registrieren.",
-      authentification_failed: "Der angegebene Benutzername oder das Passwort ist falsch."
+      authentification_failed: "Der angegebene Benutzername oder das Passwort ist falsch.",
+      sign_in: "Anmelden",
+      username_already_used: "Der Benutzername ist schon besetzt."
     }
   };
 

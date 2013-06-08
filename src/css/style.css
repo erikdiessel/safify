@@ -1,4 +1,17 @@
+// normalization of placeholder-color
 
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #999;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #999;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #999;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #999;
+}
 
 dt {
    color: grey;
@@ -39,16 +52,6 @@ dl {
 #details h2 {
    text-align: center;
    margin: 0;
-   font-size: 1.5rem;
-}
-
-#details dt {
-   font-size: 0.9rem;
-}
-
-#details dd {
-   font-size: 1.3rem;
-   padding-bottom: 1rem;
 }
 
 .danger .ui-btn-inner {
@@ -60,6 +63,19 @@ dl {
    font-weight: bold;
 }
 
+[data-role="header"] img {
+   float: left;
+   margin-left: 35%;
+   margin-top: 3px;
+}
+
+#details [data-role="content"] {
+   padding-top: 0.2rem;
+}
+
+#details dd {
+   padding-bottom: 1rem;
+}
 
 @media (min-width: 25em) {
    #passwords [data-role="content"] .ui-block-b > * {
@@ -91,5 +107,38 @@ dl {
    
    [data-role="listview"] h1 {
       font-size: 1.2rem;
+   }
+   
+   #details h2 {
+      font-size: 1.5rem;
+   }
+   
+   #details dt {
+      font-size: 0.9rem;
+   }
+   
+   #details dd {
+      font-size: 1.3rem;
+   }
+}
+
+@media (min-width: 35em) {
+   #details h2 {
+      font-size: 2rem;
+   }
+   
+   #details dt {
+      font-size: 0.9rem;
+   }
+   
+   #details dd {
+      font-size: 1.5rem;
+   }
+}
+   
+
+@media (max-width: 35em) and (orientation: landscape) {
+   #details dd {
+      padding-bottom: 0;
    }
 }

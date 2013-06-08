@@ -6,23 +6,18 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     
-    <link rel="stylesheet" type="text/css" href="css/jquery-mobile.css" /> 
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/all.css" /> 
     
-    <script src="js/jquery-1.9.1.js"></script>
-    <script src="js/jquery-mobile.js"></script>
-    <script src="js/knockout.js"></script>
-    <script src="js/fastclick.js"></script>
-    <script src="js/sjcl.js"></script>
-    <script src="js/application.js"></script>
+    <script src="js/all.js"></script>
 </head>
 <body>
 
    <div id="login" data-role="page">
       <div data-role="header" data-position="fixed">
          <a href="#register-server" data-icon="edit"> <span data-bind="text: l.register"/> </a>
+         <img src="images/logo/128.png" height="32" width="32">
          <h1> <span data-bind="text: l.login"></span> </h1>
-         <a href="#login-server" data-theme="b" data-icon="check"> <span data-bind="text: l.login"/> </a>
+         <a href="#login-server" data-theme="b" data-icon="check"> <span data-bind="text: l.sign_in"/> </a>
       </div>
       
       <div data-role="content">
@@ -32,10 +27,13 @@
          <div data-bind="if: login.authentification_failed">
             <span class="error" data-bind="text: l.authentification_failed"></span>         
          </div>
+         <div data-bind="if: login.username_already_used">
+            <span class="error" data-bind="text: l.username_already_used"></span>
+         </div>
 
          <input data-bind="value: login.username, attr: { placeholder: l.username }" autofocus>
          <input type="password" data-bind="value: login.password, attr: { placeholder: l.password }" class="login_on_enter">
-         <a href="#login-server" data-role="button" data-theme="b" data-icon="check"> <span data-bind="text: l.login"/> </a>
+         <a href="#login-server" data-role="button" data-theme="b" data-icon="check"> <span data-bind="text: l.sign_in"/> </a>
          <a href="#register-server" data-mini="true" data-role="button" data-icon="edit"> <span data-bind="text: l.register"/> </a>
       </div>
       
@@ -57,7 +55,7 @@
         </div>
         
         <div data-role="content">
-            <ul data-role="listview" data-bind="foreach: list.entries" data-split-icon="edit" data-filter="true" data-filter-placeholder="">
+            <ul data-role="listview" data-bind="foreach: list.entries, attr: { 'data-filter-placeholder': l.search }" data-split-icon="edit" data-filter="true">
                <li>
                   <a data-bind="attr: { href: '#details~' + index() }" data-rel="dialog" data-transition="none">
                   <h1  data-bind="text: title"></h1>
@@ -136,7 +134,9 @@
    
    <div id="generator" data-role="page">
       <div data-role="header" data-position="fixed">
+         <a href="#passwords" data-icon="back" data-transition="none"> <span data-bind="text: l.back"/> </a>
          <h1><span data-bind="text: l.generator"></span></h1>
+         <img src="images/logo/128.png" height="32" class="ui-btn-right">
       </div>
       
       <div data-role="content">

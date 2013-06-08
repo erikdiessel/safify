@@ -12,11 +12,11 @@ localization = {
       title: "Title"
       edit: "Edit"
       'delete': "Delete"
-      login: "Show Passwords"
+      login: "Login"
       register: "Register"
       back: "Back"
       passwords: "Passwords"
-      search: "Search entries"
+      search: "Search Entry ..."
       uppercase: "Uppercase"
       details: "Details"
       generator: "Generator"
@@ -27,8 +27,10 @@ localization = {
       generator: "Generator"
       passwords: "Passwords"
       share: "Send per Email"
-      username_not_found: "Your entered username does not exist. As a new user you should register first."
+      username_not_found: "Your entered username does not exist. New users should register first."
       authentification_failed: "The entered username or password is incorrect."
+      sign_in: "Sign In"
+      username_already_used: "The username is already used."
    }
    de: {
       username: "Benutzername"
@@ -43,7 +45,7 @@ localization = {
       register: "Registrieren"
       back: "Zurück"
       passwords: "Passwörter"
-      search: "Einträge durchsuchen"
+      search: "Eintrag suchen ..."
       uppercase: "Großbuchstaben"
       details: "Details"
       generator: "Generator"
@@ -56,5 +58,7 @@ localization = {
       share: "Per E-Mail versenden"
       username_not_found: "Der angegebene Benutzername existiert nicht. Als neuer Benutzer musst du dich erst registrieren."
       authentification_failed: "Der angegebene Benutzername oder das Passwort ist falsch."
+      sign_in: "Anmelden"
+      username_already_used: "Der Benutzername ist schon besetzt."
    }
 }

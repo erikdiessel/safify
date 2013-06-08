@@ -5,6 +5,7 @@ class Login
       @logged_in = ko.observable(false)
       @username_not_found = ko.observable(false)
       @authentification_failed = ko.observable(false)
+      @username_already_used = ko.observable(false)
 
    server_password: =>
       salt = [184, 83, 26, 133, 22, 40, 115, 123, 141, 115, 39, 53, 168, 172, 49, 165, 106, 215, 114, 180]
