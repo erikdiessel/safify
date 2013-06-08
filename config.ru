@@ -2,6 +2,8 @@ Rack::Mime::MIME_TYPES.merge!({
    '.webapp' => 'application/x-web-app-manifest+json'
 })
 
+use Rack::Deflater
+
 use Rack::Static, 
    :root => "src",
    :urls => [""],
