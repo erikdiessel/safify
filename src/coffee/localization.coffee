@@ -31,6 +31,7 @@ localization = {
       authentification_failed: "The entered username or password is incorrect."
       sign_in: "Sign In"
       username_already_used: "The username is already used."
+      passwords_title: "Passwords"
    }
    de: {
       username: "Benutzername"
@@ -60,5 +61,6 @@ localization = {
       authentification_failed: "Der angegebene Benutzername oder das Passwort ist falsch."
       sign_in: "Anmelden"
       username_already_used: "Der Benutzername ist schon besetzt."
+      passwords_title: "Passwörter"
    }
 }

@@ -1251,7 +1251,8 @@ if (typeof module !== 'undefined' && module.exports) {
       username_not_found: "Your entered username does not exist. New users should register first.",
       authentification_failed: "The entered username or password is incorrect.",
       sign_in: "Sign In",
-      username_already_used: "The username is already used."
+      username_already_used: "The username is already used.",
+      passwords_title: "Passwords"
     },
     de: {
       username: "Benutzername",
@@ -1280,7 +1281,8 @@ if (typeof module !== 'undefined' && module.exports) {
       username_not_found: "Der angegebene Benutzername existiert nicht. Als neuer Benutzer musst du dich erst registrieren.",
       authentification_failed: "Der angegebene Benutzername oder das Passwort ist falsch.",
       sign_in: "Anmelden",
-      username_already_used: "Der Benutzername ist schon besetzt."
+      username_already_used: "Der Benutzername ist schon besetzt.",
+      passwords_title: "Passwörter"
     }
   };
 
