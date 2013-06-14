@@ -68,8 +68,8 @@ dl {
 
 [data-role="header"] img {
    float: left;
-   margin-left: 35%;
    margin-top: 3px;
+   margin-left: 1%;
 }
 
 #details [data-role="content"] {
@@ -97,6 +97,11 @@ dl {
       margin-left: 0;
    }
    
+   #login     [data-role="header"] h1,
+   #passwords [data-role="header"] h1
+   {
+      margin-left: 0;
+   }
 }
 
 @media (max-width: 35em) {

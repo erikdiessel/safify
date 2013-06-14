@@ -8,5 +8,21 @@ module.exports = (grunt) ->
          css:
             src: ['src/css/jquery-mobile.css', 'src/css/style.css']
             dest: 'src/css/all.css'
+           
+      coffee:
+         compile:
+            options:
+               join: true
+            files: 
+               'src/js/application.js': ['src/coffee/*.coffee']
+               
+      watch:
+         update:
+            files: ['src/css/*', 'src/coffee/*']
+            tasks: ['default']
    
-   grunt.loadNpmTasks('grunt-contrib-concat');
+   grunt.loadNpmTasks('grunt-contrib-concat')
+   grunt.loadNpmTasks('grunt-contrib-coffee')
+   grunt.loadNpmTasks('grunt-contrib-watch')
+   
+   grunt.registerTask 'default', ['coffee', 'concat', 'watch']

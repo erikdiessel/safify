@@ -1,66 +1,107 @@
 getLocalized = ->
    locale = (navigator.language || navigator.userLanguage).substring(0,2)
-   localization[locale]
+   localization[locale] || localization['en']
 
-localization = {
-   en: {
+localization = 
+   en:
+      
+      sign_in: "Sign In"
+      register: "Register"
       username: "Username"
       password: "Password"
-      new_entry: "New Entry"
-      save: "Save"
-      cancel: "Cancel"
-      title: "Title"
-      edit: "Edit"
-      'delete': "Delete"
-      login: "Login"
-      register: "Register"
-      back: "Back"
-      passwords: "Passwords"
-      search: "Search Entry ..."
-      uppercase: "Uppercase"
-      details: "Details"
-      generator: "Generator"
-      numbers: "Numbers"
-      special_characters: "Special Characters"
-      length: "Length"
-      generate: "Generate"
-      generator: "Generator"
-      passwords: "Passwords"
-      share: "Send per Email"
+      
+      username_missing: "Username is missing."
+      password_missing: "Password is missing."
+      
       username_not_found: "Your entered username does not exist. New users should register first."
       authentification_failed: "The entered username or password is incorrect."
-      sign_in: "Sign In"
       username_already_used: "The username is already used."
-      passwords_title: "Passwords"
-   }
-   de: {
-      username: "Benutzername"
-      password: "Passwort"
-      new_entry: "Neuer Eintrag"
-      save: "Speichern"
-      cancel: "Abbrechen"
-      title: "Titel"
-      edit: "Bearbeiten"
-      'delete': "Löschen"
-      login: "Passwörter anzeigen"
-      register: "Registrieren"
-      back: "Zurück"
-      passwords: "Passwörter"
-      search: "Eintrag suchen ..."
-      uppercase: "Großbuchstaben"
+      
+      passwords: "Passwords"
+      search: "Search Entry ..."
+      new_entry: "New Entry"
+      
+      edit: "Edit"
+      save: "Save"
+      title: "Title"
+      'delete': "Delete"
+      back: "Back"
+      
       details: "Details"
+      share: "Send per Email"
+      
       generator: "Generator"
-      numbers: "Zahlen"
-      special_characters: "Sonderzeichen"
-      length: "Länge"
-      generate: "Generieren"
-      generator: "Generator"
-      passwords: "Passwörter"
-      share: "Per E-Mail versenden"
+      length: "Length"
+      uppercase: "Uppercase"
+      numbers: "Numbers"
+      special_characters: "Special Characters"
+      generate: "Generate"
+      
+   
+   de:
+      
+      sign_in: "Anmelden"
+      register: "Registrieren"
+      username: "Benutzername"
+      password: "Passwort"      
+      
+      username_missing: "Benutzername fehlt."
+      password_missing: "Passwort fehlt."
+
       username_not_found: "Der angegebene Benutzername existiert nicht. Als neuer Benutzer musst du dich erst registrieren."
       authentification_failed: "Der angegebene Benutzername oder das Passwort ist falsch."
-      sign_in: "Anmelden"
       username_already_used: "Der Benutzername ist schon besetzt."
-      passwords_title: "Passwörter"
-   }
-}
+
+      passwords: "Passwörter"
+      search: "Eintrag suchen ..."      
+      new_entry: "Neuer Eintrag"      
+      
+      edit: "Bearbeiten"
+      save: "Speichern"
+      title: "Titel"
+      'delete': "Löschen"
+      back: "Zurück"      
+      
+      details: "Details"      
+      share: "Per E-Mail versenden"
+
+      generator: "Generator"      
+      length: "Länge"
+      uppercase: "Großbuchstaben"
+      numbers: "Zahlen"
+      special_characters: "Sonderzeichen"
+      generate: "Generieren"
+      
+   fr:
+      
+      sign_in: "Connexion"
+      register: "Enregistrer"
+      username: "Nom d'utilisateur"
+      password: "Mot de passe"
+      
+      username_missing: "Le nom d'utilisateur manque."
+      password_missing: "Le mot de passe manque."
+      
+      username_not_found: "Ce nom d'utilisateur n'existe pas. Comme nouveau utilisateur il faut s'enregistrer."
+      authentification_failed: "Le nom d'utilisateur ou le mot de passe est incorrect."
+      username_already_used: "Ce nom d'utilisateur est déjà utilisé."
+      
+      passwords: "Mots de passe"
+      search: "Rechercher ..."
+      new_entry: "Nouvel article"
+      
+      edit: "Modifier"
+      save: "Sauver"
+      title: "Titre"
+      'delete': "Effacer"
+      back: "Retour"
+      
+      details: "Details"
+      share: "Envoyer par e-mail"
+      
+      generator: "Génératrice"
+      length: "Longueur"
+      uppercase: "Majuscules"
+      numbers: "Chiffres"
+      special_characters: "Charactères spécials"
+      generate: "Générer"

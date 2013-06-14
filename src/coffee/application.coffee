@@ -36,8 +36,11 @@ $(document).ready ->
    ko.applyBindings(model)
    setupRoutes()
    
+   login = ->
+      $('a[href="#login-server"]').focus()
+      $('a[href="#login-server"]').click()
+   
    $('.login_on_enter').keypress( (event) ->
       if event.which == 13
-         $('a[href="#login-server"]').focus()
-         $('a[href="#login-server"]').click()
+         login()
    )

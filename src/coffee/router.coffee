@@ -23,7 +23,7 @@ class Router
             
 router = new Router()
 
-routes ||= {}
+routes = routes || {}
    
 setupRoutes = ->
    router.set_routes(routes)

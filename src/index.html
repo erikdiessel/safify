@@ -15,13 +15,13 @@
 
    <div id="login" data-role="page" data-title="Fortress of Keys">
       <div data-role="header" data-position="fixed">
-         <a href="#register-server" data-icon="edit"> <span data-bind="text: l.register"/> </a>
          <img src="images/logo/128.png" height="32" width="32">
-         <h1> <span data-bind="text: l.login"></span> </h1>
-         <a href="#login-server" data-theme="b" data-icon="check"> <span data-bind="text: l.sign_in"/> </a>
+         <h1> <span>Fortress of Keys</span> </h1>
+         <a href="#login-server" class="ui-btn-right" data-theme="b" data-icon="check"> <span data-bind="text: l.sign_in"/> </a>
       </div>
       
       <div data-role="content">
+      
          <div data-bind="if: login.username_not_found">
             <span class="error" data-bind="text: l.username_not_found"></span>
          </div>
@@ -30,6 +30,12 @@
          </div>
          <div data-bind="if: login.username_already_used">
             <span class="error" data-bind="text: l.username_already_used"></span>
+         </div>
+         <div data-bind="if: login.username_missing">
+            <span class="error" data-bind="text: l.username_missing"></span>
+         </div>
+         <div data-bind="if: login.password_missing">
+            <span class="error" data-bind="text: l.password_missing"></span>
          </div>
 
          <input data-bind="value: login.username, attr: { placeholder: l.username }" autofocus>
@@ -48,9 +54,9 @@
       </div>
    </div>
 
-    <div id="passwords" data-role="page" data-bind="attr: { 'data-role': l.passwords_title' }">
+    <div id="passwords" data-role="page" data-bind="attr: { 'data-role': l.passwords }">
         <div data-role="header" data-position="fixed">
-            <h1> </h1>
+            <h1> <span data-bind="text: l.passwords"></span> </h1>
             <img src="images/logo/128.png" height="32" class="ui-btn-left">
             <a href="#new" class="ui-btn-right" data-icon="plus" data-theme="b" data-transition="none"> <span data-bind="text: l.new_entry"/> </a>
         </div>

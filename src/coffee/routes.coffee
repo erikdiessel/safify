@@ -14,9 +14,17 @@ save_changes = ->
       success: (data, textStatus, jqXHR) ->
          console.log('successfully saved')
    
+check_for_login = (context) ->
+   logged_in = model.login.logged_in()
+   if not logged_in
+      context.preventDefault() # context is an event-object
+      $.mobile.changePage('#login')
+   logged_in
+   
 routes =
    'new': ->
-      model.list.new_current(model.list.entries().length)
+      if check_for_login(this)
+         model.list.new_current(model.list.entries().length)
       
    'save-current': ->
       model.list.save_current()
@@ -36,26 +44,30 @@ routes =
       model.list.new_current(index)
       
    'login-server': ->
-      $.ajax
-         url: get_API_URL('passwords')
-         data:
-            username: model.login.username()
-            password: model.login.server_password()
-
-         success: (data, textStatus, jqXHR) ->
-            decrypted = sjcl.decrypt(model.login.client_password(), data)
-            model.list.fromJSON(decrypted)
-            model.login.logged_in(true)
-            $.mobile.changePage('#passwords')
-            $('[data-role="listview"]').listview('refresh')
-            
-         statusCode:
-            404: ->
-               model.login.username_not_found(true)
-               model.login.authentification_failed(false)
-            403: ->
-               model.login.authentification_failed(true)
-               model.login.username_not_found(false)
+      if model.login.check()
+         $.ajax
+            url: get_API_URL('passwords')
+            data:
+               username: model.login.username()
+               password: model.login.server_password()
+   
+            success: (data, textStatus, jqXHR) ->
+               try
+                  decrypted = sjcl.decrypt(model.login.client_password(), data)
+                  model.list.fromJSON(decrypted)
+               catch error
+                  console.log 'password_list is empty; starting with new ones'
+               model.login.logged_in(true)
+               $.mobile.changePage('#passwords')
+               $('[data-role="listview"]').listview('refresh')
+               
+            statusCode:
+               404: ->
+                  model.login.username_not_found(true)
+                  model.login.authentification_failed(false)
+               403: ->
+                  model.login.authentification_failed(true)
+                  model.login.username_not_found(false)
             
    'register-server': ->
       $.ajax
@@ -77,6 +89,4 @@ routes =
       
    # redirect not logged-in users to the login-page
    'passwords': ->
-      if not model.login.logged_in()
-         this.preventDefault() # *this* is an event-object
-         $.mobile.changePage('#login')
+      check_for_login(this)

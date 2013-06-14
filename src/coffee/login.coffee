@@ -6,6 +6,8 @@ class Login
       @username_not_found = ko.observable(false)
       @authentification_failed = ko.observable(false)
       @username_already_used = ko.observable(false)
+      @username_missing = ko.observable(false)
+      @password_missing = ko.observable(false)
 
    server_password: =>
       salt = [184, 83, 26, 133, 22, 40, 115, 123, 141, 115, 39, 53, 168, 172, 49, 165, 106, 215, 114, 180]
@@ -21,3 +23,7 @@ class Login
          sjcl.misc.pbkdf2(@password(), salt.concat(sjcl.hash.sha256.hash(@username())), iterations)
       )
    
+   check: =>
+      @username_missing(@username() == "") 
+      @password_missing(@password() == "")
+      not @username_missing() and not @password_missing()
