@@ -9,6 +9,7 @@ localization =
       register: "Register"
       username: "Username"
       password: "Password"
+      master_password: "Master Password"
       
       username_missing: "Username is missing."
       password_missing: "Password is missing."
@@ -44,6 +45,7 @@ localization =
       register: "Registrieren"
       username: "Benutzername"
       password: "Passwort"      
+      master_password: "Master-Passwort"
       
       username_missing: "Benutzername fehlt."
       password_missing: "Passwort fehlt."
@@ -78,6 +80,7 @@ localization =
       register: "Enregistrer"
       username: "Nom d'utilisateur"
       password: "Mot de passe"
+      master_password: "Mot de passe"
       
       username_missing: "Le nom d'utilisateur manque."
       password_missing: "Le mot de passe manque."

@@ -44,3 +44,5 @@ $(document).ready ->
       if event.which == 13
          login()
    )
+   
+   $('input[readonly]').parent().addClass('readonly')

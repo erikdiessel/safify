@@ -23,7 +23,7 @@ dt {
 dd {
    font-weight: bold;
    margin-left: 0;
-   font-family: monospace;
+   font-family: "Lucida Console", Monaco, monospace;
 }
 
 dl {
@@ -80,6 +80,25 @@ dl {
    padding-bottom: 1rem;
 }
 
+.readonly > .ui-input-text {
+   background-color: #e6e6e6;
+}
+
+input.important {
+   font-weight: bold;
+   font-family: "Lucida Console", Monaco, monospace;
+}
+
+#login > .ui-content,
+#edit  > .ui-content,
+#new   > .ui-content {
+   padding-top: 0;
+}
+
+label.additional {
+   color: #606060;
+}
+ 
 @media (min-width: 25em) {
    #passwords [data-role="content"] .ui-block-b > * {
       margin-left: 3rem;

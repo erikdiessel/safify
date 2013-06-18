@@ -50,11 +50,12 @@
       $('a[href="#login-server"]').focus();
       return $('a[href="#login-server"]').click();
     };
-    return $('.login_on_enter').keypress(function(event) {
+    $('.login_on_enter').keypress(function(event) {
       if (event.which === 13) {
         return login();
       }
     });
+    return $('input[readonly]').parent().addClass('readonly');
   });
 
   LETTERS = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -125,6 +126,7 @@
       register: "Register",
       username: "Username",
       password: "Password",
+      master_password: "Master Password",
       username_missing: "Username is missing.",
       password_missing: "Password is missing.",
       username_not_found: "Your entered username does not exist. New users should register first.",
@@ -152,6 +154,7 @@
       register: "Registrieren",
       username: "Benutzername",
       password: "Passwort",
+      master_password: "Master-Passwort",
       username_missing: "Benutzername fehlt.",
       password_missing: "Passwort fehlt.",
       username_not_found: "Der angegebene Benutzername existiert nicht. Als neuer Benutzer musst du dich erst registrieren.",
@@ -179,6 +182,7 @@
       register: "Enregistrer",
       username: "Nom d'utilisateur",
       password: "Mot de passe",
+      master_password: "Mot de passe",
       username_missing: "Le nom d'utilisateur manque.",
       password_missing: "Le mot de passe manque.",
       username_not_found: "Ce nom d'utilisateur n'existe pas. Comme nouveau utilisateur il faut s'enregistrer.",
