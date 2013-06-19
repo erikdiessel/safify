@@ -53,9 +53,9 @@
          
          <hr>
          
-         <p data-bind="text: l.short_description"></p>
+         <h4 data-bind="text: l.short_description"></h4>
          
-         <div data-role="collapsible-set">
+         <div data-role="collapsible-set" data-content-theme="a">
             <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
                <h3> <span data-bind="text: l.security"></span> </h3>
                <p data-bind="html: l.text_security"></p>
@@ -63,6 +63,7 @@
             
             <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
                <h3> <span data-bind="text: l.legal_notice"></span> </h3>
+               <p data-bind="html: l.text_legal_notice"></p>
             </div>
          </div>
          

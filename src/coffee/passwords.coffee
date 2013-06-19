@@ -43,7 +43,7 @@ class List
          #entry.index() == @current_entry.index()
       #@actualize_indices()
       @entries.splice(@current_entry.index(), 1)
-      actualize_indices()
+      @actualize_indices()
    
    actualize_indices: =>
       for entry, i in @entries()

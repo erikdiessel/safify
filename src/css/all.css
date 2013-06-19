@@ -97,7 +97,20 @@ input.important {
 label.additional {
    color: #606060;
 }
- 
+
+hr {
+   height: 1px;
+   margin-top: 2rem;
+   color: #808080;
+   background-color: #808080;
+}
+
+/* Fixes bug: Scrollbar is displayed but not necessary */
+.ui-mobile body {
+   max-height: 600px;
+}
+
+
 @media (min-width: 25em) {
    #passwords [data-role="content"] .ui-block-b > * {
       margin-left: 3rem;
