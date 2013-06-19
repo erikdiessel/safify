@@ -43,7 +43,7 @@ localization =
       text_security: "
       <h3>We keep high standards in security.</h3>
       <br>
-      Your list of passwords is stored in encrypted form and your master password is also stored encrypted.
+      Your list of passwords is encrypted directly on your computer and your master password too. We only get your encrypted data.
       <br>
       For encryption, military grade algorithms are used: the <a href=\"https://en.wikipedia.org/wiki/Advanced_Encryption_Standard\" target=\"_blank\">Advanced Encryption Standard (AES)</a> and the <a href=\"https://en.wikipedia.org/wiki/PBKDF2\" target=\"_blank\">Password-Based Key Derivation Function 2 (PBKDF2)</a>.
       <br>
@@ -70,6 +70,8 @@ localization =
       <br>
       Germany
       <br>
+      <br>
+      <a href=\"mailto: support@fortressofkeys.tk\">Write an email</a>
       <hr>
       All content © 2013 Erik Diessel
       "
@@ -124,6 +126,9 @@ localization =
       <br>
       Deutschland
       <br>
+      <br>
+      <a href=\"mailto: support@fortressofkeys.tk\">E-Mail schreiben</a>
+      <hr>
       Alle Inhalte © 2013 Erik Diessel
       "
       
@@ -177,5 +182,8 @@ localization =
       <br>
       Allemagne
       <br>
+      <br>
+      <a href=\"mailto: support@fortressofkeys.tk\">Envoyer un e-mail</a>
+      <hr>
       Tous les contenus © 2013 Erik Diessel
       "

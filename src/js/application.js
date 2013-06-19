@@ -150,9 +150,9 @@
       generate: "Generate",
       short_description: "Fortress of Keys stores your precious passwords securely and accessible from every device.",
       security: "Security and Data Privacy",
-      text_security: "      <h3>We keep high standards in security.</h3>      <br>      Your list of passwords is stored in encrypted form and your master password is also stored encrypted.      <br>      For encryption, military grade algorithms are used: the <a href=\"https://en.wikipedia.org/wiki/Advanced_Encryption_Standard\" target=\"_blank\">Advanced Encryption Standard (AES)</a> and the <a href=\"https://en.wikipedia.org/wiki/PBKDF2\" target=\"_blank\">Password-Based Key Derivation Function 2 (PBKDF2)</a>.      <br>      So nobody can access your data, including the author of the app and security agencies, as long as they can't guess your master password.      <br>      The encrypted data is transmitted over <a href=\"https://en.wikipedia.org/wiki/Transport_Layer_Security\" target=\"_blank\">TLS</a> for additional security.      <br>      We don't store anything except your encrypted data and your registration information.      <hr>      Perfect security is not archievable, but Fortress of Keys lets you make a step in this direction.      <br>      <i>Note however, that computer viruses or traditional espionage may comprise the security of your data. So you also have to protect yourself.</i>      ",
+      text_security: "      <h3>We keep high standards in security.</h3>      <br>      Your list of passwords is encrypted directly on your computer and your master password too. We only get your encrypted data.      <br>      For encryption, military grade algorithms are used: the <a href=\"https://en.wikipedia.org/wiki/Advanced_Encryption_Standard\" target=\"_blank\">Advanced Encryption Standard (AES)</a> and the <a href=\"https://en.wikipedia.org/wiki/PBKDF2\" target=\"_blank\">Password-Based Key Derivation Function 2 (PBKDF2)</a>.      <br>      So nobody can access your data, including the author of the app and security agencies, as long as they can't guess your master password.      <br>      The encrypted data is transmitted over <a href=\"https://en.wikipedia.org/wiki/Transport_Layer_Security\" target=\"_blank\">TLS</a> for additional security.      <br>      We don't store anything except your encrypted data and your registration information.      <hr>      Perfect security is not archievable, but Fortress of Keys lets you make a step in this direction.      <br>      <i>Note however, that computer viruses or traditional espionage may comprise the security of your data. So you also have to protect yourself.</i>      ",
       legal_notice: "Legal Notice",
-      text_legal_notice: "      <i>Author:</i>       <br>      <b>Erik Diessel</b>      <br>      Bürgermeister-Alexander-Str. 19      <br>      55122 Mainz      <br>      Germany      <br>      <hr>      All content © 2013 Erik Diessel      "
+      text_legal_notice: "      <i>Author:</i>       <br>      <b>Erik Diessel</b>      <br>      Bürgermeister-Alexander-Str. 19      <br>      55122 Mainz      <br>      Germany      <br>      <br>      <a href=\"mailto: support@fortressofkeys.tk\">Write an email</a>      <hr>      All content © 2013 Erik Diessel      "
     },
     de: {
       sign_in: "Anmelden",
@@ -185,7 +185,7 @@
       security: "Sicherheit und Datenschutz",
       text_security: "",
       legal_notice: "Impressum",
-      text_legal_notice: "      <i>Autor:</i>      <br>      <b>Erik Diessel</b>      <br>      Bürgermeister-Alexander-Str. 19      <br>      55122 Mainz      <br>      Deutschland      <br>      Alle Inhalte © 2013 Erik Diessel      "
+      text_legal_notice: "      <i>Autor:</i>      <br>      <b>Erik Diessel</b>      <br>      Bürgermeister-Alexander-Str. 19      <br>      55122 Mainz      <br>      Deutschland      <br>      <br>      <a href=\"mailto: support@fortressofkeys.tk\">E-Mail schreiben</a>      <hr>      Alle Inhalte © 2013 Erik Diessel      "
     },
     fr: {
       sign_in: "Connexion",
@@ -218,7 +218,7 @@
       security: "Sécurité et protection des données",
       text_security: "",
       legal_notice: "Mentions légales",
-      text_legal_notice: "      <i>Auteur:</i>      <br>      <b>Erik Diessel</b>      <br>      Bürgermeister-Alexander-Str. 19      <br>      55122 Mainz      <br>      Allemagne      <br>      Tous les contenus © 2013 Erik Diessel      "
+      text_legal_notice: "      <i>Auteur:</i>      <br>      <b>Erik Diessel</b>      <br>      Bürgermeister-Alexander-Str. 19      <br>      55122 Mainz      <br>      Allemagne      <br>      <br>      <a href=\"mailto: support@fortressofkeys.tk\">Envoyer un e-mail</a>      <hr>      Tous les contenus © 2013 Erik Diessel      "
     }
   };
 
