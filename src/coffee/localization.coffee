@@ -38,6 +38,10 @@ localization =
       special_characters: "Special Characters"
       generate: "Generate"
       
+      short_description: "Fortress of Keys stores your precious passwords securely and accessible from every device."
+      security: "Security"
+      text_security: ""
+      legal_notice: "Legal Notice"
    
    de:
       
@@ -74,6 +78,11 @@ localization =
       special_characters: "Sonderzeichen"
       generate: "Generieren"
       
+      short_description: ""
+      security: "Sicherheit"
+      text_security: ""
+      legal_notice: "Impressum"
+      
    fr:
       
       sign_in: "Connexion"
@@ -108,3 +117,8 @@ localization =
       numbers: "Chiffres"
       special_characters: "Charactères spécials"
       generate: "Générer"
+      
+      short_description: ""
+      security: "Sécurité"
+      text_security: ""
+      legal_notice: "Mentions légales"

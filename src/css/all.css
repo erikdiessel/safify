@@ -89,7 +89,6 @@ input.important {
    font-family: "Lucida Console", Monaco, monospace;
 }
 
-#login > .ui-content,
 #edit  > .ui-content,
 #new   > .ui-content {
    padding-top: 0;

@@ -10,9 +10,6 @@ save_changes = ->
          password_list: sjcl.encrypt(model.login.client_password(), model.list.toJSON())
          username: model.login.username()
          password: model.login.server_password()
-
-      success: (data, textStatus, jqXHR) ->
-         console.log('successfully saved')
    
 check_for_login = (context) ->
    logged_in = model.login.logged_in()
@@ -56,7 +53,7 @@ routes =
                   decrypted = sjcl.decrypt(model.login.client_password(), data)
                   model.list.fromJSON(decrypted)
                catch error
-                  console.log 'password_list is empty; starting with new ones'
+                  console.log 'password_list is empty; starting with new one'
                model.login.logged_in(true)
                $.mobile.changePage('#passwords')
                $('[data-role="listview"]').listview('refresh')
@@ -76,10 +73,11 @@ routes =
          data: 
             username: model.login.username()
             password: model.login.server_password()
-         success: (data, textStatus, jqXHR) ->
-            $.mobile.changePage('#passwords')
          statusCode:
-            409:
+            201: ->
+               model.login.logged_in(true)
+               $.mobile.changePage('#passwords')
+            409: ->
                model.login.username_already_used(true)
 
       

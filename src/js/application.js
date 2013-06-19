@@ -147,7 +147,11 @@
       uppercase: "Uppercase",
       numbers: "Numbers",
       special_characters: "Special Characters",
-      generate: "Generate"
+      generate: "Generate",
+      short_description: "Fortress of Keys stores your precious passwords securely and accessible from every device.",
+      security: "Security",
+      text_security: "",
+      legal_notice: "Legal Notice"
     },
     de: {
       sign_in: "Anmelden",
@@ -175,7 +179,11 @@
       uppercase: "Großbuchstaben",
       numbers: "Zahlen",
       special_characters: "Sonderzeichen",
-      generate: "Generieren"
+      generate: "Generieren",
+      short_description: "",
+      security: "Sicherheit",
+      text_security: "",
+      legal_notice: "Impressum"
     },
     fr: {
       sign_in: "Connexion",
@@ -203,7 +211,11 @@
       uppercase: "Majuscules",
       numbers: "Chiffres",
       special_characters: "Charactères spécials",
-      generate: "Générer"
+      generate: "Générer",
+      short_description: "",
+      security: "Sécurité",
+      text_security: "",
+      legal_notice: "Mentions légales"
     }
   };
 
@@ -443,9 +455,6 @@
         password_list: sjcl.encrypt(model.login.client_password(), model.list.toJSON()),
         username: model.login.username(),
         password: model.login.server_password()
-      },
-      success: function(data, textStatus, jqXHR) {
-        return console.log('successfully saved');
       }
     });
   };
@@ -500,7 +509,7 @@
               model.list.fromJSON(decrypted);
             } catch (_error) {
               error = _error;
-              console.log('password_list is empty; starting with new ones');
+              console.log('password_list is empty; starting with new one');
             }
             model.login.logged_in(true);
             $.mobile.changePage('#passwords');
@@ -527,11 +536,14 @@
           username: model.login.username(),
           password: model.login.server_password()
         },
-        success: function(data, textStatus, jqXHR) {
-          return $.mobile.changePage('#passwords');
-        },
         statusCode: {
-          409: model.login.username_already_used(true)
+          201: function() {
+            model.login.logged_in(true);
+            return $.mobile.changePage('#passwords');
+          },
+          409: function() {
+            return model.login.username_already_used(true);
+          }
         }
       });
     },

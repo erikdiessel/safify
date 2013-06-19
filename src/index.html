@@ -51,7 +51,20 @@
          <a href="#login-server" data-role="button" data-theme="b" data-icon="check"> <span data-bind="text: l.sign_in"/> </a>
          <a href="#register-server" data-mini="true" data-role="button" data-icon="edit"> <span data-bind="text: l.register"/> </a>
          
-         <p>Fortress of Keys let's you store your precious passwords securely and accessible from every device.</p>
+         <hr>
+         
+         <p data-bind="text: l.short_description"></p>
+         
+         <div data-role="collapsible-set">
+            <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+               <h3> <span data-bind="text: l.security"></span> </h3>
+               <p data-bind="html: l.text_security"></p>
+            </div>
+            
+            <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+               <h3> <span data-bind="text: l.legal_notice"></span> </h3>
+            </div>
+         </div>
          
       </div>
       
