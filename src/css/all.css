@@ -110,6 +110,9 @@ hr {
    max-height: 600px;
 }
 
+a {
+   color: lightblue;
+}
 
 @media (min-width: 25em) {
    #passwords [data-role="content"] .ui-block-b > * {

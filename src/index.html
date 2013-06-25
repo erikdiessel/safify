@@ -40,12 +40,12 @@
          
          <div data-role="fieldcontain">
             <label for="login_username" class="additional" data-bind="text: l.username"></label>
-            <input id ="login_username" data-bind="value: login.username, attr: { placeholder: l.username }" autofocus>
+            <input id ="login_username" class="important" data-bind="value: login.username, attr: { placeholder: l.username }" autofocus>
          </div>
          
          <div data-role="fieldcontain">
             <label for="login_password" class="additional" data-bind="text: l.master_password"></label>
-            <input id ="login_password" type="password" data-bind="value: login.password, attr: { placeholder: l.password }" class="login_on_enter">
+            <input id ="login_password" class="important" type="password" data-bind="value: login.password, attr: { placeholder: l.password }" class="login_on_enter">
          </div>
          
          <a href="#login-server" data-role="button" data-theme="b" data-icon="check"> <span data-bind="text: l.sign_in"/> </a>
@@ -53,7 +53,7 @@
          
          <hr>
          
-         <h4 data-bind="text: l.short_description"></h4>
+         <h4 data-bind="html: l.short_description"></h4>
          
          <div data-role="collapsible-set" data-content-theme="a">
             <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
