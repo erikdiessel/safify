@@ -16,7 +16,7 @@ localization =
       
       username_not_found: "Your entered username does not exist. New users should register first."
       authentification_failed: "The entered username or password is incorrect."
-      username_already_used: "The username is already used."
+      username_already_used: "The username is already used. Choose another one."
       
       passwords: "Passwords"
       search: "Search Entry ..."
@@ -72,8 +72,13 @@ localization =
       <br>
       Germany
       <br>
-      <br>
       <a href=\"mailto: support@fortressofkeys.tk\">Write an email</a>
+      <br>
+      <br>
+      We use the following works:
+      <ul>
+        <li><a href=\"fonts/DejaVu_Sans_Mono/license.txt\" target=\"_blank\">The DejaVu Sans Mono Bold</a> font</li>
+      </ul>
       <hr>
       All content © 2013 Erik Diessel
       "
@@ -91,7 +96,7 @@ localization =
 
       username_not_found: "Der angegebene Benutzername existiert nicht. Als neuer Benutzer musst du dich erst registrieren."
       authentification_failed: "Der angegebene Benutzername oder das Passwort ist falsch."
-      username_already_used: "Der Benutzername ist schon besetzt."
+      username_already_used: "Der Benutzername ist schon besetzt. Verwende einen anderen."
 
       passwords: "Passwörter"
       search: "Eintrag suchen ..."      
@@ -146,8 +151,13 @@ localization =
       <br>
       Deutschland
       <br>
-      <br>
       <a href=\"mailto: support@fortressofkeys.tk\">E-Mail schreiben</a>
+      <br>
+      <br>
+      Wir verwenden die folgenden Werke:
+      <ul>
+        <li><a href=\"fonts/DejaVu_Sans_Mono/license.txt\" target=\"_blank\">Die DejaVu Sans Mono Bold</a> Schriftart</li>
+      </ul>
       <hr>
       Alle Inhalte © 2013 Erik Diessel
       "
@@ -165,7 +175,7 @@ localization =
       
       username_not_found: "Ce nom d'utilisateur n'existe pas. Comme nouveau utilisateur il faut s'enregistrer."
       authentification_failed: "Le nom d'utilisateur ou le mot de passe est incorrect."
-      username_already_used: "Ce nom d'utilisateur est déjà utilisé."
+      username_already_used: "Ce nom d'utilisateur est déjà utilisé. Choisis un autre."
       
       passwords: "Mots de passe"
       search: "Rechercher ..."
@@ -202,8 +212,13 @@ localization =
       <br>
       Allemagne
       <br>
-      <br>
       <a href=\"mailto: support@fortressofkeys.tk\">Envoyer un e-mail</a>
+      <br>
+      <br>
+      Nous utilisons les œuvres suivantes:
+      <ul>
+        <li>La police de charactères<a href=\"fonts/DejaVu_Sans_Mono/license.txt\" target=\"_blank\">DejaVu Sans Mono Bold</a></li>
+      </ul>
       <hr>
       Tous les contenus © 2013 Erik Diessel
       "

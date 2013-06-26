@@ -5,7 +5,7 @@ Rack::Mime::MIME_TYPES.merge!({
 use Rack::Deflater
 
 use Rack::Static, 
-   :root => "src",
+   :root => "www",
    :urls => [""],
    :index => 'index.html'
 

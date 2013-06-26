@@ -13,14 +13,22 @@
     color:    #999;
 }
 
+@font-face {
+   font-family: 'DejaVu Sans Mono Bold';
+   src: url('../fonts/DejaVu_Sans_Mono/bold.woff') format('woff'),
+        url('../fonts/DejaVu_Sans_Mono/bold.ttf')  format('truetype');
+   font-weight: normal;
+   font-style: normal;
+}
+
+
 dt {
    color: grey;
 }
 
 dd {
-   font-weight: bold;
    margin-left: 0;
-   font-family: "Lucida Console", Monaco, monospace;
+   font-family: "DejaVu Sans Mono Bold", monospace;
 }
 
 dl {
@@ -82,8 +90,7 @@ dl {
 }
 
 input.important {
-   font-weight: bold;
-   font-family: "Lucida Console", Monaco, monospace;
+   font-family: "DejaVu Sans Mono Bold", monospace;
 }
 
 #edit  > .ui-content,
