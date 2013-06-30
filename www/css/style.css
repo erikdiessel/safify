@@ -118,6 +118,12 @@ a {
    color: lightblue;
 }
 
+.loading .ui-icon {
+   background-image: url(images/ajax-loader.gif);
+   background-position: 0 0;
+   background-size: 18px 18px;
+}
+
 @media (min-width: 25em) {
    #passwords [data-role="content"] .ui-block-b > * {
       margin-left: 3rem;

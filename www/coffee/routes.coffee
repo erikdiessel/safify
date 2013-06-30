@@ -18,6 +18,9 @@ check_for_login = (context) ->
       $.mobile.changePage('#login')
    logged_in
    
+toggle_loading = ->
+   $('[href="#login-server"]').toggleClass('loading')
+   
 routes =
    'new': ->
       if check_for_login(this)
@@ -42,6 +45,7 @@ routes =
       
    'login-server': ->
       if model.login.check()
+         toggle_loading()
          $.ajax
             url: get_API_URL('passwords')
             data:
@@ -49,6 +53,7 @@ routes =
                password: model.login.server_password()
    
             success: (data, textStatus, jqXHR) ->
+               toggle_loading()
                try
                   decrypted = sjcl.decrypt(model.login.client_password(), data)
                   model.list.fromJSON(decrypted)
@@ -60,25 +65,31 @@ routes =
                
             statusCode:
                404: ->
+                  toggle_loading()
                   model.login.username_not_found(true)
                   model.login.authentification_failed(false)
                403: ->
+                  toggle_loading()
                   model.login.authentification_failed(true)
                   model.login.username_not_found(false)
             
    'register-server': ->
-      $.ajax
-         type: 'POST'
-         url: get_API_URL('register')
-         data: 
-            username: model.login.username()
-            password: model.login.server_password()
-         statusCode:
-            201: ->
-               model.login.logged_in(true)
-               $.mobile.changePage('#passwords')
-            409: ->
-               model.login.username_already_used(true)
+      if model.login.check()
+         toggle_loading()
+         $.ajax
+            type: 'POST'
+            url: get_API_URL('register')
+            data: 
+               username: model.login.username()
+               password: model.login.server_password()
+            statusCode:
+               201: ->
+                  toggle_loading()
+                  model.login.logged_in(true)
+                  $.mobile.changePage('#passwords')
+               409: ->
+                  toggle_loading()
+                  model.login.username_already_used(true)
 
       
    'generate': ->

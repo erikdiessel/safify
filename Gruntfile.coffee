@@ -2,23 +2,23 @@ module.exports = (grunt) ->
    grunt.initConfig
       concat: 
          js:
-            src: ['src/js/jquery-1.9.1.js', 'src/js/jquery-mobile.js', 'src/js/knockout.js', 'src/js/sjcl.js', 'src/js/fastclick.js', 'src/js/application.js']
-            dest: 'src/js/all.js'
+            src: ['www/js/jquery-1.9.1.js', 'www/js/jquery-mobile.js', 'www/js/knockout.js', 'www/js/sjcl.js', 'www/js/fastclick.js', 'www/js/application.js']
+            dest: 'www/js/all.js'
             
          css:
-            src: ['src/css/jquery-mobile.css', 'src/css/style.css']
-            dest: 'src/css/all.css'
+            src: ['www/css/jquery-mobile.css', 'www/css/style.css']
+            dest: 'www/css/all.css'
            
       coffee:
          compile:
             options:
                join: true
             files: 
-               'src/js/application.js': ['src/coffee/*.coffee']
+               'www/js/application.js': ['www/coffee/*.coffee']
                
       watch:
          update:
-            files: ['src/css/*', 'src/coffee/*']
+            files: ['www/css/*', 'www/coffee/*']
             tasks: ['default']
    
    grunt.loadNpmTasks('grunt-contrib-concat')
