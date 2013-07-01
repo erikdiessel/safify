@@ -75,6 +75,7 @@ localization =
       <br>
       French localization: Arthur Nichanian
       <br>
+      <br>
       <a href=\"mailto: support@fortressofkeys.tk\">Write an email</a>
       <br>
       <br>
@@ -156,6 +157,7 @@ localization =
       <br>
       <br>
       Französische Lokalisation: Arthur Nichanian
+      <br>
       <br>
       <a href=\"mailto: support@fortressofkeys.tk\">E-Mail schreiben</a>
       <br>
