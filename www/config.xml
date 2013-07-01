@@ -30,10 +30,10 @@
     <preference name="splash-screen-duration" value="0" />
     
     <icon src="res/icon/logo.png" />
-    <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
-    <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
-    <icon src="res/icon/android/icon-72-hdpi.png"   gap:platform="android"    gap:density="hdpi" />
-    <icon src="res/icon/android/icon-96-xhdpi.png"  gap:platform="android"    gap:density="xhdpi" />
+    <icon src="res/icon/android/36.png"   gap:platform="android"    gap:density="ldpi" />
+    <icon src="res/icon/android/48.png"   gap:platform="android"    gap:density="mdpi" />
+    <icon src="res/icon/android/72.png"   gap:platform="android"    gap:density="hdpi" />
+    <icon src="res/icon/android/96.png"   gap:platform="android"    gap:density="xhdpi" />
     
     <access origin="*" /> <!-- allow everything-->
     
