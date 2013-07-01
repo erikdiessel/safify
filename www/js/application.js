@@ -117,7 +117,7 @@
     var locale;
 
     locale = (navigator.language || navigator.userLanguage).substring(0, 2);
-    return localization['fr'] || localization['en'];
+    return localization[locale] || localization['en'];
   };
 
   localization = {

@@ -1,6 +1,6 @@
 getLocalized = ->
    locale = (navigator.language || navigator.userLanguage).substring(0,2)
-   localization['fr'] || localization['en']
+   localization[locale] || localization['en']
 
 localization = 
    en:
