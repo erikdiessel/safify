@@ -25,6 +25,8 @@
     -->
     <preference name="permissions" value="none" />
     
+    <preference name="phonegap-version" value="2.9.0" />
+    
     <preference name="splash-screen-duration" value="0" />
     
     <icon src="res/icon/logo.png" />
