@@ -2,7 +2,7 @@ module.exports = (grunt) ->
    grunt.initConfig
       concat: 
          js:
-            src: ['www/js/jquery-1.9.1.js', 'www/js/jquery-mobile.js', 'www/js/knockout.js', 'www/js/sjcl.js', 'www/js/fastclick.js', 'www/js/application.js']
+            src: ['www/js/jquery.js', 'www/js/jquery-mobile.js', 'www/js/knockout.js', 'www/js/sjcl.js', 'www/js/fastclick.js', 'www/js/application.js']
             dest: 'www/js/all.js'
             
          css:
