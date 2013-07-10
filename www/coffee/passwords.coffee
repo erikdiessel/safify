@@ -39,9 +39,6 @@ class List
       entry.password(@current_entry.password())
       
    delete_current: =>
-      #@entries.remove (entry) =>
-         #entry.index() == @current_entry.index()
-      #@actualize_indices()
       @entries.splice(@current_entry.index(), 1)
       @actualize_indices()
    

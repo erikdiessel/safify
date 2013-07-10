@@ -1,4 +1,4 @@
-// normalization of placeholder-color
+/* normalization of placeholder-color */
 
 ::-webkit-input-placeholder { /* WebKit browsers */
     color:    #999;
@@ -82,7 +82,7 @@ dl {
 }
 
 #details dd {
-   padding-bottom: 1rem;
+   padding: 1rem;
 }
 
 .readonly > .ui-input-text {

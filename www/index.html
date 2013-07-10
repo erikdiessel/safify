@@ -180,9 +180,9 @@
          <h2 data-bind="text: list.current_entry.title"></h2>
          <dl>
             <dt data-bind="text: l.username"></dt>
-            <input readonly class="important" data-bind="value: list.current_entry.username"></input>
+            <dd data-bind="text: list.current_entry.username"></dd>
             <dt data-bind="text: l.password"></dt>
-            <input readonly class="important" data-bind="value: list.current_entry.password"></input>
+            <dd data-bind="text: list.current_entry.password"></dd>
          </dl>
          <a data-bind="attr: { href: list.current_entry.to_mail() }" data-role="button"> <span data-bind="text: l.share"></span> </a>
          <a href="#passwords" data-role="button" data-theme="b" data-transition="none"> <span data-bind="text: l.back"/> </a>
