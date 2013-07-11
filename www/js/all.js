@@ -1411,10 +1411,8 @@ if (typeof module !== 'undefined' && module.exports) {
 
   routes = {
     'new': function() {
-      var current_entry;
-
       if (check_for_login(this)) {
-        return current_entry = new Entry(-1);
+        return window.current_entry = new Entry(-1);
       }
     },
     'save-current': function() {
