@@ -8,6 +8,11 @@ document.addEventListener('deviceready', ->
 , false)
 
 
+get_current_locale = (locales) ->
+   locale = (navigator.language || navigator.userLanguage).substring(0,2)
+   locales[locale] || locales['en']
+
+
 $(document).ready ->
    ko.bindingHandlers.slider_value = {
       init: (element, valueAccessor) ->
@@ -27,13 +32,19 @@ $(document).ready ->
                el.slider("refresh")
    }
    
-   window.model = {
-      l: getLocalized()
-      list: new List()
-      login: new Login()
-      generator: new Generator()
-   }
-   ko.applyBindings(model)
+
+   window.login = new Login()
+   window.password_list = new List()
+   window.current_entry = new Entry()
+   window.generator = new Generator()
+   
+   ko.applyBindings window.login,          document.querySelector('#login')
+   ko.applyBindings window.password_list,  document.querySelector('#passwords')
+   ko.applyBindings window.current_entry,  document.querySelector('#new')
+   ko.applyBindings window.current_entry,  document.querySelector('#edit')
+   ko.applyBindings window.current_entry,  document.querySelector('#details')
+   ko.applyBindings window.generator,      document.querySelector('#generator')
+   
    setupRoutes()
    
    login = ->

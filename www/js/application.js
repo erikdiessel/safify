@@ -1,5 +1,5 @@
 (function() {
-  var Entry, Generator, LETTERS, List, Login, NUMBERS, Router, SPECIALCHARS, UPPERCASE, check_for_login, getLocalized, get_API_URL, letter, localization, random, router, routes, save_changes, setupRoutes, toggle_loading,
+  var Entry, Generator, LETTERS, List, Login, NUMBERS, Router, SPECIALCHARS, UPPERCASE, check_for_login, get_API_URL, get_current_locale, letter, random, router, routes, save_changes, setupRoutes, toggle_loading,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   window.addEventListener('load', function() {
@@ -9,6 +9,13 @@
   document.addEventListener('deviceready', function() {
     return navigator.splashscreen.hide();
   }, false);
+
+  get_current_locale = function(locales) {
+    var locale;
+
+    locale = (navigator.language || navigator.userLanguage).substring(0, 2);
+    return locales[locale] || locales['en'];
+  };
 
   $(document).ready(function() {
     var login;
@@ -38,13 +45,16 @@
         }
       }
     };
-    window.model = {
-      l: getLocalized(),
-      list: new List(),
-      login: new Login(),
-      generator: new Generator()
-    };
-    ko.applyBindings(model);
+    window.login = new Login();
+    window.password_list = new List();
+    window.current_entry = new Entry();
+    window.generator = new Generator();
+    ko.applyBindings(window.login, document.querySelector('#login'));
+    ko.applyBindings(window.password_list, document.querySelector('#passwords'));
+    ko.applyBindings(window.current_entry, document.querySelector('#new'));
+    ko.applyBindings(window.current_entry, document.querySelector('#edit'));
+    ko.applyBindings(window.current_entry, document.querySelector('#details'));
+    ko.applyBindings(window.generator, document.querySelector('#generator'));
     setupRoutes();
     login = function() {
       $('a[href="#login-server"]').focus();
@@ -92,6 +102,7 @@
       this.password = ko.computed(function() {
         return _this.generate();
       });
+      this.l = get_current_locale(this.locales);
     }
 
     Generator.prototype.generate = function() {
@@ -109,118 +120,45 @@
       return this.length.valueHasMutated();
     };
 
+    Generator.prototype.locales = {
+      en: {
+        generator: "Generator",
+        length: "Length",
+        uppercase: "Uppercase",
+        numbers: "Numbers",
+        special_characters: "Special Characters",
+        generate: "Generate",
+        back: "Back",
+        passwords: "Passwords",
+        generator: "Generator"
+      },
+      de: {
+        generator: "Generator",
+        length: "Länge",
+        uppercase: "Großbuchstaben",
+        numbers: "Zahlen",
+        special_characters: "Sonderzeichen",
+        generate: "Generieren",
+        back: "Zurück",
+        passwords: "Passwörter",
+        generator: "Generator"
+      },
+      fr: {
+        generator: "Génératrice",
+        length: "Longueur",
+        uppercase: "Majuscules",
+        numbers: "Chiffres",
+        special_characters: "Charactères spécials",
+        generate: "Générer",
+        back: "Retour",
+        passwords: "Mots de passe",
+        generator: "Génératrice"
+      }
+    };
+
     return Generator;
 
   })();
-
-  getLocalized = function() {
-    var locale;
-
-    locale = (navigator.language || navigator.userLanguage).substring(0, 2);
-    return localization[locale] || localization['en'];
-  };
-
-  localization = {
-    en: {
-      sign_in: "Sign In",
-      register: "Register",
-      username: "Username",
-      password: "Password",
-      master_password: "Master Password",
-      username_missing: "Username is missing.",
-      password_missing: "Password is missing.",
-      username_not_found: "Your entered username does not exist. New users should register first.",
-      authentification_failed: "The entered username or password is incorrect.",
-      username_already_used: "The username is already used. Choose another one.",
-      passwords: "Passwords",
-      search: "Search Entry ...",
-      new_entry: "New Entry",
-      edit: "Edit",
-      save: "Save",
-      title: "Title",
-      'delete': "Delete",
-      back: "Back",
-      details: "Details",
-      share: "Send per Email",
-      generator: "Generator",
-      length: "Length",
-      uppercase: "Uppercase",
-      numbers: "Numbers",
-      special_characters: "Special Characters",
-      generate: "Generate",
-      short_description: "Fortress of Keys is a password manager app. It stores your precious passwords securely and accessible from every device. &nbsp; <em>Register now for free.</em>",
-      security: "Security and Data Privacy",
-      text_security: "      <h3>We keep high standards in security.</h3>      <br>      Your list of passwords is encrypted directly on your device and your master password too. We only get your encrypted data.      <br>      For encryption, military grade algorithms are used: the <a href=\"https://en.wikipedia.org/wiki/Advanced_Encryption_Standard\" target=\"_blank\">Advanced Encryption Standard (AES)</a> and the <a href=\"https://en.wikipedia.org/wiki/PBKDF2\" target=\"_blank\">Password-Based Key Derivation Function 2 (PBKDF2)</a>.      <br>      Nobody can access your data, including the author of the app and security agencies, as long as they can't guess your master password. <em>So make it safe.</em>      <br>      The encrypted data is transmitted over <a href=\"https://en.wikipedia.org/wiki/Transport_Layer_Security\" target=\"_blank\">TLS</a> for additional security.      <br>      We don't store anything except your encrypted data and your registration information.      <br>      For making the app faster and available all the time, our partner <a href=\"https://cloudflare.com\" target=\"_blank\">Cloudflare</a> caches the publically available content of this app and sets a cookie. They never receive any of your private data.       <hr>      Perfect security is not archievable, but Fortress of Keys lets you make a step in this direction.      <br>      <i>Note however, that computer viruses or traditional espionage may comprise the security of your data. You have to protect yourself against this.</i>      ",
-      legal_notice: "Legal Notice",
-      text_legal_notice: "      <i>Author:</i>       <br>      <b>Erik Diessel</b>      <br>      Bürgermeister-Alexander-Str. 19      <br>      55122 Mainz      <br>      Germany      <br>      <br>      French localization: Arthur Nichanian      <br>      <br>      <a href=\"mailto: support@fortressofkeys.tk\">Write an email</a>      <br>      <br>      We use the following works:      <ul>        <li><a href=\"fonts/DejaVu_Sans_Mono/license.txt\" target=\"_blank\">The DejaVu Sans Mono Bold</a> font</li>      </ul>      <hr>      All content © 2013 Erik Diessel      "
-    },
-    de: {
-      sign_in: "Anmelden",
-      register: "Registrieren",
-      username: "Benutzername",
-      password: "Passwort",
-      master_password: "Master-Passwort",
-      username_missing: "Benutzername fehlt.",
-      password_missing: "Passwort fehlt.",
-      username_not_found: "Der angegebene Benutzername existiert nicht. Als neuer Benutzer musst du dich erst registrieren.",
-      authentification_failed: "Der angegebene Benutzername oder das Passwort ist falsch.",
-      username_already_used: "Der Benutzername ist schon besetzt. Verwende einen anderen.",
-      passwords: "Passwörter",
-      search: "Eintrag suchen ...",
-      new_entry: "Neuer Eintrag",
-      edit: "Bearbeiten",
-      save: "Speichern",
-      title: "Titel",
-      'delete': "Löschen",
-      back: "Zurück",
-      details: "Details",
-      share: "Per E-Mail versenden",
-      generator: "Generator",
-      length: "Länge",
-      uppercase: "Großbuchstaben",
-      numbers: "Zahlen",
-      special_characters: "Sonderzeichen",
-      generate: "Generieren",
-      short_description: "Fortress of Keys ist eine Passwort-Manager-App. Sie speichert deine wertvollen Passwörter sicher und von jedem Gerät erreichbar ab. &nbsp; <em>Registriere dich jetzt kostenlos.</em>",
-      security: "Sicherheit und Datenschutz",
-      text_security: "      <h3>Wir haben hohe Sicherheitsstandards</h3>      <br>      Deine Passwortliste wird direkt auf deinem Gerät verschlüsselt, genauso wie dein Masterpasswort. Wir bekommen nur deine verschlüsselten Daten.      <br>      Für die Verschlüsselung werden moderne, erprobte Verfahren verwendet: der <a href=\"https://de.wikipedia.org/wiki/Advanced_Encryption_Standard\" target=\"_blank\">Advanced Encryption Standard (AES)</a> und die <a href=\"https://de.wikipedia.org/wiki/PBKDF2\" target=\"_blank\">Password-Based Key Derivation Function 2 (PBKDF2)</a>.      <br>      Niemand gelangt an deine Daten im Klartext, inklusive dem Autor und Sicherheitsbehörden, solange sie nicht dein Masterpasswort erraten. <em>Also verwende ein sicheres.</em>      <br>      Die Daten werden für zusätzliche Sicherheit über <a href=\"https://en.wikipedia.org/wiki/Transport_Layer_Security\" target=\"_blank\">TLS</a> übertragen.      <br>      Wir speichern nichts außer deinen verschlüsselten Daten und deinen Registrierdaten.      <br>      Um die App flüssig und immer erreichbar zu halten speichert unser Partner <a href=\"https://cloudflare.com\" target=\"_blank\">Cloudflare</a> die öffentlich zugänglichen Teile dieser App zwischen und setzt einen Cookie. Sie empfangen keinerlei privaten Daten.      <hr>      Perfekte Sicherheit ist nicht erreichbar, aber Fortress of Keys lässt dich einen Schritt in diese Richtung machen.      <br>      <i>Beachte jedoch, dass Computerviren oder klassische Spionage die Sicherheit deiner Daten gefährden können. Du musst dich dagegen schützen.</i>      ",
-      legal_notice: "Impressum",
-      text_legal_notice: "      <i>Autor:</i>      <br>      <b>Erik Diessel</b>      <br>      Bürgermeister-Alexander-Str. 19      <br>      55122 Mainz      <br>      Deutschland      <br>      <br>      Französische Lokalisation: Arthur Nichanian      <br>      <br>      <a href=\"mailto: support@fortressofkeys.tk\">E-Mail schreiben</a>      <br>      <br>      Wir verwenden die folgenden Werke:      <ul>        <li><a href=\"fonts/DejaVu_Sans_Mono/license.txt\" target=\"_blank\">Die DejaVu Sans Mono Bold</a> Schriftart</li>      </ul>      <hr>      Alle Inhalte © 2013 Erik Diessel      "
-    },
-    fr: {
-      sign_in: "Connexion",
-      register: "Enregistrer",
-      username: "Nom d'utilisateur",
-      password: "Mot de passe",
-      master_password: "Mot de passe",
-      username_missing: "Le nom d'utilisateur manque.",
-      password_missing: "Le mot de passe manque.",
-      username_not_found: "Ce nom d'utilisateur n'existe pas. Comme nouveau utilisateur il faut s'enregistrer.",
-      authentification_failed: "Le nom d'utilisateur ou le mot de passe est incorrect.",
-      username_already_used: "Ce nom d'utilisateur est déjà utilisé. Choisis un autre.",
-      passwords: "Mots de passe",
-      search: "Rechercher ...",
-      new_entry: "Nouvel article",
-      edit: "Modifier",
-      save: "Sauver",
-      title: "Titre",
-      'delete': "Effacer",
-      back: "Retour",
-      details: "Details",
-      share: "Envoyer par e-mail",
-      generator: "Génératrice",
-      length: "Longueur",
-      uppercase: "Majuscules",
-      numbers: "Chiffres",
-      special_characters: "Charactères spécials",
-      generate: "Générer",
-      short_description: "",
-      security: "Sécurité et protection des données",
-      text_security: "      <h3>Nous avons des standards de sécurité élevés.</h3>      <br>      Ta liste de mots de passe ainsi que ton mot de passe principal est directement sécurisée sur ton appareil. Nous recevons que tes données sécurisées.      <br>      Afin que tes mots de passe soient bien sécurisés, nous utilisons des techniques modernes et performants : <a href=\"https://fr.wikipedia.org/wiki/Advanced_Encryption_Standard\" target=\"_blank\">l'Advanced Encryption Standart (AES)</a>, ainsi que la <a href=\"https://en.wikipedia.org/wiki/PBKDF2\" target=\"_blank\">Password-Based Key Derivation Function 2 (PBKDF2)</a>.      <br>      Personne n'accèdera à tes données, y compris l'auteur de l'application, et les autres personnes qui voudraient y accéder, à condition qu'ils ne trouvent pas ton mot de passe principal. <em>Ton mot de passe principal doit donc être sûr.</em>      <br>      Les données sont transférés sur TLS afin de garantir plus de sécurité.      <br>      Nous ne sauvegardons rien sauf tes données sécurisées ainsi que tes données inscrites lors de ton inscription.      <br>      Afin que l'application soit rapide et toujours accessible, les données autres sont sauvegardées par notre partenaire Cloudfare, qui ajoute sur l'appareil un cookie. Ils ne récupèrent dans aucun cas des données privées.      <hr>      La sécurité parfaite n'est jamais possible, mais Fortress of Keys te permet de faire un pas dans cette direction.      <br>      <i>Attention, les virus, ou l'espionnage de ton appareil risquent d'accéder à tes données. Tu dois te protéger contre eux.</i>      ",
-      legal_notice: "Mentions légales",
-      text_legal_notice: "      <i>Auteur:</i>      <br>      <b>Erik Diessel</b>      <br>      Bürgermeister-Alexander-Str. 19      <br>      55122 Mainz      <br>      Allemagne      <br>      <br>      Localisation française: Arthur Nichanian      <br>      <br>      <a href=\"mailto: support@fortressofkeys.tk\">Envoyer un e-mail</a>      <br>      <br>      Nous utilisons les œuvres suivantes:      <ul>        <li>La police de charactères <a href=\"fonts/DejaVu_Sans_Mono/license.txt\" target=\"_blank\">DejaVu Sans Mono Bold</a></li>      </ul>      <hr>      Tous les contenus © 2013 Erik Diessel      "
-    }
-  };
 
   Login = (function() {
     function Login() {
@@ -234,6 +172,7 @@
       this.username_already_used = ko.observable(false);
       this.username_missing = ko.observable(false);
       this.password_missing = ko.observable(false);
+      this.l = get_current_locale(this.locales);
     }
 
     Login.prototype.server_password = function() {
@@ -258,18 +197,79 @@
       return !this.username_missing() && !this.password_missing();
     };
 
+    Login.prototype.locales = {
+      en: {
+        sign_in: "Sign In",
+        register: "Register",
+        username: "Username",
+        master_password: "Master Password",
+        username_missing: "Username is missing.",
+        password_missing: "Password is missing.",
+        username_not_found: "Your entered username does not exist. New users should register first.",
+        authentification_failed: "The entered username or password is incorrect.",
+        username_already_used: "The username is already used. Choose another one.",
+        short_description: "Fortress of Keys is a password manager app. It stores your precious passwords securely and accessible from every device. &nbsp; <em>Register now for free.</em>",
+        security: "Security and Data Privacy",
+        text_security: "         <h3>We keep high standards in security.</h3>         <br>         Your list of passwords is encrypted directly on your device and your master password too. We only get your encrypted data.         <br>         For encryption, military grade algorithms are used: the <a href=\"https://en.wikipedia.org/wiki/Advanced_Encryption_Standard\" target=\"_blank\">Advanced Encryption Standard (AES)</a> and the <a href=\"https://en.wikipedia.org/wiki/PBKDF2\" target=\"_blank\">Password-Based Key Derivation Function 2 (PBKDF2)</a>.         <br>         Nobody can access your data, including the author of the app and security agencies, as long as they can't guess your master password. <em>So make it safe.</em>         <br>         The encrypted data is transmitted over <a href=\"https://en.wikipedia.org/wiki/Transport_Layer_Security\" target=\"_blank\">TLS</a> for additional security.         <br>         We don't store anything except your encrypted data and your registration information.         <br>         For making the app faster and available all the time, our partner <a href=\"https://cloudflare.com\" target=\"_blank\">Cloudflare</a> caches the publically available content of this app and sets a cookie. They never receive any of your private data.          <hr>         Perfect security is not archievable, but Fortress of Keys lets you make a step in this direction.         <br>         <i>Note however, that computer viruses or traditional espionage may comprise the security of your data. You have to protect yourself against this.</i>         ",
+        legal_notice: "Legal Notice",
+        text_legal_notice: "         <i>Author:</i>          <br>         <b>Erik Diessel</b>         <br>         Bürgermeister-Alexander-Str. 19         <br>         55122 Mainz         <br>         Germany         <br>         <br>         French localization: Arthur Nichanian         <br>         <br>         <a href=\"mailto: support@fortressofkeys.tk\">Write an email</a>         <br>         <br>         We use the following works:         <ul>           <li><a href=\"fonts/DejaVu_Sans_Mono/license.txt\" target=\"_blank\">The DejaVu Sans Mono Bold</a> font</li>         </ul>         <hr>         All content © 2013 Erik Diessel         ",
+        passwords: "Passwords",
+        generator: "Generator"
+      },
+      de: {
+        sign_in: "Anmelden",
+        register: "Registrieren",
+        username: "Benutzername",
+        master_password: "Master-Passwort",
+        username_missing: "Benutzername fehlt.",
+        password_missing: "Passwort fehlt.",
+        username_not_found: "Der angegebene Benutzername existiert nicht. Als neuer Benutzer musst du dich erst registrieren.",
+        authentification_failed: "Der angegebene Benutzername oder das Passwort ist falsch.",
+        username_already_used: "Der Benutzername ist schon besetzt. Verwende einen anderen.",
+        short_description: "Fortress of Keys ist eine Passwort-Manager-App. Sie speichert deine wertvollen Passwörter sicher und von jedem Gerät erreichbar ab. &nbsp; <em>Registriere dich jetzt kostenlos.</em>",
+        security: "Sicherheit und Datenschutz",
+        text_security: "         <h3>Wir haben hohe Sicherheitsstandards</h3>         <br>         Deine Passwortliste wird direkt auf deinem Gerät verschlüsselt, genauso wie dein Masterpasswort. Wir bekommen nur deine verschlüsselten Daten.         <br>         Für die Verschlüsselung werden moderne, erprobte Verfahren verwendet: der <a href=\"https://de.wikipedia.org/wiki/Advanced_Encryption_Standard\" target=\"_blank\">Advanced Encryption Standard (AES)</a> und die <a href=\"https://de.wikipedia.org/wiki/PBKDF2\" target=\"_blank\">Password-Based Key Derivation Function 2 (PBKDF2)</a>.         <br>         Niemand gelangt an deine Daten im Klartext, inklusive dem Autor und Sicherheitsbehörden, solange sie nicht dein Masterpasswort erraten. <em>Also verwende ein sicheres.</em>         <br>         Die Daten werden für zusätzliche Sicherheit über <a href=\"https://en.wikipedia.org/wiki/Transport_Layer_Security\" target=\"_blank\">TLS</a> übertragen.         <br>         Wir speichern nichts außer deinen verschlüsselten Daten und deinen Registrierdaten.         <br>         Um die App flüssig und immer erreichbar zu halten speichert unser Partner <a href=\"https://cloudflare.com\" target=\"_blank\">Cloudflare</a> die öffentlich zugänglichen Teile dieser App zwischen und setzt einen Cookie. Sie empfangen keinerlei privaten Daten.         <hr>         Perfekte Sicherheit ist nicht erreichbar, aber Fortress of Keys lässt dich einen Schritt in diese Richtung machen.         <br>         <i>Beachte jedoch, dass Computerviren oder klassische Spionage die Sicherheit deiner Daten gefährden können. Du musst dich dagegen schützen.</i>         ",
+        legal_notice: "Impressum",
+        text_legal_notice: "         <i>Autor:</i>         <br>         <b>Erik Diessel</b>         <br>         Bürgermeister-Alexander-Str. 19         <br>         55122 Mainz         <br>         Deutschland         <br>         <br>         Französische Lokalisation: Arthur Nichanian         <br>         <br>         <a href=\"mailto: support@fortressofkeys.tk\">E-Mail schreiben</a>         <br>         <br>         Wir verwenden die folgenden Werke:         <ul>           <li><a href=\"fonts/DejaVu_Sans_Mono/license.txt\" target=\"_blank\">Die DejaVu Sans Mono Bold</a> Schriftart</li>         </ul>         <hr>         Alle Inhalte © 2013 Erik Diessel         ",
+        passwords: "Passwörter",
+        generator: "Generator"
+      },
+      fr: {
+        sign_in: "Connexion",
+        register: "Enregistrer",
+        username: "Nom d'utilisateur",
+        master_password: "Mot de passe principal",
+        username_missing: "Le nom d'utilisateur manque.",
+        password_missing: "Le mot de passe manque.",
+        username_not_found: "Ce nom d'utilisateur n'existe pas. Comme nouveau utilisateur il faut s'enregistrer.",
+        authentification_failed: "Le nom d'utilisateur ou le mot de passe est incorrect.",
+        username_already_used: "Ce nom d'utilisateur est déjà utilisé. Choisis un autre.",
+        short_description: "",
+        security: "Sécurité et protection des données",
+        text_security: "         <h3>Nous avons des standards de sécurité élevés.</h3>         <br>         Ta liste de mots de passe ainsi que ton mot de passe principal est directement sécurisée sur ton appareil. Nous recevons que tes données sécurisées.         <br>         Afin que tes mots de passe soient bien sécurisés, nous utilisons des techniques modernes et performants : <a href=\"https://fr.wikipedia.org/wiki/Advanced_Encryption_Standard\" target=\"_blank\">l'Advanced Encryption Standart (AES)</a>, ainsi que la <a href=\"https://en.wikipedia.org/wiki/PBKDF2\" target=\"_blank\">Password-Based Key Derivation Function 2 (PBKDF2)</a>.         <br>         Personne n'accèdera à tes données, y compris l'auteur de l'application, et les autres personnes qui voudraient y accéder, à condition qu'ils ne trouvent pas ton mot de passe principal. <em>Ton mot de passe principal doit donc être sûr.</em>         <br>         Les données sont transférés sur TLS afin de garantir plus de sécurité.         <br>         Nous ne sauvegardons rien sauf tes données sécurisées ainsi que tes données inscrites lors de ton inscription.         <br>         Afin que l'application soit rapide et toujours accessible, les données autres sont sauvegardées par notre partenaire Cloudfare, qui ajoute sur l'appareil un cookie. Ils ne récupèrent dans aucun cas des données privées.         <hr>         La sécurité parfaite n'est jamais possible, mais Fortress of Keys te permet de faire un pas dans cette direction.         <br>         <i>Attention, les virus, ou l'espionnage de ton appareil risquent d'accéder à tes données. Tu dois te protéger contre eux.</i>         ",
+        legal_notice: "Mentions légales",
+        text_legal_notice: "         <i>Auteur:</i>         <br>         <b>Erik Diessel</b>         <br>         Bürgermeister-Alexander-Str. 19         <br>         55122 Mainz         <br>         Allemagne         <br>         <br>         Localisation française: Arthur Nichanian         <br>         <br>         <a href=\"mailto: support@fortressofkeys.tk\">Envoyer un e-mail</a>         <br>         <br>         Nous utilisons les œuvres suivantes:         <ul>           <li>La police de charactères <a href=\"fonts/DejaVu_Sans_Mono/license.txt\" target=\"_blank\">DejaVu Sans Mono Bold</a></li>         </ul>         <hr>         Tous les contenus © 2013 Erik Diessel         ",
+        passwords: "Mots de passe",
+        generator: "Génératrice"
+      }
+    };
+
     return Login;
 
   })();
 
   Entry = (function() {
     function Entry(index, title, username, password) {
+      this.set_index = __bind(this.set_index, this);
+      this.get_index = __bind(this.get_index, this);
+      this.actualize_to = __bind(this.actualize_to, this);
       this.to_mail = __bind(this.to_mail, this);
       this.toObject = __bind(this.toObject, this);
       this.reset = __bind(this.reset, this);      this.index = ko.observable(index || 0);
       this.title = ko.observable(title || "");
       this.username = ko.observable(username || "");
       this.password = ko.observable(password || "");
+      this.l = get_current_locale(this.locales);
     }
 
     Entry.prototype.reset = function() {
@@ -288,7 +288,58 @@
     };
 
     Entry.prototype.to_mail = function() {
-      return "mailto:?to=&body=" + encodeURIComponent('\r\n' + this.title() + '\r\n') + encodeURIComponent(model.l.username + ': ' + this.username() + '\r\n') + encodeURIComponent(model.l.password + ': ' + this.password() + '\r\n');
+      return "mailto:?to=&body=" + encodeURIComponent('\r\n' + this.title() + '\r\n') + encodeURIComponent(this.l.username + ': ' + this.username() + '\r\n') + encodeURIComponent(this.l.password + ': ' + this.password() + '\r\n');
+    };
+
+    Entry.prototype.actualize_to = function(entry) {
+      this.index(entry.index());
+      this.title(entry.title());
+      this.username(entry.username());
+      return this.password(entry.password());
+    };
+
+    Entry.prototype.get_index = function() {
+      return this.index();
+    };
+
+    Entry.prototype.set_index = function(index) {
+      return this.index(index);
+    };
+
+    Entry.prototype.locales = {
+      en: {
+        title: "Title",
+        username: "Username",
+        password: "Password",
+        details: "Details",
+        share: "Send per Email",
+        edit: "Edit",
+        save: "Save",
+        'delete': "Delete",
+        back: "Back"
+      },
+      de: {
+        title: "Titel",
+        username: "Benutzername",
+        password: "Passwort",
+        details: "Details",
+        share: "Per E-Mail versenden",
+        edit: "Bearbeiten",
+        save: "Speichern",
+        'delete': "Löschen",
+        back: "Zurück"
+      },
+      fr: {
+        title: "Titre",
+        username: "Nom d'utilisateur",
+        password: "Mot de passe",
+        details: "Details",
+        share: "Envoyer par e-mail",
+        edit: "Modifier",
+        save: "Sauver",
+        'delete': "Effacer",
+        back: "Retour"
+      }
     };
 
     return Entry;
@@ -297,30 +348,25 @@
 
   List = (function() {
     function List() {
+      this.get_entry = __bind(this.get_entry, this);
+      this.new_entry = __bind(this.new_entry, this);
       this.fromJSON = __bind(this.fromJSON, this);
       this.toJSON = __bind(this.toJSON, this);
-      this.new_current = __bind(this.new_current, this);
       this.actualize_indices = __bind(this.actualize_indices, this);
-      this.delete_current = __bind(this.delete_current, this);
-      this.save_current = __bind(this.save_current, this);      this.entries = ko.observableArray([]);
-      this.current_entry = new Entry();
+      this["delete"] = __bind(this["delete"], this);
+      this.save = __bind(this.save, this);      this.entries = ko.observableArray([]);
+      this.l = get_current_locale(this.locales);
     }
 
-    List.prototype.save_current = function() {
-      var entry;
+    List.prototype.save = function(entry) {
+      var actualizing_entry;
 
-      entry = this.entries()[this.current_entry.index()];
-      if (entry == null) {
-        entry = new Entry(this.entries().length);
-        this.entries.push(entry);
-      }
-      entry.title(this.current_entry.title());
-      entry.username(this.current_entry.username());
-      return entry.password(this.current_entry.password());
+      actualizing_entry = this.get_entry(entry.get_index()) || this.new_entry();
+      return actualizing_entry.actualize_to(entry);
     };
 
-    List.prototype.delete_current = function() {
-      this.entries.splice(this.current_entry.index(), 1);
+    List.prototype["delete"] = function(entry) {
+      this.entries.splice(entry.get_index(), 1);
       return this.actualize_indices();
     };
 
@@ -338,16 +384,6 @@
         }
       }
       return _results;
-    };
-
-    List.prototype.new_current = function(index) {
-      var old_entry;
-
-      old_entry = this.entries()[index] || new Entry(index);
-      this.current_entry.index(old_entry.index());
-      this.current_entry.title(old_entry.title());
-      this.current_entry.username(old_entry.username());
-      return this.current_entry.password(old_entry.password());
     };
 
     List.prototype.toJSON = function() {
@@ -380,6 +416,48 @@
         }
         return _results;
       })());
+    };
+
+    List.prototype.new_entry = function() {
+      var entry;
+
+      entry = new Entry(this.entries().length);
+      this.entries.push(entry);
+      return entry;
+    };
+
+    List.prototype.get_entry = function(index) {
+      return this.entries()[index];
+    };
+
+    List.prototype.locales = {
+      en: {
+        username: "Username",
+        password: "Password",
+        passwords: "Passwords",
+        search: "Search Entry ...",
+        new_entry: "New Entry",
+        passwords: "Passwords",
+        generator: "Generator"
+      },
+      de: {
+        username: "Benutzername",
+        password: "Passwort",
+        passwords: "Passwörter",
+        search: "Eintrag suchen ...",
+        new_entry: "Neuer Eintrag",
+        passwords: "Passwörter",
+        generator: "Generator"
+      },
+      fr: {
+        username: "Nom d'utilisateur",
+        password: "Mot de passe",
+        passwords: "Mots de passe",
+        search: "Rechercher ...",
+        new_entry: "Nouvel article",
+        passwords: "Mots de passe",
+        generator: "Génératrice"
+      }
     };
 
     return List;
@@ -455,9 +533,9 @@
       url: get_API_URL('passwords'),
       type: 'PUT',
       data: {
-        password_list: sjcl.encrypt(model.login.client_password(), model.list.toJSON()),
-        username: model.login.username(),
-        password: model.login.server_password()
+        password_list: sjcl.encrypt(login.client_password(), password_list.toJSON()),
+        username: login.username(),
+        password: login.server_password()
       }
     });
   };
@@ -465,7 +543,7 @@
   check_for_login = function(context) {
     var logged_in;
 
-    logged_in = model.login.logged_in();
+    logged_in = login.logged_in();
     if (!logged_in) {
       context.preventDefault();
       $.mobile.changePage('#login');
@@ -479,92 +557,88 @@
 
   routes = {
     'new': function() {
+      var current_entry;
+
       if (check_for_login(this)) {
-        return model.list.new_current(model.list.entries().length);
+        return current_entry = new Entry(-1);
       }
     },
     'save-current': function() {
-      model.list.save_current();
+      password_list.save(current_entry);
       save_changes();
       $.mobile.changePage("#passwords");
       return $('[data-role="listview"]').listview('refresh');
     },
     'edit~:index': function(index) {
-      return model.list.new_current(index);
+      return current_entry.actualize_to(password_list.get_entry(index));
     },
     'delete-current': function() {
-      model.list.delete_current();
+      password_list["delete"](current_entry);
       save_changes();
       return $.mobile.changePage("#passwords");
     },
     'details~:index': function(index) {
-      return model.list.new_current(index);
+      return current_entry.actualize_to(password_list.get_entry(index));
     },
     'login-server': function() {
-      if (model.login.check()) {
+      if (login.check()) {
         toggle_loading();
         return $.ajax({
           url: get_API_URL('passwords'),
           data: {
-            username: model.login.username(),
-            password: model.login.server_password()
+            username: login.username(),
+            password: login.server_password()
           },
           success: function(data, textStatus, jqXHR) {
-            var decrypted, error;
+            var decrypted;
 
-            toggle_loading();
-            try {
-              decrypted = sjcl.decrypt(model.login.client_password(), data);
-              model.list.fromJSON(decrypted);
-            } catch (_error) {
-              error = _error;
-              console.log('password_list is empty; starting with new one');
-            }
-            model.login.logged_in(true);
+            decrypted = sjcl.decrypt(login.client_password(), data);
+            password_list.fromJSON(decrypted);
+            login.logged_in(true);
             $.mobile.changePage('#passwords');
             return $('[data-role="listview"]').listview('refresh');
           },
           statusCode: {
             404: function() {
               toggle_loading();
-              model.login.username_not_found(true);
-              return model.login.authentification_failed(false);
+              login.username_not_found(true);
+              return login.authentification_failed(false);
             },
             403: function() {
               toggle_loading();
-              model.login.authentification_failed(true);
-              return model.login.username_not_found(false);
+              login.authentification_failed(true);
+              return login.username_not_found(false);
             }
           }
         });
       }
     },
     'register-server': function() {
-      if (model.login.check()) {
+      if (login.check()) {
         toggle_loading();
         return $.ajax({
           type: 'POST',
           url: get_API_URL('register'),
           data: {
-            username: model.login.username(),
-            password: model.login.server_password()
+            username: login.username(),
+            password: login.server_password()
           },
           statusCode: {
             201: function() {
               toggle_loading();
-              model.login.logged_in(true);
+              login.logged_in(true);
               return $.mobile.changePage('#passwords');
             },
             409: function() {
               toggle_loading();
-              return model.login.username_already_used(true);
+              return login.username_already_used(true);
             }
           }
         });
       }
     },
     'generate': function() {
-      return model.generator.regenerate();
+      return generator.regenerate();
     },
     'passwords': function() {
       return check_for_login(this);

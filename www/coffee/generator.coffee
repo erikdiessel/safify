@@ -14,6 +14,8 @@ class Generator
       @special_characters = ko.observable(false)
       @password = ko.computed =>
          @generate()
+         
+      @l = get_current_locale(@locales)   
       
    generate: =>
       allowed_characters = LETTERS
@@ -27,3 +29,40 @@ class Generator
       
    regenerate: =>
       @length.valueHasMutated() # triggers re-evaluation of password
+      
+   locales:
+      en:
+         generator: "Generator"
+         length: "Length"
+         uppercase: "Uppercase"
+         numbers: "Numbers"
+         special_characters: "Special Characters"
+         generate: "Generate"
+         
+         back: "Back"
+         passwords: "Passwords"
+         generator: "Generator"
+         
+      de:
+         generator: "Generator"      
+         length: "Länge"
+         uppercase: "Großbuchstaben"
+         numbers: "Zahlen"
+         special_characters: "Sonderzeichen"
+         generate: "Generieren"
+         
+         back: "Zurück"
+         passwords: "Passwörter"
+         generator: "Generator"
+         
+      fr:
+         generator: "Génératrice"
+         length: "Longueur"
+         uppercase: "Majuscules"
+         numbers: "Chiffres"
+         special_characters: "Charactères spécials"
+         generate: "Générer"
+         
+         back: "Retour"
+         passwords: "Mots de passe"
+         generator: "Génératrice"

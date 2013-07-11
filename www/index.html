@@ -23,30 +23,30 @@
       
       <div data-role="content">
       
-         <div data-bind="if: login.username_not_found">
+         <div data-bind="if: username_not_found">
             <span class="error" data-bind="text: l.username_not_found"></span>
          </div>
-         <div data-bind="if: login.authentification_failed">
+         <div data-bind="if: authentification_failed">
             <span class="error" data-bind="text: l.authentification_failed"></span>         
          </div>
-         <div data-bind="if: login.username_already_used">
+         <div data-bind="if: username_already_used">
             <span class="error" data-bind="text: l.username_already_used"></span>
          </div>
-         <div data-bind="if: login.username_missing">
+         <div data-bind="if: username_missing">
             <span class="error" data-bind="text: l.username_missing"></span>
          </div>
-         <div data-bind="if: login.password_missing">
+         <div data-bind="if: password_missing">
             <span class="error" data-bind="text: l.password_missing"></span>
          </div>
          
          <div data-role="fieldcontain">
             <label for="login_username" class="additional" data-bind="text: l.username"></label>
-            <input id ="login_username" class="important" data-bind="value: login.username, attr: { placeholder: l.username }" autofocus>
+            <input id ="login_username" class="important" data-bind="value: username, attr: { placeholder: l.username }" autofocus>
          </div>
          
          <div data-role="fieldcontain">
             <label for="login_password" class="additional" data-bind="text: l.master_password"></label>
-            <input id ="login_password" class="important" type="password" data-bind="value: login.password, attr: { placeholder: l.password }" class="login_on_enter">
+            <input id ="login_password" class="important" type="password" data-bind="value: password, attr: { placeholder: l.master_password }" class="login_on_enter">
          </div>
          
          <a href="#login-server" data-role="button" data-theme="b" data-icon="check"> <span data-bind="text: l.sign_in"/> </a>
@@ -88,7 +88,7 @@
         </div>
         
         <div data-role="content">
-            <ul data-role="listview" data-bind="foreach: list.entries, attr: { 'data-filter-placeholder': l.search }" data-split-icon="edit" data-filter="true">
+            <ul data-role="listview" data-bind="foreach: entries, attr: { 'data-filter-placeholder': l.search }" data-split-icon="edit" data-filter="true">
                <li>
                   <a data-bind="attr: { href: '#details~' + index() }" data-rel="dialog" data-transition="none">
                   <h1  data-bind="text: title"></h1>
@@ -128,17 +128,17 @@
       <div data-role="content">
          <div data-role="fieldcontain">
             <label for="new_title" class="additional" data-bind="text: l.title"></label>
-            <input id ="new_title" class="important" data-bind="value: list.current_entry.title, attr: { placeholder: l.title }">
+            <input id ="new_title" class="important" data-bind="value: title, attr: { placeholder: l.title }">
          </div>
          
          <div data-role="fieldcontain">
             <label for="new_username" class="additional" data-bind="text: l.username"></label>
-            <input id ="new_username" class="important" data-bind="value: list.current_entry.username, attr: { placeholder: l.username }">
+            <input id ="new_username" class="important" data-bind="value: username, attr: { placeholder: l.username }">
          </div>
          
          <div data-role="fieldcontain">
             <label for="new_password" class="additional" data-bind="text: l.password"></label>
-            <input id ="new_password" class="important" data-bind="value: list.current_entry.password, attr: {placeholder: l.password }">            
+            <input id ="new_password" class="important" data-bind="value: password, attr: {placeholder: l.password }">            
          </div>
          
          <a href="#save-current" data-role="button" data-icon="check" data-theme="b"> <span data-bind="text: l.save"/> </a>
@@ -155,17 +155,17 @@
       <div data-role="content">
          <div data-role="fieldcontain">
             <label for="edit_title" class="additional" data-bind="text: l.title"></label>
-            <input id="edit_title" class="important" data-bind="value: list.current_entry.title, attr: { placeholder: l.title }">
+            <input id="edit_title" class="important" data-bind="value: title, attr: { placeholder: l.title }">
          </div>
          
          <div data-role="fieldcontain">
             <label for="edit_username" class="additional" data-bind="text: l.username"></label>
-            <input id="edit_username" class="important" data-bind="value: list.current_entry.username, attr: { placeholder: l.username }">
+            <input id="edit_username" class="important" data-bind="value: username, attr: { placeholder: l.username }">
          </div>
          
          <div data-role="fieldcontain">
             <label for="edit_password" class="additional" data-bind="text: l.password"></label>
-            <input id="edit_password" class="important" data-bind="value: list.current_entry.password, attr: {placeholder: l.password }">            
+            <input id="edit_password" class="important" data-bind="value: password, attr: {placeholder: l.password }">            
          </div>
          
          <a href="#save-current" data-role="button" data-icon="check" data-theme="b"> <span data-bind="text: l.save"/> </a>
@@ -177,14 +177,14 @@
          <h1><span data-bind="text: l.details"></span></h1>
       </div>
       <div data-role="content">
-         <h2 data-bind="text: list.current_entry.title"></h2>
+         <h2 data-bind="text: title"></h2>
          <dl>
             <dt data-bind="text: l.username"></dt>
-            <dd data-bind="text: list.current_entry.username"></dd>
+            <dd data-bind="text: username"></dd>
             <dt data-bind="text: l.password"></dt>
-            <dd data-bind="text: list.current_entry.password"></dd>
+            <dd data-bind="text: password"></dd>
          </dl>
-         <a data-bind="attr: { href: list.current_entry.to_mail() }" data-role="button"> <span data-bind="text: l.share"></span> </a>
+         <a data-bind="attr: { href: to_mail() }" data-role="button"> <span data-bind="text: l.share"></span> </a>
          <a href="#passwords" data-role="button" data-theme="b" data-transition="none"> <span data-bind="text: l.back"/> </a>
       </div>
    </div>
@@ -199,18 +199,18 @@
       <div data-role="content">
          <form>
             <label for="tb_password"></label>
-            <input id="tb_password" class="important" data-bind="value: generator.password" readonly>
+            <input id="tb_password" class="important" data-bind="value: password" readonly>
             <a href="#generate" data-role="button" data-theme="b"> <span data-bind="text: l.generate"></span> </a>
             <div data-role="fieldcontain">
                <label for="slider_length" class="additional" data-bind="text:l.length"></label>
-               <input type="range" id="slider_length" data-bind="slider_value: generator.length" value="8" min="4" max="16" data-highlight="true">
+               <input type="range" id="slider_length" data-bind="slider_value: length" value="8" min="4" max="16" data-highlight="true">
             </div>
             <fieldset data-role="controlgroup">
-               <input type="checkbox" id="cb_uppercase" data-bind="checked: generator.uppercase">
+               <input type="checkbox" id="cb_uppercase" data-bind="checked: uppercase">
                <label for="cb_uppercase" data-bind="text: l.uppercase"></label>        
-               <input type="checkbox" id="cb_numbers" data-bind="checked: generator.numbers"> 
+               <input type="checkbox" id="cb_numbers" data-bind="checked: numbers"> 
                <label for="cb_numbers" data-bind="text: l.numbers"></label>
-               <input type="checkbox" id="cb_special_characters" data-bind="checked: generator.special_characters">
+               <input type="checkbox" id="cb_special_characters" data-bind="checked: special_characters">
                <label for="cb_special_characters" data-bind="text: l.special_characters"></label>
             </fieldset>
          </form>
