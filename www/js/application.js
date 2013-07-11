@@ -558,7 +558,7 @@
   routes = {
     'new': function() {
       if (check_for_login(this)) {
-        return window.current_entry = new Entry(-1);
+        return current_entry.actualize_to(new Entry(-1));
       }
     },
     'save-current': function() {

@@ -24,7 +24,7 @@ toggle_loading = ->
 routes =
    'new': ->
       if check_for_login(this)
-         window.current_entry = new Entry(-1) # index of -1 means: not saved
+         current_entry.actualize_to(new Entry(-1)) # index of -1 means: not saved
       
    'save-current': ->
       password_list.save(current_entry)
