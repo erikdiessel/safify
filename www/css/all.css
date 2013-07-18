@@ -92,10 +92,6 @@ dl {
    padding-top: 0.2rem;
 }
 
-.readonly > .ui-input-text {
-   background-color: #e6e6e6;
-}
-
 input.important {
    font-family: "DejaVu Sans Mono Bold", monospace;
 }
@@ -106,7 +102,7 @@ input.important {
 }
 
 label.additional {
-   color: #606060;
+   color: grey;
 }
 
 hr {

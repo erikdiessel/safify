@@ -50,7 +50,7 @@
          </div>
          
          <a href="#login-server" data-role="button" data-theme="b" data-icon="check"> <span data-bind="text: l.sign_in"/> </a>
-         <a href="#register-server" data-mini="true" data-role="button" data-icon="edit"> <span data-bind="text: l.register"/> </a>
+         <a href="#registration" data-mini="true" data-role="button" data-icon="edit"> <span data-bind="text: l.register"/> </a>
          
          <hr>
          
@@ -79,6 +79,31 @@
          </div>
       </div>
    </div>
+   
+   
+   
+   <div id="registration">
+      <div data-role="header">
+         <h1 data-bind="text: l.registration_title"></h1>
+      </div>
+      
+      <div data-role="content">
+         <div data-role="fieldcontain">
+            <label data-bind="text: l.username" class="additional"></label>
+            <span data-bind="text:username" class="username"></span>
+         </div>
+         
+         <div data-role="fieldcontain">
+            <label for="registration_password" class="additional" data-bind="text: l.password_repetition"></label>
+            <input id ="registration_password" class="important" type="password" data-bind="value: password_repetition, attr: { placeholder: l.master_password }">
+         </div>
+         
+         <a href="#register-server" data-role="button" data-icon="edit"> <span data-bind="text: l.register"/> </a>
+         
+      </div>
+   </div>
+   
+   
 
     <div id="passwords" data-role="page" data-bind="attr: { 'data-role': l.passwords }">
         <div data-role="header" data-position="fixed">
@@ -118,6 +143,8 @@
       </div>
     </div>
     
+    
+    
     <div id="new" data-role="page">   
       <div data-role="header" data-position="fixed">
          <a href="#passwords" data-icon="back" data-transition="none"> <span data-bind="text: l.back"/> </a>
@@ -144,6 +171,8 @@
          <a href="#save-current" data-role="button" data-icon="check" data-theme="b"> <span data-bind="text: l.save"/> </a>
       </div>   
     </div>
+    
+    
     
    <div id="edit" data-role="page">
       <div data-role="header" data-position="fixed">
@@ -172,6 +201,8 @@
        </div>
     </div>
     
+    
+    
    <div id="details" data-role="page">
       <div data-role="header">
          <h1><span data-bind="text: l.details"></span></h1>
@@ -188,6 +219,8 @@
          <a href="#passwords" data-role="button" data-theme="b" data-transition="none"> <span data-bind="text: l.back"/> </a>
       </div>
    </div>
+   
+   
    
    <div id="generator" data-role="page">
       <div data-role="header" data-position="fixed">
@@ -224,6 +257,9 @@
             </ul>
          </div>
       </div>
+      
+      
+      
    </div>
     
 </body>

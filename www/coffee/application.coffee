@@ -34,11 +34,13 @@ $(document).ready ->
    
 
    window.login = new Login()
+   window.registration = new Registration()
    window.password_list = new List()
    window.current_entry = new Entry()
    window.generator = new Generator()
    
    ko.applyBindings window.login,          document.querySelector('#login')
+   ko.applyBindings window.registration,   document.querySelector('#registration')
    ko.applyBindings window.password_list,  document.querySelector('#passwords')
    ko.applyBindings window.current_entry,  document.querySelector('#new')
    ko.applyBindings window.current_entry,  document.querySelector('#edit')
@@ -55,5 +57,3 @@ $(document).ready ->
       if event.which == 13
          login()
    )
-   
-   $('input[readonly]').parent().addClass('readonly')

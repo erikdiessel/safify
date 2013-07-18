@@ -97,3 +97,9 @@ routes =
    # redirect not logged-in users to the login-page
    'passwords': ->
       check_for_login(this)
+      
+   'registration': ->
+      if login.check()
+         registration.username(login.username())
+      else
+         this.preventDefault()

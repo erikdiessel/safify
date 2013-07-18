@@ -853,7 +853,7 @@ if (typeof module !== 'undefined' && module.exports) {
 }
 
 (function() {
-  var Entry, Generator, LETTERS, List, Login, NUMBERS, Router, SPECIALCHARS, UPPERCASE, check_for_login, get_API_URL, get_current_locale, letter, random, router, routes, save_changes, setupRoutes, toggle_loading,
+  var Entry, Generator, LETTERS, List, Login, NUMBERS, Registration, Router, SPECIALCHARS, UPPERCASE, check_for_login, get_API_URL, get_current_locale, letter, random, router, routes, save_changes, setupRoutes, toggle_loading,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   window.addEventListener('load', function() {
@@ -900,10 +900,12 @@ if (typeof module !== 'undefined' && module.exports) {
       }
     };
     window.login = new Login();
+    window.registration = new Registration();
     window.password_list = new List();
     window.current_entry = new Entry();
     window.generator = new Generator();
     ko.applyBindings(window.login, document.querySelector('#login'));
+    ko.applyBindings(window.registration, document.querySelector('#registration'));
     ko.applyBindings(window.password_list, document.querySelector('#passwords'));
     ko.applyBindings(window.current_entry, document.querySelector('#new'));
     ko.applyBindings(window.current_entry, document.querySelector('#edit'));
@@ -914,12 +916,11 @@ if (typeof module !== 'undefined' && module.exports) {
       $('a[href="#login-server"]').focus();
       return $('a[href="#login-server"]').click();
     };
-    $('.login_on_enter').keypress(function(event) {
+    return $('.login_on_enter').keypress(function(event) {
       if (event.which === 13) {
         return login();
       }
     });
-    return $('input[readonly]').parent().addClass('readonly');
   });
 
   LETTERS = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -1318,6 +1319,38 @@ if (typeof module !== 'undefined' && module.exports) {
 
   })();
 
+  Registration = (function() {
+    function Registration() {
+      this.username = ko.observable("");
+      this.password_repetition = ko.observable("");
+      this.l = get_current_locale(this.locales);
+    }
+
+    Registration.prototype.locales = {
+      en: {
+        registration_title: "Confirm Registration",
+        username: "Username",
+        password_repetition: "Password Repetition",
+        register: "Register"
+      },
+      de: {
+        registration_title: "Registrierung bestätigen",
+        username: "Benutzername",
+        register: "Registrieren",
+        password_repetition: "Passwort-Wiederholung"
+      },
+      fr: {
+        registration_title: "Confirmer enregistration",
+        username: "Nom d'utilisateur",
+        register: "Enregistrer",
+        password_repetition: "Mot de passe - confirmation"
+      }
+    };
+
+    return Registration;
+
+  })();
+
   Router = (function() {
     function Router() {
       this.route = __bind(this.route, this);
@@ -1494,6 +1527,13 @@ if (typeof module !== 'undefined' && module.exports) {
     },
     'passwords': function() {
       return check_for_login(this);
+    },
+    'registration': function() {
+      if (login.check()) {
+        return registration.username(login.username());
+      } else {
+        return this.preventDefault();
+      }
     }
   };
 
