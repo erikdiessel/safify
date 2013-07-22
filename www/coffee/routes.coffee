@@ -20,6 +20,7 @@ check_for_login = (context) ->
    
 toggle_loading = ->
    $('[href="#login-server"]').toggleClass('loading')
+   $('[href="#registration"]').toggleClass('loading')
    
 routes =
    'new': ->
@@ -47,6 +48,7 @@ routes =
       if login.check()
          toggle_loading()
          $.ajax
+            type: 'GET'
             url: get_API_URL('passwords')
             data:
                username: login.username()
@@ -99,7 +101,20 @@ routes =
       check_for_login(this)
       
    'registration': ->
+      this.preventDefault()
+      
       if login.check()
+         $.ajax
+            type: 'GET'
+            url: get_API_URL('username_not_used')
+            data:
+               username: login.username()
+            statusCode:
+               200:
+                  $.mobile.changePage('#registration')
+                  toggle_loading()
+               409:
+                  login.username_already_used(true)
+                  toggle_loading()
+                  
          registration.username(login.username())
-      else
-         this.preventDefault()

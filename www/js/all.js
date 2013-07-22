@@ -1481,6 +1481,7 @@ if (typeof module !== 'undefined' && module.exports) {
       if (login.check()) {
         toggle_loading();
         return $.ajax({
+          type: 'GET',
           url: get_API_URL('passwords'),
           data: {
             username: login.username(),
@@ -1541,10 +1542,16 @@ if (typeof module !== 'undefined' && module.exports) {
       return check_for_login(this);
     },
     'registration': function() {
+      this.preventDefault();
       if (login.check()) {
+        $.ajax({
+          type: 'GET',
+          url: get_API_URL('username_not_used'),
+          data: {
+            username: login.username()
+          }
+        });
         return registration.username(login.username());
-      } else {
-        return this.preventDefault();
       }
     }
   };
