@@ -21,15 +21,6 @@
    font-style: normal;
 }
 
-#details dd {
-   border: solid;
-   border-color: darkgray;
-   border-radius: 0.6rem;
-   padding: 0.5rem;
-   margin: 0.5rem;
-   background-color: #e3e3e3;
-}
-
 dt {
    color: grey;
 }
@@ -56,22 +47,16 @@ dl {
 
 [data-role="listview"] + [data-role="button"] {
    margin-top: 15px;
-   margin-left: -10px;
-   margin-right: -10px;
+   margin-left: -20px;
+   margin-right: -20px;
 }
 
 [data-role="listview"] .ui-link-inherit {
    padding-bottom: 0 !important;
 }
 
-
-#details h2 {
-   text-align: center;
-   margin: 0;
-}
-
-.danger .ui-btn-inner {
-   background-color: red;
+.danger {
+   background-color: red !important;
 }
 
 .error {
@@ -85,12 +70,9 @@ dl {
    margin-left: 1%;
 }
 
-#details [data-role="content"] {
-   padding-top: 0.2rem;
-}
-
-input.important {
+.important {
    font-family: "DejaVu Sans Mono Bold", monospace;
+   font-size: 120%;
 }
 
 #edit  > .ui-content,
@@ -98,8 +80,9 @@ input.important {
    padding-top: 0;
 }
 
-label.additional {
+.additional {
    color: grey;
+   font-weight: bold !important;
 }
 
 hr {
@@ -118,11 +101,96 @@ a {
    color: lightblue;
 }
 
-.loading .ui-icon {
-   background-image: url(images/ajax-loader.gif);
-   background-position: 0 0;
-   background-size: 18px 18px;
+
+/* Code for jquerymobile version 1.4 */
+
+.primary {
+   background-color: #396FB4 !important;
 }
+
+[data-role="listview"] dd {
+   font-weight: normal;
+}
+
+#details h2 {
+   text-align: center;
+   line-height: 0;
+}
+
+dd.important {
+   font-size: 150%;
+   text-align: center;
+   box-shadow: 0 0 0.8rem #396FB4;
+   padding: 0.5rem;
+   border-radius: 0.4rem;
+   margin-top: 0.4rem;
+}
+
+#details [data-role="content"] {
+   padding-top: 0;
+}
+
+
+/* Fixes bug: active state isn't removed on touch devices */
+[data-role="content"] .ui-btn-active.ui-btn {
+   background: #333 !important;
+   text-shadow: none !important;
+   border-color: #1D1D1D !important;
+}
+
+.noshadow .ui-btn:not(.ui-slider-handle) {
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+[data-role="dialog"] {
+   background-color: black !important;
+}
+
+.loading {
+   background-image: url(images/ajax-loader.gif) !important;
+   background-position: 7px !important;
+   background-size: 23px 23px !important;
+   background-repeat: no-repeat !important;
+}
+
+.loading.ui-icon-lock:after {
+   background-image: none !important;
+}
+
+p:first-letter {
+   font-size: 150%;
+}
+
+/* Fixes icons for text-inputs */
+
+input[class*="ui-icon-"] {
+    background-repeat: no-repeat;
+    background-position: 97% center;
+}
+
+input.ui-icon-user {
+    background-image: url(data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22iso-8859-1%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20%20width%3D%2214px%22%20height%3D%2214px%22%20viewBox%3D%220%200%2014%2014%22%20style%3D%22enable-background%3Anew%200%200%2014%2014%3B%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20fill%3D%22%23FFF%22%20d%3D%22M8.851%2C10.101c-.18-.399-.2-.763-.153-1.104C9.383%2C8.49%2C9.738%2C7.621%2C9.891%2C6.465C10.493%2C6.355%2C10.5%2C5.967%2C10.5%2C5.5%20c0-.437-.008-.804-.502-.94C9.999%2C4.539%2C10%2C4.521%2C10%2C4.5c0-2.103-1-4-2-4C8%2C0.5%2C7.5%2C0%2C6.5%2C0C5%2C0%2C4%2C1.877%2C4%2C4.5%20c0%2C0.021%2C0.001%2C0.039%2C0.002%2C0.06C3.508%2C4.696%2C3.5%2C5.063%2C3.5%2C5.5c0%2C0.467%2C0.007%2C0.855%2C0.609%2C0.965%20C4.262%2C7.621%2C4.617%2C8.49%2C5.303%2C8.997c0.047%2C0.341%2C0.026%2C0.704-.153%2C1.104C1.503%2C10.503%2C0%2C12%2C0%2C12v2h14v-2%20C14%2C12%2C12.497%2C10.503%2C8.851%2C10.101z%22%2F%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3C%2Fsvg%3E);
+}
+
+input.ui-icon-lock {
+   background-image: url(data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22iso-8859-1%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20%20width%3D%2212px%22%20height%3D%2214px%22%20viewBox%3D%220%200%2012%2014%22%20style%3D%22enable-background%3Anew%200%200%2012%2014%3B%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20fill%3D%22%23FFF%22%20d%3D%22M11%2C6V5c0-2.762-2.239-5-5-5S1%2C2.238%2C1%2C5v1H0v8h12V6H11z%20M6.5%2C9.847V12h-1V9.847C5.207%2C9.673%2C5%2C9.366%2C5%2C9%20c0-.553%2C0.448-1%2C1-1s1%2C0.447%2C1%2C1C7%2C9.366%2C6.793%2C9.673%2C6.5%2C9.847z%20M9%2C6H3V5c0-1.657%2C1.343-3%2C3-3s3%2C1.343%2C3%2C3V6z%22%2F%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3Cg%3E%3C%2Fg%3E%3C%2Fsvg%3E);
+}
+
+/* Fixes icon in dialog-header */
+[data-role="header"] .ui-icon-nodisc {
+   border: none;
+   background-color: transparent;
+}
+
+[data-role="header"] .ui-icon-nodisc:hover {
+   cursor: initial;
+   background-color: transparent;
+}
+
+/* END Code for jquerymobile version 1.4 */
+
 
 @media (min-width: 25em) {
    #passwords [data-role="content"] .ui-block-b > * {
@@ -161,36 +229,4 @@ a {
       font-size: 1.2rem;
    }
    
-   #details h2 {
-      font-size: 1.5rem;
-   }
-   
-   #details dt {
-      font-size: 0.9rem;
-   }
-   
-   #details dd {
-      font-size: 1.3rem;
-   }
-}
-
-@media (min-width: 35em) {
-   #details h2 {
-      font-size: 2rem;
-   }
-   
-   #details dt {
-      font-size: 0.9rem;
-   }
-   
-   #details dd {
-      font-size: 1.5rem;
-   }
-}
-   
-
-@media (max-width: 35em) and (orientation: landscape) {
-   #details dd {
-      padding-bottom: 0;
-   }
 }

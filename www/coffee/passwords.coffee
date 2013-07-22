@@ -51,7 +51,7 @@ class Entry
          save: "Save"
          'delete': "Delete"
          back: "Back"
-         
+         close: "Close"         
       de:
          title: "Titel"
          username: "Benutzername"
@@ -64,6 +64,7 @@ class Entry
          save: "Speichern"
          'delete': "Löschen"
          back: "Zurück"
+         close: "Schließen"
          
       fr:
          title: "Titre"
@@ -77,6 +78,7 @@ class Entry
          save: "Sauver"
          'delete': "Effacer"
          back: "Retour"
+         close: "Fermer"
       
 class List
    constructor: ->

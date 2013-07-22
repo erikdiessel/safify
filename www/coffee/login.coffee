@@ -34,7 +34,8 @@ class Login
       
    locales:
       en:
-         sign_in: "Sign In"
+         sign_in: "Open Passwords"
+         sign_in_short: "Open"
          register: "Register"
          username: "Username"
          master_password: "Master Password"
@@ -50,22 +51,31 @@ class Login
          security: "Security and Data Privacy"
          text_security: "
          <h3>We keep high standards in security.</h3>
-         <br>
+         <p>
          Your list of passwords is encrypted directly on your device and your master password too. We only get your encrypted data.
-         <br>
+         </p>
+         <p>
          For encryption, military grade algorithms are used: the <a href=\"https://en.wikipedia.org/wiki/Advanced_Encryption_Standard\" target=\"_blank\">Advanced Encryption Standard (AES)</a> and the <a href=\"https://en.wikipedia.org/wiki/PBKDF2\" target=\"_blank\">Password-Based Key Derivation Function 2 (PBKDF2)</a>.
-         <br>
+         </p>
+         <p>
          Nobody can access your data, including the author of the app and security agencies, as long as they can't guess your master password. <em>So make it safe.</em>
-         <br>
+         </p>
+         <p>
          The encrypted data is transmitted over <a href=\"https://en.wikipedia.org/wiki/Transport_Layer_Security\" target=\"_blank\">TLS</a> for additional security.
-         <br>
+         </p>
+         <p>
          We don't store anything except your encrypted data and your registration information.
-         <br>
+         </p>
+         <p>
          For making the app faster and available all the time, our partner <a href=\"https://cloudflare.com\" target=\"_blank\">Cloudflare</a> caches the publically available content of this app and sets a cookie. They never receive any of your private data. 
+         </p>
          <hr>
+         <p>
          Perfect security is not archievable, but Fortress of Keys lets you make a step in this direction.
-         <br>
+         </p>
+         <p>
          <i>Note however, that computer viruses or traditional espionage may comprise the security of your data. You have to protect yourself against this.</i>
+         </p>
          "
          
          legal_notice: "Legal Notice"
@@ -101,7 +111,8 @@ class Login
   
    
       de:
-         sign_in: "Anmelden"
+         sign_in: "Passwörter öffnen"
+         sign_in_short: "Öffnen"
          register: "Registrieren"
          username: "Benutzername"
          master_password: "Master-Passwort"
@@ -117,22 +128,31 @@ class Login
          security: "Sicherheit und Datenschutz"
          text_security: "
          <h3>Wir haben hohe Sicherheitsstandards</h3>
-         <br>
+         <p>
          Deine Passwortliste wird direkt auf deinem Gerät verschlüsselt, genauso wie dein Masterpasswort. Wir bekommen nur deine verschlüsselten Daten.
-         <br>
+         </p>
+         <p>
          Für die Verschlüsselung werden moderne, erprobte Verfahren verwendet: der <a href=\"https://de.wikipedia.org/wiki/Advanced_Encryption_Standard\" target=\"_blank\">Advanced Encryption Standard (AES)</a> und die <a href=\"https://de.wikipedia.org/wiki/PBKDF2\" target=\"_blank\">Password-Based Key Derivation Function 2 (PBKDF2)</a>.
-         <br>
+         </p>
+         <p>
          Niemand gelangt an deine Daten im Klartext, inklusive dem Autor und Sicherheitsbehörden, solange sie nicht dein Masterpasswort erraten. <em>Also verwende ein sicheres.</em>
-         <br>
+         </p>
+         <p>
          Die Daten werden für zusätzliche Sicherheit über <a href=\"https://en.wikipedia.org/wiki/Transport_Layer_Security\" target=\"_blank\">TLS</a> übertragen.
-         <br>
+         </p>
+         <p>
          Wir speichern nichts außer deinen verschlüsselten Daten und deinen Registrierdaten.
-         <br>
+         </p>
+         <p>
          Um die App flüssig und immer erreichbar zu halten speichert unser Partner <a href=\"https://cloudflare.com\" target=\"_blank\">Cloudflare</a> die öffentlich zugänglichen Teile dieser App zwischen und setzt einen Cookie. Sie empfangen keinerlei privaten Daten.
+         </p>
          <hr>
+         <p>
          Perfekte Sicherheit ist nicht erreichbar, aber Fortress of Keys lässt dich einen Schritt in diese Richtung machen.
-         <br>
+         </p>
+         <p>
          <i>Beachte jedoch, dass Computerviren oder klassische Spionage die Sicherheit deiner Daten gefährden können. Du musst dich dagegen schützen.</i>
+         </p>
          "
          legal_notice: "Impressum"
          text_legal_notice: "
@@ -165,7 +185,8 @@ class Login
          generator: "Generator"
          
       fr:
-         sign_in: "Connexion"
+         sign_in: "Ouvrir mots de passe"
+         sign_in_short: "Ouvrir"
          register: "Enregistrer"
          username: "Nom d'utilisateur"
          master_password: "Mot de passe principal"
@@ -181,22 +202,31 @@ class Login
          security: "Sécurité et protection des données"
          text_security: "
          <h3>Nous avons des standards de sécurité élevés.</h3>
-         <br>
+         <p>
          Ta liste de mots de passe ainsi que ton mot de passe principal est directement sécurisée sur ton appareil. Nous recevons que tes données sécurisées.
-         <br>
+         </p>
+         <p>
          Afin que tes mots de passe soient bien sécurisés, nous utilisons des techniques modernes et performants : <a href=\"https://fr.wikipedia.org/wiki/Advanced_Encryption_Standard\" target=\"_blank\">l'Advanced Encryption Standart (AES)</a>, ainsi que la <a href=\"https://en.wikipedia.org/wiki/PBKDF2\" target=\"_blank\">Password-Based Key Derivation Function 2 (PBKDF2)</a>.
-         <br>
+         </p>
+         <p>
          Personne n'accèdera à tes données, y compris l'auteur de l'application, et les autres personnes qui voudraient y accéder, à condition qu'ils ne trouvent pas ton mot de passe principal. <em>Ton mot de passe principal doit donc être sûr.</em>
-         <br>
+         </p>
+         <p>
          Les données sont transférés sur TLS afin de garantir plus de sécurité.
-         <br>
+         </p>
+         <p>
          Nous ne sauvegardons rien sauf tes données sécurisées ainsi que tes données inscrites lors de ton inscription.
-         <br>
+         </p>
+         <p>
          Afin que l'application soit rapide et toujours accessible, les données autres sont sauvegardées par notre partenaire Cloudfare, qui ajoute sur l'appareil un cookie. Ils ne récupèrent dans aucun cas des données privées.
+         </p>
          <hr>
+         <p>
          La sécurité parfaite n'est jamais possible, mais Fortress of Keys te permet de faire un pas dans cette direction.
-         <br>
+         </p>
+         <p>
          <i>Attention, les virus, ou l'espionnage de ton appareil risquent d'accéder à tes données. Tu dois te protéger contre eux.</i>
+         </p>
          "
          legal_notice: "Mentions légales"
          text_legal_notice: "

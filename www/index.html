@@ -12,13 +12,15 @@
    <script src="js/all.js"></script>
     
 </head>
-<body>
 
-   <div id="login" data-role="page" data-title="Fortress of Keys">
+<body class="ui-icon-nodisc noshadow">
+
+
+   <div id="login" data-role="page" data-title="Fortress of Keys" data-theme="b">
       <div data-role="header" data-position="fixed">
          <img src="images/logo/128.png" height="32">
          <h1> <span>Fortress of Keys</span> </h1>
-         <a href="#login-server" class="ui-btn-right" data-theme="b" data-icon="check"> <span data-bind="text: l.sign_in"/> </a>
+         <a href="#login-server" class="ui-btn-right primary" data-icon="lock"> <span data-bind="text: l.sign_in_short"/> </a>
       </div>
       
       <div data-role="content">
@@ -41,28 +43,28 @@
          
          <div data-role="fieldcontain">
             <label for="login_username" class="additional" data-bind="text: l.username"></label>
-            <input id ="login_username" class="important" data-bind="value: username, attr: { placeholder: l.username }" autofocus>
+            <input id ="login_username" class="important ui-icon-user" data-bind="value: username, attr: { placeholder: l.username }" autofocus>
          </div>
          
          <div data-role="fieldcontain">
             <label for="login_password" class="additional" data-bind="text: l.master_password"></label>
-            <input id ="login_password" class="important" type="password" data-bind="value: password, attr: { placeholder: l.master_password }" class="login_on_enter">
+            <input id ="login_password" class="important ui-icon-lock" type="password" data-bind="value: password, attr: { placeholder: l.master_password }" class="login_on_enter">
          </div>
          
-         <a href="#login-server" data-role="button" data-theme="b" data-icon="check"> <span data-bind="text: l.sign_in"/> </a>
-         <a href="#registration" data-mini="true" data-role="button" data-icon="edit"> <span data-bind="text: l.register"/> </a>
+         <a href="#login-server" data-role="button" class="primary" data-icon="lock"> <span data-bind="text: l.sign_in"/> </a>
+         <a href="#registration" data-mini="true" data-role="button" data-icon="edit" data-transition="none"> <span data-bind="text: l.register"/> </a>
          
          <hr>
          
          <h4 data-bind="html: l.short_description"></h4>
          
-         <div data-role="collapsible-set" data-content-theme="a">
-            <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+         <div data-role="collapsible-set">
+            <div data-role="collapsible" data-collapsed-icon="info" data-expanded-icon="arrow-d">
                <h3> <span data-bind="text: l.security"></span> </h3>
                <p data-bind="html: l.text_security"></p>
             </div>
             
-            <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+            <div data-role="collapsible" data-collapsed-icon="tag" data-expanded-icon="arrow-d">
                <h3> <span data-bind="text: l.legal_notice"></span> </h3>
                <p data-bind="html: l.text_legal_notice"></p>
             </div>
@@ -82,15 +84,16 @@
    
    
    
-   <div id="registration">
+   <div id="registration" data-role="dialog" data-theme="b" data-close-btn="right">
       <div data-role="header">
+         <button data-role="button" class="ui-icon-nodisc ui-btn-left" data-icon="edit" data-iconpos="notext"></button>
          <h1 data-bind="text: l.registration_title"></h1>
       </div>
       
       <div data-role="content">
          <div data-role="fieldcontain">
-            <label data-bind="text: l.username" class="additional"></label>
-            <span data-bind="text:username" class="username"></span>
+            <dt data-bind="text: l.username" class="additional"></dt>
+            <dd data-bind="text:username" class="important"></dd>
          </div>
          
          <div data-role="fieldcontain">
@@ -98,22 +101,22 @@
             <input id ="registration_password" class="important" type="password" data-bind="value: password_repetition, attr: { placeholder: l.master_password }">
          </div>
          
-         <a href="#register-server" data-role="button" data-icon="edit"> <span data-bind="text: l.register"/> </a>
-         
+         <a href="#register-server" data-role="button" class="primary" data-icon="edit"> <span data-bind="text: l.register"/> </a>
+         <a href="#login" data-role="button" data-icon="delete"> <span data-bind="text: l.cancel"></span> </a>
       </div>
    </div>
    
    
 
-    <div id="passwords" data-role="page" data-bind="attr: { 'data-role': l.passwords }">
+    <div id="passwords" data-role="page" data-theme="b">
         <div data-role="header" data-position="fixed">
             <img src="images/logo/128.png" height="32">
             <h1> <span data-bind="text: l.passwords"></span> </h1>
-            <a href="#new" class="ui-btn-right" data-icon="plus" data-theme="b" data-transition="none"> <span data-bind="text: l.new_entry"/> </a>
+            <a href="#new" class="ui-btn-right primary" data-icon="plus" data-transition="none"> <span data-bind="text: l.new_entry"/> </a>
         </div>
         
         <div data-role="content">
-            <ul data-role="listview" data-bind="foreach: entries, attr: { 'data-filter-placeholder': l.search }" data-split-icon="edit" data-filter="true">
+            <ul data-role="listview" data-bind="foreach: entries, attr: { 'data-filter-placeholder': l.search }" data-split-icon="edit" data-filter="true" data-filter-theme="b">
                <li>
                   <a data-bind="attr: { href: '#details~' + index() }" data-rel="dialog" data-transition="none">
                   <h1  data-bind="text: title"></h1>
@@ -130,7 +133,7 @@
                   <a data-bind="attr: { href: '#edit~' + index() }" data-transition="none"> </a>
                </li>
             </ul>
-            <a href="#new" data-role="button"  data-icon="plus" data-theme="b" data-transition="none"> <span data-bind="text: l.new_entry"/> </a>
+            <a href="#new" data-role="button" data-inset="true" data-icon="plus" class="primary" data-transition="none"> <span data-bind="text: l.new_entry"/> </a>
         </div>
         
       <div data-role="footer" data-position="fixed">
@@ -145,11 +148,11 @@
     
     
     
-    <div id="new" data-role="page">   
+    <div id="new" data-role="page" data-theme="b">   
       <div data-role="header" data-position="fixed">
-         <a href="#passwords" data-icon="back" data-transition="none"> <span data-bind="text: l.back"/> </a>
+         <a href="#passwords" data-icon="home" data-transition="none"> <span data-bind="text: l.back"/> </a>
          <h1> <span data-bind="text: l.new_entry"></span> </h1>
-         <a href="#save-current" data-role="button" data-icon="check" data-theme="b"> <span data-bind="text: l.save"/> </a>
+         <a href="#save-current" data-role="button" data-icon="cloud" class="primary"> <span data-bind="text: l.save"/> </a>
       </div>
       
       <div data-role="content">
@@ -168,15 +171,15 @@
             <input id ="new_password" class="important" data-bind="value: password, attr: {placeholder: l.password }">            
          </div>
          
-         <a href="#save-current" data-role="button" data-icon="check" data-theme="b"> <span data-bind="text: l.save"/> </a>
+         <a href="#save-current" data-role="button" data-icon="cloud" class="primary"> <span data-bind="text: l.save"/> </a>
       </div>   
     </div>
     
     
     
-   <div id="edit" data-role="page">
+   <div id="edit" data-role="page" data-theme="b">
       <div data-role="header" data-position="fixed">
-         <a href="#passwords" data-icon="back" data-transition="none"> <span data-bind="text: l.back"/> </a>
+         <a href="#passwords" data-icon="home" data-transition="none"> <span data-bind="text: l.back"/> </a>
          <h1> <span data-bind="text: l.edit"></span> </h1>
          <a href="#delete-current" class="danger" data-icon="delete"> <span data-bind="text: l.delete"/> </a>
       </div>
@@ -197,34 +200,40 @@
             <input id="edit_password" class="important" data-bind="value: password, attr: {placeholder: l.password }">            
          </div>
          
-         <a href="#save-current" data-role="button" data-icon="check" data-theme="b"> <span data-bind="text: l.save"/> </a>
+         <a href="#save-current" data-role="button" data-icon="cloud" class="primary"> <span data-bind="text: l.save"/> </a>
        </div>
     </div>
     
     
     
-   <div id="details" data-role="page">
+   <div id="details" data-role="page" data-theme="b" data-close-btn="right">
       <div data-role="header">
          <h1><span data-bind="text: l.details"></span></h1>
+         <button data-role="button" class="ui-icon-nodisc ui-btn-left" data-icon="bullets" data-iconpos="notext"></button>
       </div>
       <div data-role="content">
          <h2 data-bind="text: title"></h2>
-         <dl>
-            <dt data-bind="text: l.username"></dt>
-            <dd data-bind="text: username"></dd>
-            <dt data-bind="text: l.password"></dt>
-            <dd data-bind="text: password"></dd>
-         </dl>
-         <a data-bind="attr: { href: to_mail() }" data-role="button"> <span data-bind="text: l.share"></span> </a>
-         <a href="#passwords" data-role="button" data-theme="b" data-transition="none"> <span data-bind="text: l.back"/> </a>
+         
+         <div data-role="fieldcontain">
+            <dt data-bind="text: l.username" class="additional"></dt>
+            <dd data-bind="text: username" class="important"></dd>
+         </div>
+         
+         <div data-role="fieldcontain">
+            <dt data-bind="text: l.password" class="additional"></dt>
+            <dd data-bind="text: password" class="important"></dd>
+         </div>
+         
+         <a data-bind="attr: { href: to_mail() }" data-role="button" data-icon="mail"> <span data-bind="text: l.share"></span> </a>
+         <a href="#passwords" data-role="button" class="primary" data-icon="delete" data-transition="none"> <span data-bind="text: l.close"/> </a>
       </div>
    </div>
    
    
    
-   <div id="generator" data-role="page">
+   <div id="generator" data-role="page" data-theme="b">
       <div data-role="header" data-position="fixed">
-         <a href="#passwords" data-icon="back" data-transition="none"> <span data-bind="text: l.back"/> </a>
+         <a href="#passwords" data-icon="home" data-transition="none"> <span data-bind="text: l.back"/> </a>
          <h1><span data-bind="text: l.generator"></span></h1>
          <img src="images/logo/128.png" height="32" class="ui-btn-right">
       </div>
@@ -233,7 +242,7 @@
          <form>
             <label for="tb_password"></label>
             <input id="tb_password" class="important" data-bind="value: password" readonly>
-            <a href="#generate" data-role="button" data-theme="b"> <span data-bind="text: l.generate"></span> </a>
+            <a href="#generate" data-role="button" class="primary" data-icon="refresh"> <span data-bind="text: l.generate"></span> </a>
             <div data-role="fieldcontain">
                <label for="slider_length" class="additional" data-bind="text:l.length"></label>
                <input type="range" id="slider_length" data-bind="slider_value: length" value="8" min="4" max="16" data-highlight="true">
@@ -261,6 +270,5 @@
       
       
    </div>
-    
 </body>
 </html>
