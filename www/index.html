@@ -42,8 +42,8 @@
          </div>
          
          <div data-role="fieldcontain">
-            <label for="login_username" class="additional" data-bind="text: l.username"></label>
-            <input id ="login_username" class="important ui-icon-user" data-bind="value: username, attr: { placeholder: l.username }" autofocus>
+            <label for="login.sanitized_username()" class="additional" data-bind="text: l.username"></label>
+            <input id ="login.sanitized_username()" class="important ui-icon-user" data-bind="value: username, attr: { placeholder: l.username }" autofocus>
          </div>
          
          <div data-role="fieldcontain">
@@ -240,8 +240,7 @@
       
       <div data-role="content">
          <form>
-            <label for="tb_password"></label>
-            <input id="tb_password" class="important" data-bind="value: password" readonly>
+            <span class="important" data-bind="text: password" >
             <a href="#generate" data-role="button" class="primary" data-icon="refresh"> <span data-bind="text: l.generate"></span> </a>
             <div data-role="fieldcontain">
                <label for="slider_length" class="additional" data-bind="text:l.length"></label>

@@ -163,6 +163,7 @@
 
   Login = (function() {
     function Login() {
+      this.sanitized_username = __bind(this.sanitized_username, this);
       this.check = __bind(this.check, this);
       this.client_password = __bind(this.client_password, this);
       this.server_password = __bind(this.server_password, this);      this.username = ko.observable("");
@@ -196,6 +197,10 @@
       this.username_missing(this.username() === "");
       this.password_missing(this.password() === "");
       return !this.username_missing() && !this.password_missing();
+    };
+
+    Login.prototype.sanitized_username = function() {
+      return encodeURIComponent(this.username());
     };
 
     Login.prototype.locales = {
@@ -576,7 +581,7 @@
       type: 'PUT',
       data: {
         password_list: sjcl.encrypt(login.client_password(), password_list.toJSON()),
-        username: login.username(),
+        username: login.sanitized_username(),
         password: login.server_password()
       }
     });
@@ -594,7 +599,8 @@
   };
 
   toggle_loading = function() {
-    return $('[href="#login-server"]').toggleClass('loading');
+    $('[href="#login-server"]').toggleClass('loading');
+    return $('[href="#registration"]').toggleClass('loading');
   };
 
   routes = {
@@ -627,7 +633,7 @@
           type: 'GET',
           url: get_API_URL('passwords'),
           data: {
-            username: login.username(),
+            username: login.sanitized_username(),
             password: login.server_password()
           },
           success: function(data, textStatus, jqXHR) {
@@ -656,26 +662,16 @@
     },
     'register-server': function() {
       if (login.check()) {
-        toggle_loading();
-        return $.ajax({
+        $.ajax({
           type: 'POST',
           url: get_API_URL('register'),
           data: {
-            username: login.username(),
+            username: login.sanitized_username(),
             password: login.server_password()
-          },
-          statusCode: {
-            201: function() {
-              toggle_loading();
-              login.logged_in(true);
-              return $.mobile.changePage('#passwords');
-            },
-            409: function() {
-              toggle_loading();
-              return login.username_already_used(true);
-            }
           }
         });
+        login.logged_in(true);
+        return $.mobile.changePage('#passwords');
       }
     },
     'generate': function() {
@@ -691,7 +687,17 @@
           type: 'GET',
           url: get_API_URL('username_not_used'),
           data: {
-            username: login.username()
+            username: login.sanitized_username()
+          },
+          statusCode: {
+            200: function() {
+              toggle_loading();
+              return $.mobile.changePage('#registration');
+            },
+            409: function() {
+              login.username_already_used(true);
+              return toggle_loading();
+            }
           }
         });
         return registration.username(login.username());

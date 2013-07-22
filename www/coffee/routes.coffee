@@ -8,7 +8,7 @@ save_changes = ->
       type: 'PUT' 
       data:
          password_list: sjcl.encrypt(login.client_password(), password_list.toJSON())
-         username: login.username()
+         username: login.sanitized_username()
          password: login.server_password()
    
 check_for_login = (context) ->
@@ -51,7 +51,7 @@ routes =
             type: 'GET'
             url: get_API_URL('passwords')
             data:
-               username: login.username()
+               username: login.sanitized_username()
                password: login.server_password()
    
             success: (data, textStatus, jqXHR) ->
@@ -75,21 +75,15 @@ routes =
             
    'register-server': ->
       if login.check()
-         toggle_loading()
          $.ajax
             type: 'POST'
             url: get_API_URL('register')
             data: 
-               username: login.username()
+               username: login.sanitized_username()
                password: login.server_password()
-            statusCode:
-               201: ->
-                  toggle_loading()
-                  login.logged_in(true)
-                  $.mobile.changePage('#passwords')
-               409: ->
-                  toggle_loading()
-                  login.username_already_used(true)
+                     
+         login.logged_in(true)
+         $.mobile.changePage('#passwords')
 
       
    'generate': ->
@@ -108,13 +102,13 @@ routes =
             type: 'GET'
             url: get_API_URL('username_not_used')
             data:
-               username: login.username()
+               username: login.sanitized_username()
             statusCode:
-               200:
-                  $.mobile.changePage('#registration')
+               200: ->
                   toggle_loading()
-               409:
+                  $.mobile.changePage('#registration')
+               409: ->
                   login.username_already_used(true)
                   toggle_loading()
                   
-         registration.username(login.username())
+         registration.username(login.username())         

@@ -31,6 +31,8 @@ class Login
       @password_missing(@password() == "")
       not @username_missing() and not @password_missing()
       
+   sanitized_username: =>
+      encodeURIComponent(@username())
       
    locales:
       en:
