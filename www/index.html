@@ -43,12 +43,12 @@
          
          <div data-role="fieldcontain">
             <label for="login.sanitized_username()" class="additional" data-bind="text: l.username"></label>
-            <input id ="login.sanitized_username()" class="important ui-icon-user" data-bind="value: username, attr: { placeholder: l.username }" autofocus>
+            <input id ="login.sanitized_username()" class="monospace ui-icon-user" data-bind="value: username, attr: { placeholder: l.username }" autofocus>
          </div>
          
          <div data-role="fieldcontain">
             <label for="login_password" class="additional" data-bind="text: l.master_password"></label>
-            <input id ="login_password" class="important ui-icon-lock" type="password" data-bind="value: password, attr: { placeholder: l.master_password }" class="login_on_enter">
+            <input id ="login_password" class="monospace ui-icon-lock" type="password" data-bind="value: password, attr: { placeholder: l.master_password }" class="login_on_enter">
          </div>
          
          <a href="#login-server" data-role="button" class="primary" data-icon="lock"> <span data-bind="text: l.sign_in"/> </a>
@@ -98,7 +98,7 @@
          
          <div data-role="fieldcontain">
             <label for="registration_password" class="additional" data-bind="text: l.password_repetition"></label>
-            <input id ="registration_password" class="important" type="password" data-bind="value: password_repetition, attr: { placeholder: l.master_password }">
+            <input id ="registration_password" class="monospace" type="password" data-bind="value: password_repetition, attr: { placeholder: l.master_password }">
          </div>
          
          <a href="#register-server" data-role="button" class="primary" data-icon="edit"> <span data-bind="text: l.register"/> </a>
@@ -158,17 +158,17 @@
       <div data-role="content">
          <div data-role="fieldcontain">
             <label for="new_title" class="additional" data-bind="text: l.title"></label>
-            <input id ="new_title" class="important" data-bind="value: title, attr: { placeholder: l.title }">
+            <input id ="new_title" class="monospace" data-bind="value: title, attr: { placeholder: l.title }">
          </div>
          
          <div data-role="fieldcontain">
             <label for="new_username" class="additional" data-bind="text: l.username"></label>
-            <input id ="new_username" class="important" data-bind="value: username, attr: { placeholder: l.username }">
+            <input id ="new_username" class="monospace" data-bind="value: username, attr: { placeholder: l.username }">
          </div>
          
          <div data-role="fieldcontain">
             <label for="new_password" class="additional" data-bind="text: l.password"></label>
-            <input id ="new_password" class="important" data-bind="value: password, attr: {placeholder: l.password }">            
+            <input id ="new_password" class="monospace" data-bind="value: password, attr: {placeholder: l.password }">            
          </div>
          
          <a href="#save-current" data-role="button" data-icon="cloud" class="primary"> <span data-bind="text: l.save"/> </a>
@@ -187,23 +187,33 @@
       <div data-role="content">
          <div data-role="fieldcontain">
             <label for="edit_title" class="additional" data-bind="text: l.title"></label>
-            <input id="edit_title" class="important" data-bind="value: title, attr: { placeholder: l.title }">
+            <input id="edit_title" class="monospace" data-bind="value: title, attr: { placeholder: l.title }">
          </div>
          
          <div data-role="fieldcontain">
             <label for="edit_username" class="additional" data-bind="text: l.username"></label>
-            <input id="edit_username" class="important" data-bind="value: username, attr: { placeholder: l.username }">
+            <input id="edit_username" class="monospace" data-bind="value: username, attr: { placeholder: l.username }">
          </div>
          
          <div data-role="fieldcontain">
             <label for="edit_password" class="additional" data-bind="text: l.password"></label>
-            <input id="edit_password" class="important" data-bind="value: password, attr: {placeholder: l.password }">            
+            <input id="edit_password" class="monospace" data-bind="value: password, attr: {placeholder: l.password }">            
          </div>
          
          <a href="#save-current" data-role="button" data-icon="cloud" class="primary"> <span data-bind="text: l.save"/> </a>
        </div>
     </div>
     
+   <div id="delete" data-role="page" data-theme="b">
+      <div data-role="header">
+         <h1><span data-bind="text: l.title"></span></h1>
+         <button data-role="button" class="ui-icon-nodisc ui-btn-left" data-icon="alert" data-iconpos="notext"></button>
+      </div>
+      
+      <div data-role="content">
+         <a href="#delete-current" data-role="button" class="danger" data-icon="delete"> <span data-bind="text: l.delete"></span> </a>
+      </div>
+   </div>
     
     
    <div id="details" data-role="page" data-theme="b" data-close-btn="right">
@@ -221,7 +231,7 @@
          
          <div data-role="fieldcontain">
             <dt data-bind="text: l.password" class="additional"></dt>
-            <dd data-bind="text: password" class="important"></dd>
+            <dd data-bind="text: password" class="monospace"></dd>
          </div>
          
          <a data-bind="attr: { href: to_mail() }" data-role="button" data-icon="mail"> <span data-bind="text: l.share"></span> </a>
@@ -240,7 +250,9 @@
       
       <div data-role="content">
          <form>
-            <span class="important" data-bind="text: password" >
+            <div data-role="fieldcontain">
+               <span class="important" data-bind="text: password"></span>   
+            </div>
             <a href="#generate" data-role="button" class="primary" data-icon="refresh"> <span data-bind="text: l.generate"></span> </a>
             <div data-role="fieldcontain">
                <label for="slider_length" class="additional" data-bind="text:l.length"></label>

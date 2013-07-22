@@ -1037,17 +1037,17 @@ if (typeof module !== 'undefined' && module.exports) {
     Login.prototype.server_password = function() {
       var iterations, salt;
 
-      salt = [184, 83, 26, 133, 22, 40, 115, 123, 141, 115, 39, 53, 168, 172, 49, 165, 106, 215, 114, 180];
+      salt = [184, 83, 26, 133, 22, 40, 115, 123, 141, 115, 39, 53, 168, 172, 49, 165, 106, 215, 114, 180].concat(sjcl.hash.sha256.hash(this.username()));
       iterations = 2347;
-      return JSON.stringify(sjcl.misc.pbkdf2(this.password(), salt.concat(sjcl.hash.sha256.hash(this.username())), iterations));
+      return JSON.stringify(sjcl.misc.pbkdf2(this.password(), salt, iterations));
     };
 
     Login.prototype.client_password = function() {
       var iterations, salt;
 
-      salt = [71, 52, 235, 209, 156, 43, 102, 198, 190, 98, 3, 221, 187, 29, 74, 138, 50, 179, 179, 16];
+      salt = [71, 52, 235, 209, 156, 43, 102, 198, 190, 98, 3, 221, 187, 29, 74, 138, 50, 179, 179, 16].concat(sjcl.hash.sha256.hash(this.username()));
       iterations = 3497;
-      return JSON.stringify(sjcl.misc.pbkdf2(this.password(), salt.concat(sjcl.hash.sha256.hash(this.username())), iterations));
+      return JSON.stringify(sjcl.misc.pbkdf2(this.password(), salt, iterations));
     };
 
     Login.prototype.check = function() {

@@ -70,7 +70,7 @@ dl {
    margin-left: 1%;
 }
 
-.important {
+.monospace {
    font-family: "DejaVu Sans Mono Bold", monospace;
    font-size: 120%;
 }
@@ -117,7 +117,8 @@ a {
    line-height: 0;
 }
 
-dd.important {
+.important {
+   display: block;
    font-size: 150%;
    text-align: center;
    box-shadow: 0 0 0.8rem #396FB4;
