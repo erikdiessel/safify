@@ -75,7 +75,7 @@ class Entry
          share: "Envoyer par e-mail"
          
          edit: "Modifier"
-         save: "Sauver"
+         save: "Sauvegarder"
          'delete': "Effacer"
          back: "Retour"
          close: "Fermer"

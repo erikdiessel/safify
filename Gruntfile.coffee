@@ -25,4 +25,4 @@ module.exports = (grunt) ->
    grunt.loadNpmTasks('grunt-contrib-coffee')
    grunt.loadNpmTasks('grunt-contrib-watch')
    
-   grunt.registerTask 'default', ['coffee', 'concat', 'watch']
+   grunt.registerTask 'default', ['coffee', 'concat']

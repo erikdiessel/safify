@@ -136,8 +136,10 @@ a {
 
 
 /* Fixes bug: active state isn't removed on touch devices */
-[data-role="content"] .ui-btn-active.ui-btn {
-   background: #333 !important;
+[data-role="content"] .ui-btn-active.ui-btn
+[data-role="header"]  .ui-btn-active.ui-btn
+{
+   background-color: #333 !important;
    text-shadow: none !important;
    border-color: #1D1D1D !important;
 }

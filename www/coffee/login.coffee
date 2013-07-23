@@ -51,7 +51,7 @@ class Login
          authentification_failed: "The entered username or password is incorrect."
          username_already_used: "The username is already used. Choose another one."
          
-         short_description: "Fortress of Keys is a password manager app. It stores your precious passwords securely and accessible from every device. &nbsp; <em>Register now for free.</em>"
+         short_description: "Safify is a password manager app. Save precious passwords securely and accessible from every device. &nbsp; <em>Register now for free.</em>"
          security: "Security and Data Privacy"
          text_security: "
          <h3>We keep high standards in security.</h3>
@@ -128,7 +128,7 @@ class Login
          authentification_failed: "Der angegebene Benutzername oder das Passwort ist falsch."
          username_already_used: "Der Benutzername ist schon besetzt. Verwende einen anderen."
          
-         short_description: "Fortress of Keys ist eine Passwort-Manager-App. Sie speichert deine wertvollen Passwörter sicher und von jedem Gerät erreichbar ab. &nbsp; <em>Registriere dich jetzt kostenlos.</em>"
+         short_description: "Safify ist eine Passwort-Manager-App. Speichere deine wertvollen Passwörter sicher und von jedem Gerät erreichbar ab. &nbsp; <em>Registriere dich jetzt kostenlos.</em>"
          security: "Sicherheit und Datenschutz"
          text_security: "
          <h3>Wir haben hohe Sicherheitsstandards</h3>
@@ -202,7 +202,7 @@ class Login
          authentification_failed: "Le nom d'utilisateur ou le mot de passe est incorrect."
          username_already_used: "Ce nom d'utilisateur est déjà utilisé. Choisis un autre."
          
-         short_description: ""
+         short_description: "Safify est une application pour administrer tes mots de passe. Sauvegardes tes mots de passe en sécurité et consultable sur tous les appareils. &nbsp; <em>Enregistre-toi maintenant gratuitement."
          security: "Sécurité et protection des données"
          text_security: "
          <h3>Nous avons des standards de sécurité élevés.</h3>

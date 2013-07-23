@@ -1105,7 +1105,7 @@ if (typeof module !== 'undefined' && module.exports) {
         username_not_found: "Your entered username does not exist. New users should register first.",
         authentification_failed: "The entered username or password is incorrect.",
         username_already_used: "The username is already used. Choose another one.",
-        short_description: "Fortress of Keys is a password manager app. It stores your precious passwords securely and accessible from every device. &nbsp; <em>Register now for free.</em>",
+        short_description: "Safify is a password manager app. Save precious passwords securely and accessible from every device. &nbsp; <em>Register now for free.</em>",
         security: "Security and Data Privacy",
         text_security: "         <h3>We keep high standards in security.</h3>         <p>         Your list of passwords is encrypted directly on your device and your master password too. We only get your encrypted data.         </p>         <p>         For encryption, military grade algorithms are used: the <a href=\"https://en.wikipedia.org/wiki/Advanced_Encryption_Standard\" target=\"_blank\">Advanced Encryption Standard (AES)</a> and the <a href=\"https://en.wikipedia.org/wiki/PBKDF2\" target=\"_blank\">Password-Based Key Derivation Function 2 (PBKDF2)</a>.         </p>         <p>         Nobody can access your data, including the author of the app and security agencies, as long as they can't guess your master password. <em>So make it safe.</em>         </p>         <p>         The encrypted data is transmitted over <a href=\"https://en.wikipedia.org/wiki/Transport_Layer_Security\" target=\"_blank\">TLS</a> for additional security.         </p>         <p>         We don't store anything except your encrypted data and your registration information.         </p>         <p>         For making the app faster and available all the time, our partner <a href=\"https://cloudflare.com\" target=\"_blank\">Cloudflare</a> caches the publically available content of this app and sets a cookie. They never receive any of your private data.          </p>         <hr>         <p>         Perfect security is not archievable, but Fortress of Keys lets you make a step in this direction.         </p>         <p>         <i>Note however, that computer viruses or traditional espionage may comprise the security of your data. You have to protect yourself against this.</i>         </p>         ",
         legal_notice: "Legal Notice",
@@ -1124,7 +1124,7 @@ if (typeof module !== 'undefined' && module.exports) {
         username_not_found: "Der angegebene Benutzername existiert nicht. Als neuer Benutzer musst du dich erst registrieren.",
         authentification_failed: "Der angegebene Benutzername oder das Passwort ist falsch.",
         username_already_used: "Der Benutzername ist schon besetzt. Verwende einen anderen.",
-        short_description: "Fortress of Keys ist eine Passwort-Manager-App. Sie speichert deine wertvollen Passwörter sicher und von jedem Gerät erreichbar ab. &nbsp; <em>Registriere dich jetzt kostenlos.</em>",
+        short_description: "Safify ist eine Passwort-Manager-App. Speichere deine wertvollen Passwörter sicher und von jedem Gerät erreichbar ab. &nbsp; <em>Registriere dich jetzt kostenlos.</em>",
         security: "Sicherheit und Datenschutz",
         text_security: "         <h3>Wir haben hohe Sicherheitsstandards</h3>         <p>         Deine Passwortliste wird direkt auf deinem Gerät verschlüsselt, genauso wie dein Masterpasswort. Wir bekommen nur deine verschlüsselten Daten.         </p>         <p>         Für die Verschlüsselung werden moderne, erprobte Verfahren verwendet: der <a href=\"https://de.wikipedia.org/wiki/Advanced_Encryption_Standard\" target=\"_blank\">Advanced Encryption Standard (AES)</a> und die <a href=\"https://de.wikipedia.org/wiki/PBKDF2\" target=\"_blank\">Password-Based Key Derivation Function 2 (PBKDF2)</a>.         </p>         <p>         Niemand gelangt an deine Daten im Klartext, inklusive dem Autor und Sicherheitsbehörden, solange sie nicht dein Masterpasswort erraten. <em>Also verwende ein sicheres.</em>         </p>         <p>         Die Daten werden für zusätzliche Sicherheit über <a href=\"https://en.wikipedia.org/wiki/Transport_Layer_Security\" target=\"_blank\">TLS</a> übertragen.         </p>         <p>         Wir speichern nichts außer deinen verschlüsselten Daten und deinen Registrierdaten.         </p>         <p>         Um die App flüssig und immer erreichbar zu halten speichert unser Partner <a href=\"https://cloudflare.com\" target=\"_blank\">Cloudflare</a> die öffentlich zugänglichen Teile dieser App zwischen und setzt einen Cookie. Sie empfangen keinerlei privaten Daten.         </p>         <hr>         <p>         Perfekte Sicherheit ist nicht erreichbar, aber Fortress of Keys lässt dich einen Schritt in diese Richtung machen.         </p>         <p>         <i>Beachte jedoch, dass Computerviren oder klassische Spionage die Sicherheit deiner Daten gefährden können. Du musst dich dagegen schützen.</i>         </p>         ",
         legal_notice: "Impressum",
@@ -1143,7 +1143,7 @@ if (typeof module !== 'undefined' && module.exports) {
         username_not_found: "Ce nom d'utilisateur n'existe pas. Comme nouveau utilisateur il faut s'enregistrer.",
         authentification_failed: "Le nom d'utilisateur ou le mot de passe est incorrect.",
         username_already_used: "Ce nom d'utilisateur est déjà utilisé. Choisis un autre.",
-        short_description: "",
+        short_description: "Safify est une application pour administrer tes mots de passe. Sauvegardes tes mots de passe en sécurité et consultable sur tous les appareils. &nbsp; <em>Enregistre-toi maintenant gratuitement.",
         security: "Sécurité et protection des données",
         text_security: "         <h3>Nous avons des standards de sécurité élevés.</h3>         <p>         Ta liste de mots de passe ainsi que ton mot de passe principal est directement sécurisée sur ton appareil. Nous recevons que tes données sécurisées.         </p>         <p>         Afin que tes mots de passe soient bien sécurisés, nous utilisons des techniques modernes et performants : <a href=\"https://fr.wikipedia.org/wiki/Advanced_Encryption_Standard\" target=\"_blank\">l'Advanced Encryption Standart (AES)</a>, ainsi que la <a href=\"https://en.wikipedia.org/wiki/PBKDF2\" target=\"_blank\">Password-Based Key Derivation Function 2 (PBKDF2)</a>.         </p>         <p>         Personne n'accèdera à tes données, y compris l'auteur de l'application, et les autres personnes qui voudraient y accéder, à condition qu'ils ne trouvent pas ton mot de passe principal. <em>Ton mot de passe principal doit donc être sûr.</em>         </p>         <p>         Les données sont transférés sur TLS afin de garantir plus de sécurité.         </p>         <p>         Nous ne sauvegardons rien sauf tes données sécurisées ainsi que tes données inscrites lors de ton inscription.         </p>         <p>         Afin que l'application soit rapide et toujours accessible, les données autres sont sauvegardées par notre partenaire Cloudfare, qui ajoute sur l'appareil un cookie. Ils ne récupèrent dans aucun cas des données privées.         </p>         <hr>         <p>         La sécurité parfaite n'est jamais possible, mais Fortress of Keys te permet de faire un pas dans cette direction.         </p>         <p>         <i>Attention, les virus, ou l'espionnage de ton appareil risquent d'accéder à tes données. Tu dois te protéger contre eux.</i>         </p>         ",
         legal_notice: "Mentions légales",
@@ -1237,7 +1237,7 @@ if (typeof module !== 'undefined' && module.exports) {
         details: "Details",
         share: "Envoyer par e-mail",
         edit: "Modifier",
-        save: "Sauver",
+        save: "Sauvegarder",
         'delete': "Effacer",
         back: "Retour",
         close: "Fermer"
@@ -1370,7 +1370,7 @@ if (typeof module !== 'undefined' && module.exports) {
     function Registration() {
       this.check = __bind(this.check, this);      this.username = ko.observable("");
       this.password_repetition = ko.observable("");
-      this.repetition_wrong(false);
+      this.repetition_wrong = ko.observable(false);
       this.l = get_current_locale(this.locales);
     }
 
@@ -1389,21 +1389,24 @@ if (typeof module !== 'undefined' && module.exports) {
         username: "Username",
         password_repetition: "Password Repetition",
         register: "Register",
-        cancel: "Cancel"
+        cancel: "Cancel",
+        wrong_repetition: "Your repetition of the password is different from the password you entered before. Check if you made an error."
       },
       de: {
         registration_title: "Registrierung bestätigen",
         username: "Benutzername",
         register: "Registrieren",
         password_repetition: "Passwort-Wiederholung",
-        cancel: "Abbrechen"
+        cancel: "Abbrechen",
+        wrong_repetition: "Deine Wiederholung des Passwortes unterscheidet sich vom vorher eingegebenen Passwort. Prüfe nach, ob du dich vertippt hast."
       },
       fr: {
         registration_title: "Confirmer enregistration",
         username: "Nom d'utilisateur",
         register: "Enregistrer",
         password_repetition: "Mot de passe - confirmation",
-        cancel: "Annuler"
+        cancel: "Annuler",
+        wrong_repetition: "Ton répétition du mot de passe est different du mot de passe que tu as utilisé avant. Fais voir si tu as fais une faute."
       }
     };
 
@@ -1545,8 +1548,11 @@ if (typeof module !== 'undefined' && module.exports) {
             decrypted = sjcl.decrypt(login.client_password(), data);
             password_list.fromJSON(decrypted);
             login.logged_in(true);
-            $.mobile.changePage('#passwords');
-            return $('[data-role="listview"]').listview('refresh');
+            $.mobile.changePage('#passwords', {
+              transition: "none"
+            });
+            $('[data-role="listview"]').listview('refresh');
+            return toggle_loading();
           },
           statusCode: {
             404: function() {
@@ -1574,7 +1580,9 @@ if (typeof module !== 'undefined' && module.exports) {
           }
         });
         login.logged_in(true);
-        return $.mobile.changePage('#passwords');
+        return $.mobile.changePage('#passwords', {
+          transition: "none"
+        });
       }
     },
     'generate': function() {
@@ -1583,9 +1591,9 @@ if (typeof module !== 'undefined' && module.exports) {
     'passwords': function() {
       return check_for_login(this);
     },
-    'registration': function() {
-      this.preventDefault();
+    'check_for_username': function() {
       if (login.check()) {
+        toggle_loading();
         $.ajax({
           type: 'GET',
           url: get_API_URL('username_not_used'),
@@ -1595,7 +1603,9 @@ if (typeof module !== 'undefined' && module.exports) {
           statusCode: {
             200: function() {
               toggle_loading();
-              return $.mobile.changePage('#registration');
+              return $.mobile.changePage('#registration', {
+                transition: "none"
+              });
             },
             409: function() {
               login.username_already_used(true);
@@ -1603,7 +1613,9 @@ if (typeof module !== 'undefined' && module.exports) {
             }
           }
         });
-        return registration.username(login.username());
+        registration.username(login.username());
+        registration.repetition_wrong(false);
+        return registration.password_repetition("");
       }
     }
   };

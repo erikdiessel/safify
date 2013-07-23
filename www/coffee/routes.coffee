@@ -63,8 +63,9 @@ routes =
                password_list.fromJSON(decrypted)
                
                login.logged_in(true)
-               $.mobile.changePage('#passwords')
+               $.mobile.changePage('#passwords', { transition: "none" })
                $('[data-role="listview"]').listview('refresh')
+               toggle_loading()
                
             statusCode:
                404: ->
@@ -86,7 +87,7 @@ routes =
                password: login.server_password()
                      
          login.logged_in(true)
-         $.mobile.changePage('#passwords')
+         $.mobile.changePage('#passwords', { transition: "none" })
 
       
    'generate': ->
@@ -97,10 +98,10 @@ routes =
    'passwords': ->
       check_for_login(this)
       
-   'registration': ->
-      this.preventDefault()
-      
+   'check_for_username': ->
       if login.check()
+         toggle_loading()
+      
          $.ajax
             type: 'GET'
             url: get_API_URL('username_not_used')
@@ -109,10 +110,11 @@ routes =
             statusCode:
                200: ->
                   toggle_loading()
-                  $.mobile.changePage('#registration')
+                  $.mobile.changePage('#registration', { transition: "none" })
                409: ->
                   login.username_already_used(true)
                   toggle_loading()
                   
          registration.username(login.username())         
-         
+         registration.repetition_wrong(false)
+         registration.password_repetition("")
