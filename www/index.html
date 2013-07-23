@@ -19,7 +19,7 @@
    <div id="login" data-role="page" data-title="Fortress of Keys" data-theme="b">
       <div data-role="header" data-position="fixed">
          <img src="images/logo/128.png" height="32">
-         <h1> <span>Fortress of Keys</span> </h1>
+         <h1> <span>Safify</span> </h1>
          <a href="#login-server" class="ui-btn-right primary" data-icon="lock"> <span data-bind="text: l.sign_in_short"/> </a>
       </div>
       
@@ -124,7 +124,7 @@
                <li>
                   <a data-bind="attr: { href: '#details~' + index() }" data-rel="dialog" data-transition="none">
                   <h1  data-bind="text: title"></h1>
-                  <dl class="ui-grid-a">
+                  <div class="ui-grid-a">
                      <div class="ui-block-a">
                         <dt data-bind="text: $parent.l.username"></dt>
                         <dd data-bind="text: username" class="monospace"></dd>
@@ -133,7 +133,7 @@
                         <dt data-bind="text: $parent.l.password"></dt>
                         <dd data-bind="text: password" class="monospace"></dd>
                      </div>
-                  </dl>
+                  </div>
                   <a data-bind="attr: { href: '#edit~' + index() }" data-transition="none"> </a>
                </li>
             </ul>
@@ -156,7 +156,7 @@
       <div data-role="header" data-position="fixed">
          <a href="#passwords" data-icon="home" data-transition="none"> <span data-bind="text: l.back"/> </a>
          <h1> <span data-bind="text: l.new_entry"></span> </h1>
-         <a href="#save-current" data-role="button" data-icon="cloud" class="primary"> <span data-bind="text: l.save"/> </a>
+         <a href="#save-current" data-role="button" data-icon="cloud" class="primary"> <span data-bind="text: l.create"/> </a>
       </div>
       
       <div data-role="content">
@@ -175,7 +175,7 @@
             <input id ="new_password" class="monospace" data-bind="value: password, attr: {placeholder: l.password }">            
          </div>
          
-         <a href="#save-current" data-role="button" data-icon="cloud" class="primary"> <span data-bind="text: l.save"/> </a>
+         <a href="#save-current" data-role="button" data-icon="cloud" class="primary"> <span data-bind="text: l.create"/> </a>
       </div>   
     </div>
     

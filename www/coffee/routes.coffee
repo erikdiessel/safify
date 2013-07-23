@@ -1,5 +1,5 @@
 get_API_URL = (path) ->
-   baseURL = 'https://fortressofkeys-api.herokuapp.com/'
+   baseURL = 'https://safify-api.herokuapp.com/'
    baseURL + path
          
 save_changes = ->

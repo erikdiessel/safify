@@ -25,12 +25,9 @@ dt {
    color: grey;
 }
 
+/* reset */
 dd {
    margin-left: 0;
-}
-
-dl {
-   margin: 0;
 }
 
 [data-role="listview"] dd {
@@ -44,6 +41,7 @@ dl {
    margin-bottom: 0.3rem;
 }
 
+/* Place button under listview directly below */
 [data-role="listview"] + [data-role="button"] {
    margin-top: 15px;
    margin-left: -20px;
@@ -54,10 +52,12 @@ dl {
    padding-bottom: 0 !important;
 }
 
+/* Dangerous buttons */
 .danger {
    background-color: red !important;
 }
 
+/* Styling for error messages */
 .error {
    color: red;
    font-weight: bold;
@@ -103,6 +103,7 @@ a {
 
 /* Code for jquerymobile version 1.4 */
 
+/* Choose different background-color for primary and active buttons */
 .primary,
 .ui-btn-active,
 .ui-icon-checkbox-on:after
@@ -119,6 +120,7 @@ a {
    line-height: 0;
 }
 
+/* Lets stand out the element */
 .important {
    display: block;
    box-shadow: 0 0 0.8rem #396FB4;
@@ -154,6 +156,7 @@ a {
    background-color: black !important;
 }
 
+/* Show loading-animation */
 .loading {
    background-image: url(images/ajax-loader.gif) !important;
    background-position: 7px !important;
@@ -165,6 +168,7 @@ a {
    background-image: none !important;
 }
 
+/* Let first letter stand out */
 p:first-letter {
    font-size: 150%;
 }
@@ -199,12 +203,14 @@ input.ui-icon-lock {
 
 
 @media (min-width: 25em) {
+   /* Move password to the right, such that there is space for the title */
    #passwords [data-role="content"] .ui-block-b > * {
       margin-left: 3rem;
    }
 }
 
 @media (max-width: 25em) {
+   /* Stack username and password vertically */
    #passwords [data-role="content"] .ui-block-a,
    #passwords [data-role="content"] .ui-block-b {
       width: 100%;
@@ -215,7 +221,7 @@ input.ui-icon-lock {
       margin-left: 0;
    }
    
-   #login     [data-role="header"] h1,
+   /* Move title a bit to the left so you can see it fully */
    #passwords [data-role="header"] h1
    {
       margin-left: 0;

@@ -359,7 +359,9 @@
         save: "Save",
         'delete': "Delete",
         back: "Back",
-        close: "Close"
+        close: "Close",
+        new_entry: "New Entry",
+        create: "Create"
       },
       de: {
         title: "Titel",
@@ -371,7 +373,9 @@
         save: "Speichern",
         'delete': "Löschen",
         back: "Zurück",
-        close: "Schließen"
+        close: "Schließen",
+        new_entry: "Neuer Eintrag",
+        create: "Erstellen"
       },
       fr: {
         title: "Titre",
@@ -383,7 +387,9 @@
         save: "Sauvegarder",
         'delete': "Effacer",
         back: "Retour",
-        close: "Fermer"
+        close: "Fermer",
+        new_entry: "Nouvel article",
+        create: "Créer"
       }
     };
 
@@ -617,7 +623,7 @@
   get_API_URL = function(path) {
     var baseURL;
 
-    baseURL = 'https://fortressofkeys-api.herokuapp.com/';
+    baseURL = 'https://safify-api.herokuapp.com/';
     return baseURL + path;
   };
 
