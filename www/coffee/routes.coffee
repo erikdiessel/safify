@@ -77,7 +77,7 @@ routes =
                   login.username_not_found(false)
             
    'register-server': ->
-      if login.check()
+      if registration.check(login.password())
          $.ajax
             type: 'POST'
             url: get_API_URL('register')

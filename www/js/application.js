@@ -79,10 +79,22 @@
 
     Deletion.prototype.locales = {
       en: {
-        title: 'Delete ?',
-        question: 'Do you really want to delete the following entry:',
-        "delete": 'Delete',
-        cancel: 'Cancel'
+        title: "Delete ?",
+        question: "Do you really want to delete the following entry ?",
+        "delete": "Delete",
+        cancel: "Cancel"
+      },
+      de: {
+        title: "Löschen ?",
+        question: "Den folgenden Eintrag wirklich löschen ?",
+        "delete": "Löschen",
+        cancel: "Abbrechen"
+      },
+      fr: {
+        title: "Effacer ?",
+        question: "Tu veux vraiment effacer l'article suivante ?",
+        "delete": "Effacer",
+        cancel: "Annuller"
       }
     };
 
@@ -499,10 +511,20 @@
 
   Registration = (function() {
     function Registration() {
-      this.username = ko.observable("");
+      this.check = __bind(this.check, this);      this.username = ko.observable("");
       this.password_repetition = ko.observable("");
+      this.repetition_wrong(false);
       this.l = get_current_locale(this.locales);
     }
+
+    Registration.prototype.check = function(first_password) {
+      if (first_password === this.password_repetition()) {
+        return true;
+      } else {
+        this.repetition_wrong(true);
+        return false;
+      }
+    };
 
     Registration.prototype.locales = {
       en: {
@@ -685,7 +707,7 @@
       }
     },
     'register-server': function() {
-      if (login.check()) {
+      if (registration.check(login.password())) {
         $.ajax({
           type: 'POST',
           url: get_API_URL('register'),

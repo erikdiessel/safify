@@ -107,7 +107,7 @@ a {
 .ui-btn-active,
 .ui-icon-checkbox-on:after
 {
-   background-color: #396FB4 !important;
+   background-color: #3B82DD !important;
 }
 
 [data-role="listview"] dd {
@@ -159,7 +159,7 @@ a {
    background-repeat: no-repeat !important;
 }
 
-.loading.ui-icon-lock:after {
+.loading[class*="ui-icon-"]:after {
    background-image: none !important;
 }
 

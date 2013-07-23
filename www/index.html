@@ -91,6 +91,10 @@
       </div>
       
       <div data-role="content">
+         <div data-bind="if: repetition_wrong">
+            <span data-bind="text: l.wrong_repetition" class="error"></span>
+         </div>
+      
          <div data-role="fieldcontain">
             <dt data-bind="text: l.username" class="additional"></dt>
             <dd data-bind="text:username" class="important"></dd>
@@ -215,8 +219,15 @@
       <div data-role="content">
          <h3 data-bind="text: l.question"></h3>
          <h3 data-bind="text: entry_title" class="important"></h3>
-         <a href="#delete-current" data-role="button" class="danger" data-icon="delete"> <span data-bind="text: l.delete"></span> </a>
-         <a href="#passwords" data-role="button" class="primary" data-icon="forbidden"> <span data-bind="text: l.cancel"></span> </a>
+         <fieldset class="ui-grid-a">
+            <div class="ui-block-a">
+               <a href="#delete-current" data-role="button" class="danger" data-icon="delete"> <span data-bind="text: l.delete"></span> </a>
+            </div>
+            <div class="ui-block-b">
+               <a href="#passwords" data-role="button" class="primary" data-icon="forbidden"> <span data-bind="text: l.cancel"></span> </a>   
+            </div>
+         </fieldset>
+
       </div>
    </div>
     

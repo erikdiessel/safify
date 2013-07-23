@@ -2,8 +2,16 @@ class Registration
    constructor: ->
       @username = ko.observable("")
       @password_repetition = ko.observable("")
+      @repetition_wrong(false)
       
       @l = get_current_locale(@locales)
+      
+   check: (first_password) =>
+      if first_password == @password_repetition()
+         true
+      else
+         @repetition_wrong(true)
+         false
       
    locales:
       en:
