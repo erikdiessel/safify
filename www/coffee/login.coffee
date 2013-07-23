@@ -10,10 +10,23 @@ class Login
       @username_missing = ko.observable(false)
       @password_missing = ko.observable(false)
       
+      @firefox_webapp_installable = ko.observable(false)
+      if 'mozApps' of navigator
+         request = navigator.mozApps.checkInstalled('/manifest.webapp')
+         request.onerror = ->
+            console.log('Error with mozApps.checkInstalled')
+         request.onsuccess = =>
+            if request.result
+               console.log 'App installed'
+            else
+               @firefox_webapp_installable(true)
+      
       @l = get_current_locale(@locales)
 
    server_password: =>
-      salt = [ 184, 83, 26, 133, 22, 40, 115, 123, 141, 115, 39, 53, 168, 172, 49, 165, 106, 215, 114, 180 ].concat(sjcl.hash.sha256.hash(@username()))
+      salt = [184, 83, 26, 133, 22, 40, 115, 123, 141, 115,
+               39, 53, 168, 172, 49, 165, 106, 215, 114, 180]
+             .concat(sjcl.hash.sha256.hash(@username()))
          
       iterations = 2347
       JSON.stringify(
@@ -21,7 +34,9 @@ class Login
       )
 
    client_password: =>
-      salt = [ 71,52,235,209,156,43,102,198,190,98,3,221,187,29,74,138,50,179,179,16 ].concat(sjcl.hash.sha256.hash(@username()))
+      salt = [71,52,235,209,156,43,102,198,190,98,
+              3,221,187,29,74,138,50,179,179,16]
+             .concat(sjcl.hash.sha256.hash(@username()))
          
       iterations = 3497
       JSON.stringify(
@@ -51,7 +66,8 @@ class Login
          authentification_failed: "The entered username or password is incorrect."
          username_already_used: "The username is already used. Choose another one."
          
-         short_description: "Safify is a password manager app. Save precious passwords securely and accessible from every device. &nbsp; <em>Register now for free.</em>"
+         short_description: "Safify is a password manager app. Save your precious passwords securely and accessible from every device. &nbsp; <em>Register now for free.</em>"
+         install: "Install"
          security: "Security and Data Privacy"
          text_security: "
          <h3>We keep high standards in security.</h3>
@@ -129,6 +145,7 @@ class Login
          username_already_used: "Der Benutzername ist schon besetzt. Verwende einen anderen."
          
          short_description: "Safify ist eine Passwort-Manager-App. Speichere deine wertvollen Passwörter sicher und von jedem Gerät erreichbar ab. &nbsp; <em>Registriere dich jetzt kostenlos.</em>"
+         install: "Installieren"
          security: "Sicherheit und Datenschutz"
          text_security: "
          <h3>Wir haben hohe Sicherheitsstandards</h3>
@@ -203,6 +220,7 @@ class Login
          username_already_used: "Ce nom d'utilisateur est déjà utilisé. Choisis un autre."
          
          short_description: "Safify est une application pour administrer tes mots de passe. Sauvegardes tes mots de passe en sécurité et consultable sur tous les appareils. &nbsp; <em>Enregistre-toi maintenant gratuitement."
+         install: "Installer"
          security: "Sécurité et protection des données"
          text_security: "
          <h3>Nous avons des standards de sécurité élevés.</h3>

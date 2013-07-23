@@ -5,6 +5,8 @@
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
    
+   <meta name="description" content="Safify is a password manager app. Save your precious passwords securely and accessible from every device. It also generates secure passwords.">
+   
    <link rel="icon" href="images/logo/128.png">
     
    <link rel="stylesheet" type="text/css" href="css/all.css"> 
@@ -42,8 +44,8 @@
          </div>
          
          <div data-role="fieldcontain">
-            <label for="login.sanitized_username()" class="additional" data-bind="text: l.username"></label>
-            <input id ="login.sanitized_username()" class="monospace ui-icon-user" data-bind="value: username, attr: { placeholder: l.username }" autofocus>
+            <label for="login_username" class="additional" data-bind="text: l.username"></label>
+            <input id ="login_username" class="monospace ui-icon-user" data-bind="value: username, attr: { placeholder: l.username }" autofocus>
          </div>
          
          <div data-role="fieldcontain">
@@ -57,6 +59,10 @@
          <hr>
          
          <h4 data-bind="html: l.short_description"></h4>
+         
+         <div data-bind="if: firefox_webapp_installable">
+            <a href="#install_in_firefox" data-role="button" data-icon="arrow-d"> <span data-bind="text: l.install"/> </a>
+         </div>
          
          <div data-role="collapsible-set">
             <div data-role="collapsible" data-collapsed-icon="info" data-expanded-icon="arrow-d">

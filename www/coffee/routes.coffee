@@ -118,3 +118,10 @@ routes =
          registration.username(login.username())         
          registration.repetition_wrong(false)
          registration.password_repetition("")
+         
+   'install_in_firefox': ->
+      request = navigator.mozApps.install('/manifest.webapp')
+      request.onerror = ->
+         console.log 'Error during install'
+      request.onsuccess = ->
+         console.log 'Successfully installed'
