@@ -856,7 +856,7 @@ if (typeof module !== 'undefined' && module.exports) {
 }
 
 (function() {
-  var Entry, Generator, LETTERS, List, Login, NUMBERS, Registration, Router, SPECIALCHARS, UPPERCASE, check_for_login, get_API_URL, get_current_locale, letter, random, router, routes, save_changes, setupRoutes, toggle_loading,
+  var Deletion, Entry, Generator, LETTERS, List, Login, NUMBERS, Registration, Router, SPECIALCHARS, UPPERCASE, check_for_login, get_API_URL, get_current_locale, letter, random, router, routes, save_changes, setupRoutes, toggle_loading,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   window.addEventListener('load', function() {
@@ -906,12 +906,14 @@ if (typeof module !== 'undefined' && module.exports) {
     window.registration = new Registration();
     window.password_list = new List();
     window.current_entry = new Entry();
+    window.deletion = new Deletion();
     window.generator = new Generator();
     ko.applyBindings(window.login, document.querySelector('#login'));
     ko.applyBindings(window.registration, document.querySelector('#registration'));
     ko.applyBindings(window.password_list, document.querySelector('#passwords'));
     ko.applyBindings(window.current_entry, document.querySelector('#new'));
     ko.applyBindings(window.current_entry, document.querySelector('#edit'));
+    ko.applyBindings(window.deletion, document.querySelector('#deletion'));
     ko.applyBindings(window.current_entry, document.querySelector('#details'));
     ko.applyBindings(window.generator, document.querySelector('#generator'));
     setupRoutes();
@@ -925,6 +927,25 @@ if (typeof module !== 'undefined' && module.exports) {
       }
     });
   });
+
+  Deletion = (function() {
+    function Deletion() {
+      this.entry_title = ko.observable("");
+      this.l = get_current_locale(this.locales);
+    }
+
+    Deletion.prototype.locales = {
+      en: {
+        title: 'Delete ?',
+        question: 'Do you really want to delete the following entry:',
+        "delete": 'Delete',
+        cancel: 'Cancel'
+      }
+    };
+
+    return Deletion;
+
+  })();
 
   LETTERS = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
@@ -1474,6 +1495,9 @@ if (typeof module !== 'undefined' && module.exports) {
     },
     'edit~:index': function(index) {
       return current_entry.actualize_to(password_list.get_entry(index));
+    },
+    'deletion': function() {
+      return deletion.entry_title(current_entry.title());
     },
     'delete-current': function() {
       password_list["delete"](current_entry);

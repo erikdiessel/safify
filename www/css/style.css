@@ -27,7 +27,6 @@ dt {
 
 dd {
    margin-left: 0;
-   font-family: "DejaVu Sans Mono Bold", monospace;
 }
 
 dl {
@@ -104,7 +103,10 @@ a {
 
 /* Code for jquerymobile version 1.4 */
 
-.primary {
+.primary,
+.ui-btn-active,
+.ui-icon-checkbox-on:after
+{
    background-color: #396FB4 !important;
 }
 
@@ -119,9 +121,10 @@ a {
 
 .important {
    display: block;
+   box-shadow: 0 0 0.8rem #396FB4;
+   font-family: "DejaVu Sans Mono Bold", monospace;
    font-size: 150%;
    text-align: center;
-   box-shadow: 0 0 0.8rem #396FB4;
    padding: 0.5rem;
    border-radius: 0.4rem;
    margin-top: 0.4rem;

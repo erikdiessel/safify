@@ -123,11 +123,11 @@
                   <dl class="ui-grid-a">
                      <div class="ui-block-a">
                         <dt data-bind="text: $parent.l.username"></dt>
-                        <dd data-bind="text: username"></dd>
+                        <dd data-bind="text: username" class="monospace"></dd>
                      </div>
                      <div class="ui-block-b">
                         <dt data-bind="text: $parent.l.password"></dt>
-                        <dd data-bind="text: password"></dd>
+                        <dd data-bind="text: password" class="monospace"></dd>
                      </div>
                   </dl>
                   <a data-bind="attr: { href: '#edit~' + index() }" data-transition="none"> </a>
@@ -181,7 +181,7 @@
       <div data-role="header" data-position="fixed">
          <a href="#passwords" data-icon="home" data-transition="none"> <span data-bind="text: l.back"/> </a>
          <h1> <span data-bind="text: l.edit"></span> </h1>
-         <a href="#delete-current" class="danger" data-icon="delete"> <span data-bind="text: l.delete"/> </a>
+         <a href="#deletion" class="danger" data-icon="delete" data-rel="dialog" data-transition="none"> <span data-bind="text: l.delete"/> </a>
       </div>
        
       <div data-role="content">
@@ -204,17 +204,23 @@
        </div>
     </div>
     
-   <div id="delete" data-role="page" data-theme="b">
+    
+    
+   <div id="deletion" data-role="page" data-theme="b" data-close-btn="right">
       <div data-role="header">
          <h1><span data-bind="text: l.title"></span></h1>
          <button data-role="button" class="ui-icon-nodisc ui-btn-left" data-icon="alert" data-iconpos="notext"></button>
       </div>
       
       <div data-role="content">
+         <h3 data-bind="text: l.question"></h3>
+         <h3 data-bind="text: entry_title" class="important"></h3>
          <a href="#delete-current" data-role="button" class="danger" data-icon="delete"> <span data-bind="text: l.delete"></span> </a>
+         <a href="#passwords" data-role="button" class="primary" data-icon="forbidden"> <span data-bind="text: l.cancel"></span> </a>
       </div>
    </div>
     
+   
     
    <div id="details" data-role="page" data-theme="b" data-close-btn="right">
       <div data-role="header">
@@ -231,7 +237,7 @@
          
          <div data-role="fieldcontain">
             <dt data-bind="text: l.password" class="additional"></dt>
-            <dd data-bind="text: password" class="monospace"></dd>
+            <dd data-bind="text: password" class="important"></dd>
          </div>
          
          <a data-bind="attr: { href: to_mail() }" data-role="button" data-icon="mail"> <span data-bind="text: l.share"></span> </a>

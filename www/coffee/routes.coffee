@@ -36,6 +36,9 @@ routes =
    'edit~:index': (index) ->
       current_entry.actualize_to(password_list.get_entry(index))
       
+   'deletion': ->
+      deletion.entry_title(current_entry.title())
+      
    'delete-current': ->
       password_list.delete(current_entry)
       save_changes()
@@ -112,3 +115,4 @@ routes =
                   toggle_loading()
                   
          registration.username(login.username())         
+         

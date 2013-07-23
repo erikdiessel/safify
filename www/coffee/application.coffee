@@ -37,6 +37,7 @@ $(document).ready ->
    window.registration = new Registration()
    window.password_list = new List()
    window.current_entry = new Entry()
+   window.deletion = new Deletion()
    window.generator = new Generator()
    
    ko.applyBindings window.login,          document.querySelector('#login')
@@ -44,6 +45,7 @@ $(document).ready ->
    ko.applyBindings window.password_list,  document.querySelector('#passwords')
    ko.applyBindings window.current_entry,  document.querySelector('#new')
    ko.applyBindings window.current_entry,  document.querySelector('#edit')
+   ko.applyBindings window.deletion,       document.querySelector('#deletion')
    ko.applyBindings window.current_entry,  document.querySelector('#details')
    ko.applyBindings window.generator,      document.querySelector('#generator')
    
