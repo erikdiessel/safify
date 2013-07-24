@@ -1584,12 +1584,12 @@ if (typeof module !== 'undefined' && module.exports) {
             return toggle_loading();
           },
           statusCode: {
-            404: function() {
+            403: function() {
               toggle_loading();
               login.username_not_found(true);
               return login.authentification_failed(false);
             },
-            403: function() {
+            401: function() {
               toggle_loading();
               login.authentification_failed(true);
               return login.username_not_found(false);

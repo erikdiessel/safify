@@ -68,11 +68,11 @@ routes =
                toggle_loading()
                
             statusCode:
-               404: ->
+               403: ->
                   toggle_loading()
                   login.username_not_found(true)
                   login.authentification_failed(false)
-               403: ->
+               401: ->
                   toggle_loading()
                   login.authentification_failed(true)
                   login.username_not_found(false)
