@@ -12,7 +12,7 @@ class Login
       
       @firefox_webapp_installable = ko.observable(false)
       if 'mozApps' of navigator
-         request = navigator.mozApps.checkInstalled('/manifest.webapp')
+         request = navigator.mozApps.checkInstalled(manifest_url)
          request.onerror = ->
             console.log('Error with mozApps.checkInstalled')
          request.onsuccess = =>

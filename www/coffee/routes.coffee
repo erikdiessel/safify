@@ -21,7 +21,7 @@ check_for_login = (context) ->
 toggle_loading = ->
    $('[href="#login-server"]').toggleClass('loading')
    $('[href="#registration"]').toggleClass('loading')
-   
+
 routes =
    'new': ->
       if check_for_login(this)
@@ -120,7 +120,7 @@ routes =
          registration.password_repetition("")
          
    'install_in_firefox': ->
-      request = navigator.mozApps.install('/manifest.webapp')
+      request = navigator.mozApps.install(manifest_url)
       request.onerror = ->
          console.log 'Error during install'
       request.onsuccess = ->

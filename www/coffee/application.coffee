@@ -12,7 +12,7 @@ get_current_locale = (locales) ->
    locale = (navigator.language || navigator.userLanguage).substring(0,2)
    locales[locale] || locales['en']
    
-app_manifest_url = "http://safify.tk/manifest.webapp"
+manifest_url = "http://safify.tk/manifest.webapp"
 
 
 $(document).ready ->

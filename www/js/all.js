@@ -856,7 +856,7 @@ if (typeof module !== 'undefined' && module.exports) {
 }
 
 (function() {
-  var Deletion, Entry, Generator, LETTERS, List, Login, NUMBERS, Registration, Router, SPECIALCHARS, UPPERCASE, app_manifest_url, check_for_login, get_API_URL, get_current_locale, letter, random, router, routes, save_changes, setupRoutes, toggle_loading,
+  var Deletion, Entry, Generator, LETTERS, List, Login, NUMBERS, Registration, Router, SPECIALCHARS, UPPERCASE, check_for_login, get_API_URL, get_current_locale, letter, manifest_url, random, router, routes, save_changes, setupRoutes, toggle_loading,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   window.addEventListener('load', function() {
@@ -874,7 +874,7 @@ if (typeof module !== 'undefined' && module.exports) {
     return locales[locale] || locales['en'];
   };
 
-  app_manifest_url = "http://safify.tk/manifest.webapp";
+  manifest_url = "http://safify.tk/manifest.webapp";
 
   $(document).ready(function() {
     var login;
@@ -1072,7 +1072,7 @@ if (typeof module !== 'undefined' && module.exports) {
       this.password_missing = ko.observable(false);
       this.firefox_webapp_installable = ko.observable(false);
       if ('mozApps' in navigator) {
-        request = navigator.mozApps.checkInstalled('/manifest.webapp');
+        request = navigator.mozApps.checkInstalled(manifest_url);
         request.onerror = function() {
           return console.log('Error with mozApps.checkInstalled');
         };
@@ -1650,7 +1650,7 @@ if (typeof module !== 'undefined' && module.exports) {
     'install_in_firefox': function() {
       var request;
 
-      request = navigator.mozApps.install('/manifest.webapp');
+      request = navigator.mozApps.install(manifest_url);
       request.onerror = function() {
         return console.log('Error during install');
       };
