@@ -198,6 +198,7 @@
 
   Login = (function() {
     function Login() {
+      this.reset_error_messages = __bind(this.reset_error_messages, this);
       this.sanitized_username = __bind(this.sanitized_username, this);
       this.check = __bind(this.check, this);
       this.client_password = __bind(this.client_password, this);
@@ -213,6 +214,7 @@
       this.username_already_used = ko.observable(false);
       this.username_missing = ko.observable(false);
       this.password_missing = ko.observable(false);
+      this.no_connection = ko.observable(false);
       this.firefox_webapp_installable = ko.observable(false);
       if ('mozApps' in navigator) {
         request = navigator.mozApps.checkInstalled(manifest_url);
@@ -256,6 +258,15 @@
       return encodeURIComponent(this.username());
     };
 
+    Login.prototype.reset_error_messages = function() {
+      this.username_not_found(false);
+      this.authentification_failed(false);
+      this.username_already_used(false);
+      this.username_missing(false);
+      this.password_missing(false);
+      return this.no_connection(false);
+    };
+
     Login.prototype.locales = {
       en: {
         sign_in: "Open Passwords",
@@ -268,6 +279,7 @@
         username_not_found: "Your entered username does not exist. New users should register first.",
         authentification_failed: "The entered username or password is incorrect.",
         username_already_used: "The username is already used. Choose another one.",
+        no_connection: "You have currently no connection to the Internet. Try again later.",
         short_description: "Safify is a password manager app. Save your precious passwords securely and accessible from every device. &nbsp; <em>Register now for free.</em>",
         install: "Install",
         security: "Security and Data Privacy",
@@ -288,6 +300,7 @@
         username_not_found: "Der angegebene Benutzername existiert nicht. Als neuer Benutzer musst du dich erst registrieren.",
         authentification_failed: "Der angegebene Benutzername oder das Passwort ist falsch.",
         username_already_used: "Der Benutzername ist schon besetzt. Verwende einen anderen.",
+        no_connection: "Momentan hast du keine Verbindung zum Internet. Probiere es später erneut",
         short_description: "Safify ist eine Passwort-Manager-App. Speichere deine wertvollen Passwörter sicher und von jedem Gerät erreichbar ab. &nbsp; <em>Registriere dich jetzt kostenlos.</em>",
         install: "Installieren",
         security: "Sicherheit und Datenschutz",
@@ -308,6 +321,7 @@
         username_not_found: "Ce nom d'utilisateur n'existe pas. Comme nouveau utilisateur il faut s'enregistrer.",
         authentification_failed: "Le nom d'utilisateur ou le mot de passe est incorrect.",
         username_already_used: "Ce nom d'utilisateur est déjà utilisé. Choisis un autre.",
+        no_connection: "Maintenant, tu n'as pas de connection à l'Internet. Essaies une autre fois dans une minute.",
         short_description: "Safify est une application pour administrer tes mots de passe. Sauvegardes tes mots de passe en sécurité et consultable sur tous les appareils. &nbsp; <em>Enregistre-toi maintenant gratuitement.",
         install: "Installer",
         security: "Sécurité et protection des données",
@@ -324,7 +338,7 @@
   })();
 
   Entry = (function() {
-    function Entry(index, title, username, password) {
+    function Entry(index, title, username, password, notes) {
       this.set_index = __bind(this.set_index, this);
       this.get_index = __bind(this.get_index, this);
       this.actualize_to = __bind(this.actualize_to, this);
@@ -334,6 +348,7 @@
       this.title = ko.observable(title || "");
       this.username = ko.observable(username || "");
       this.password = ko.observable(password || "");
+      this.notes = ko.observable(notes || "");
       this.l = get_current_locale(this.locales);
     }
 
@@ -376,6 +391,7 @@
         title: "Title",
         username: "Username",
         password: "Password",
+        notes: "Additional information",
         details: "Details",
         share: "Send per Email",
         edit: "Edit",
@@ -390,6 +406,7 @@
         title: "Titel",
         username: "Benutzername",
         password: "Passwort",
+        notes: "Notizen",
         details: "Details",
         share: "Per E-Mail versenden",
         edit: "Bearbeiten",
@@ -404,6 +421,7 @@
         title: "Titre",
         username: "Nom d'utilisateur",
         password: "Mot de passe",
+        notes: "Notes",
         details: "Details",
         share: "Envoyer par e-mail",
         edit: "Modifier",
@@ -729,13 +747,18 @@
           statusCode: {
             403: function() {
               toggle_loading();
-              login.username_not_found(true);
-              return login.authentification_failed(false);
+              login.reset_error_messages();
+              return login.username_not_found(true);
             },
             401: function() {
               toggle_loading();
-              login.authentification_failed(true);
-              return login.username_not_found(false);
+              login.reset_error_messages();
+              return login.authentification_failed(true);
+            },
+            404: function() {
+              toggle_loading();
+              login.reset_error_messages();
+              return login.no_connection(true);
             }
           }
         });
@@ -775,11 +798,13 @@
           statusCode: {
             200: function() {
               toggle_loading();
+              login.reset_error_messages();
               return $.mobile.changePage('#registration', {
                 transition: "none"
               });
             },
             409: function() {
+              login.reset_error_messages();
               login.username_already_used(true);
               return toggle_loading();
             }

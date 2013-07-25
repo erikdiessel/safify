@@ -70,12 +70,16 @@ routes =
             statusCode:
                403: ->
                   toggle_loading()
+                  login.reset_error_messages()
                   login.username_not_found(true)
-                  login.authentification_failed(false)
                401: ->
                   toggle_loading()
+                  login.reset_error_messages()
                   login.authentification_failed(true)
-                  login.username_not_found(false)
+               404: ->
+                  toggle_loading()
+                  login.reset_error_messages()
+                  login.no_connection(true)
             
    'register-server': ->
       if registration.check(login.password())
@@ -110,8 +114,10 @@ routes =
             statusCode:
                200: ->
                   toggle_loading()
+                  login.reset_error_messages()
                   $.mobile.changePage('#registration', { transition: "none" })
                409: ->
+                  login.reset_error_messages()
                   login.username_already_used(true)
                   toggle_loading()
                   

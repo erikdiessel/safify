@@ -9,6 +9,7 @@ class Login
       @username_already_used = ko.observable(false)
       @username_missing = ko.observable(false)
       @password_missing = ko.observable(false)
+      @no_connection = ko.observable(false)
       
       @firefox_webapp_installable = ko.observable(false)
       if 'mozApps' of navigator
@@ -51,6 +52,14 @@ class Login
    sanitized_username: =>
       encodeURIComponent(@username())
       
+   reset_error_messages: =>
+      @username_not_found        (false)
+      @authentification_failed   (false)
+      @username_already_used     (false)
+      @username_missing          (false)
+      @password_missing          (false)
+      @no_connection             (false)
+      
    locales:
       en:
          sign_in: "Open Passwords"
@@ -65,6 +74,7 @@ class Login
          username_not_found: "Your entered username does not exist. New users should register first."
          authentification_failed: "The entered username or password is incorrect."
          username_already_used: "The username is already used. Choose another one."
+         no_connection: "You have currently no connection to the Internet. Try again later."
          
          short_description: "Safify is a password manager app. Save your precious passwords securely and accessible from every device. &nbsp; <em>Register now for free.</em>"
          install: "Install"
@@ -143,6 +153,7 @@ class Login
          username_not_found: "Der angegebene Benutzername existiert nicht. Als neuer Benutzer musst du dich erst registrieren."
          authentification_failed: "Der angegebene Benutzername oder das Passwort ist falsch."
          username_already_used: "Der Benutzername ist schon besetzt. Verwende einen anderen."
+         no_connection: "Momentan hast du keine Verbindung zum Internet. Probiere es später erneut"
          
          short_description: "Safify ist eine Passwort-Manager-App. Speichere deine wertvollen Passwörter sicher und von jedem Gerät erreichbar ab. &nbsp; <em>Registriere dich jetzt kostenlos.</em>"
          install: "Installieren"
@@ -218,6 +229,7 @@ class Login
          username_not_found: "Ce nom d'utilisateur n'existe pas. Comme nouveau utilisateur il faut s'enregistrer."
          authentification_failed: "Le nom d'utilisateur ou le mot de passe est incorrect."
          username_already_used: "Ce nom d'utilisateur est déjà utilisé. Choisis un autre."
+         no_connection: "Maintenant, tu n'as pas de connection à l'Internet. Essaies une autre fois dans une minute."
          
          short_description: "Safify est une application pour administrer tes mots de passe. Sauvegardes tes mots de passe en sécurité et consultable sur tous les appareils. &nbsp; <em>Enregistre-toi maintenant gratuitement."
          install: "Installer"

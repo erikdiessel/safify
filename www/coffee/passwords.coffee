@@ -1,9 +1,10 @@
 class Entry
-   constructor: (index, title, username, password) ->
+   constructor: (index, title, username, password, notes) ->
       @index = ko.observable(index || 0)
       @title = ko.observable(title || "")
       @username = ko.observable(username || "")
       @password = ko.observable(password || "")
+      @notes = ko.observable(notes || "")
       
       @l = get_current_locale(@locales)
       
@@ -43,6 +44,7 @@ class Entry
          title: "Title"
          username: "Username"
          password: "Password"
+         notes: "Additional information"
          
          details: "Details"
          share: "Send per Email"
@@ -60,6 +62,7 @@ class Entry
          title: "Titel"
          username: "Benutzername"
          password: "Passwort"
+         notes: "Notizen"
          
          details: "Details"      
          share: "Per E-Mail versenden"
@@ -77,6 +80,7 @@ class Entry
          title: "Titre"
          username: "Nom d'utilisateur"
          password: "Mot de passe"
+         notes: "Notes"
          
          details: "Details"
          share: "Envoyer par e-mail"

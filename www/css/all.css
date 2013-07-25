@@ -117,7 +117,8 @@ a {
 
 /* Choose different background-color for primary and active buttons */
 .primary,
-.ui-btn-active,
+.ui-state-persist.ui-btn-active,
+.ui-slider-bg,
 .ui-icon-checkbox-on:after
 {
    background-color: #3B82DD !important;
@@ -150,7 +151,7 @@ a {
 
 
 /* Fixes bug: active state isn't removed on touch devices */
-[data-role="content"] .ui-btn-active.ui-btn
+[data-role="content"] .ui-btn-active.ui-btn,
 [data-role="header"]  .ui-btn-active.ui-btn
 {
    background-color: #333 !important;
@@ -209,6 +210,11 @@ input.ui-icon-lock {
 [data-role="header"] .ui-icon-nodisc:hover {
    cursor: initial;
    background-color: transparent;
+}
+
+/* Make notes small enough */
+textarea {
+   font-size: 100% !important;
 }
 
 /* END Code for jquerymobile version 1.4 */

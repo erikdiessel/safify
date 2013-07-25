@@ -42,6 +42,10 @@
          <div data-bind="if: password_missing">
             <span class="error" data-bind="text: l.password_missing"></span>
          </div>
+         <div data-bind="if: no_connection">
+            <span class="error" data-bind="text: l.no_connection"></span>
+         </div>
+         
          
          <div data-role="fieldcontain">
             <label for="login_username" class="additional" data-bind="text: l.username"></label>
@@ -103,7 +107,7 @@
       
          <div data-role="fieldcontain">
             <dt data-bind="text: l.username" class="additional"></dt>
-            <dd data-bind="text:username" class="important"></dd>
+            <dd data-bind="text: username" class="important"></dd>
          </div>
          
          <div data-role="fieldcontain">
@@ -167,18 +171,23 @@
       
       <div data-role="content">
          <div data-role="fieldcontain">
-            <label for="new_title" class="additional" data-bind="text: l.title"></label>
-            <input id ="new_title" class="monospace" data-bind="value: title, attr: { placeholder: l.title }">
+            <label for="new.title" class="additional" data-bind="text: l.title"></label>
+            <input id ="new.title" class="monospace"  data-bind="value: title, attr: { placeholder: l.title }">
          </div>
          
          <div data-role="fieldcontain">
-            <label for="new_username" class="additional" data-bind="text: l.username"></label>
-            <input id ="new_username" class="monospace" data-bind="value: username, attr: { placeholder: l.username }">
+            <label for="new.username" class="additional" data-bind="text: l.username"></label>
+            <input id ="new.username" class="monospace"  data-bind="value: username, attr: { placeholder: l.username }">
          </div>
          
          <div data-role="fieldcontain">
-            <label for="new_password" class="additional" data-bind="text: l.password"></label>
-            <input id ="new_password" class="monospace" data-bind="value: password, attr: {placeholder: l.password }">            
+            <label for="new.password" class="additional" data-bind="text: l.password"></label>
+            <input id ="new.password" class="monospace"  data-bind="value: password, attr: {placeholder: l.password }">            
+         </div>
+         
+         <div data-role="fieldcontain">
+            <label for="new.notes" class="additional" data-bind="text: l.notes"></label>
+            <textarea id ="new.notes" data-bind="value:  notes, attr: {placeholder: l.notes }"></textarea>
          </div>
          
          <a href="#save-current" data-role="button" data-icon="cloud" class="primary"> <span data-bind="text: l.create"/> </a>
@@ -257,7 +266,7 @@
             <dd data-bind="text: password" class="important"></dd>
          </div>
          
-         <a data-bind="attr: { href: to_mail() }" data-role="button" data-icon="mail"> <span data-bind="text: l.share"></span> </a>
+         <a data-bind="attr: { href: to_mail() }" data-role="button" data-icon="mail" data-mini="true"> <span data-bind="text: l.share"></span> </a>
          <a href="#passwords" data-role="button" class="primary" data-icon="delete" data-transition="none"> <span data-bind="text: l.close"/> </a>
       </div>
    </div>
