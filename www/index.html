@@ -64,7 +64,7 @@
          
          <h4 data-bind="html: l.short_description"></h4>
          
-         <div data-bind="if: firefox_webapp_installable">
+         <div data-bind="visible: firefox_webapp_installable">
             <a href="#install_in_firefox" data-role="button" data-icon="arrow-d"> <span data-bind="text: l.install"/> </a>
          </div>
          
@@ -187,7 +187,7 @@
          
          <div data-role="fieldcontain">
             <label for="new.notes" class="additional" data-bind="text: l.notes"></label>
-            <textarea id ="new.notes" data-bind="value:  notes, attr: {placeholder: l.notes }"></textarea>
+            <textarea id ="new.notes" data-bind="value: notes, attr: {placeholder: l.notes }"></textarea>
          </div>
          
          <a href="#save-current" data-role="button" data-icon="cloud" class="primary"> <span data-bind="text: l.create"/> </a>
@@ -200,24 +200,31 @@
       <div data-role="header" data-position="fixed">
          <a href="#passwords" data-icon="home" data-transition="none"> <span data-bind="text: l.back"/> </a>
          <h1> <span data-bind="text: l.edit"></span> </h1>
-         <a href="#deletion" class="danger" data-icon="delete" data-rel="dialog" data-transition="none"> <span data-bind="text: l.delete"/> </a>
+         <a href="#save-current" data-icon="cloud" class="primary"> <span data-bind="text: l.save"/> </a>
       </div>
        
       <div data-role="content">
          <div data-role="fieldcontain">
-            <label for="edit_title" class="additional" data-bind="text: l.title"></label>
-            <input id="edit_title" class="monospace" data-bind="value: title, attr: { placeholder: l.title }">
+            <label for="edit.title" class="additional" data-bind="text: l.title"></label>
+            <input id="edit.title" class="monospace" data-bind="value: title, attr: { placeholder: l.title }">
          </div>
          
          <div data-role="fieldcontain">
-            <label for="edit_username" class="additional" data-bind="text: l.username"></label>
-            <input id="edit_username" class="monospace" data-bind="value: username, attr: { placeholder: l.username }">
+            <label for="edit.username" class="additional" data-bind="text: l.username"></label>
+            <input id="edit.username" class="monospace" data-bind="value: username, attr: { placeholder: l.username }">
          </div>
          
          <div data-role="fieldcontain">
-            <label for="edit_password" class="additional" data-bind="text: l.password"></label>
-            <input id="edit_password" class="monospace" data-bind="value: password, attr: {placeholder: l.password }">            
+            <label for="edit.password" class="additional" data-bind="text: l.password"></label>
+            <input id="edit.password" class="monospace" data-bind="value: password, attr: {placeholder: l.password }">            
          </div>
+         
+         <div data-role="fieldcontain">
+            <label for="edit.notes" class="additional" data-bind="text: l.notes"></label>
+            <textarea id ="edit.notes" class="notes" data-bind="value: notes, attr: {placeholder: l.notes }"></textarea>
+         </div>
+         
+         <a href="#deletion" data-role="button" class="danger" data-mini="true" data-icon="delete" data-rel="dialog" data-transition="none"> <span data-bind="text: l.delete"/> </a>
          
          <a href="#save-current" data-role="button" data-icon="cloud" class="primary"> <span data-bind="text: l.save"/> </a>
        </div>
@@ -258,12 +265,19 @@
          
          <div data-role="fieldcontain">
             <dt data-bind="text: l.username" class="additional"></dt>
-            <dd data-bind="text: username" class="important"></dd>
+            <dd data-bind="text: username" class="important monospace"></dd>
          </div>
          
          <div data-role="fieldcontain">
             <dt data-bind="text: l.password" class="additional"></dt>
-            <dd data-bind="text: password" class="important"></dd>
+            <dd data-bind="text: password" class="important monospace"></dd>
+         </div>
+         
+         <div data-bind="if: notes() !== ''">
+            <div data-role="fieldcontain">
+               <dt data-bind="text: l.notes" class="additional"></dt>
+               <dt data-bind="html: notes_to_html" class="important notes"></dt>
+            </div>
          </div>
          
          <a data-bind="attr: { href: to_mail() }" data-role="button" data-icon="mail" data-mini="true"> <span data-bind="text: l.share"></span> </a>
@@ -283,7 +297,7 @@
       <div data-role="content">
          <form>
             <div data-role="fieldcontain">
-               <span class="important" data-bind="text: password"></span>   
+               <span class="important monospace" data-bind="text: password"></span>   
             </div>
             <a href="#generate" data-role="button" class="primary" data-icon="refresh"> <span data-bind="text: l.generate"></span> </a>
             <div data-role="fieldcontain">

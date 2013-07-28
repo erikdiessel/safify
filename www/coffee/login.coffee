@@ -76,7 +76,9 @@ class Login
          username_already_used: "The username is already used. Choose another one."
          no_connection: "You have currently no connection to the Internet. Try again later."
          
-         short_description: "Safify is a password manager app. Save your precious passwords securely and accessible from every device. &nbsp; <em>Register now for free.</em>"
+         short_description: "Safify is a password manager app. Save your precious passwords securely and accessible from every device. 
+         <br> 
+         <em>Register now for free.</em>"
          install: "Install"
          security: "Security and Data Privacy"
          text_security: "
@@ -88,7 +90,9 @@ class Login
          For encryption, military grade algorithms are used: the <a href=\"https://en.wikipedia.org/wiki/Advanced_Encryption_Standard\" target=\"_blank\">Advanced Encryption Standard (AES)</a> and the <a href=\"https://en.wikipedia.org/wiki/PBKDF2\" target=\"_blank\">Password-Based Key Derivation Function 2 (PBKDF2)</a>.
          </p>
          <p>
-         Nobody can access your data, including the author of the app and security agencies, as long as they can't guess your master password. <em>So make it safe.</em>
+         Nobody can access your data, including the author of the app and security agencies, as long as they can't guess your master password. 
+         <br>
+         <em>So make it safe.</em>
          </p>
          <p>
          The encrypted data is transmitted over <a href=\"https://en.wikipedia.org/wiki/Transport_Layer_Security\" target=\"_blank\">TLS</a> for additional security.
@@ -127,9 +131,10 @@ class Login
          <a href=\"mailto: support@fortressofkeys.tk\">Write an email</a>
          <br>
          <br>
-         We use the following works:
+         We use the following licensed works:
          <ul>
-           <li><a href=\"fonts/DejaVu_Sans_Mono/license.txt\" target=\"_blank\">The DejaVu Sans Mono Bold</a> font</li>
+           <li> <a href=\"fonts/DejaVu_Sans_Mono/license.txt\" target=\"_blank\">The DejaVu Sans Mono Bold</a> font </li>
+           <li> <a href=\"fonts/Bitstream_Vera/license.txt\"   target=\"_blank\">The Bitstream Vera</a> font </li>
          </ul>
          <hr>
          All content © 2013 Erik Diessel
@@ -155,7 +160,9 @@ class Login
          username_already_used: "Der Benutzername ist schon besetzt. Verwende einen anderen."
          no_connection: "Momentan hast du keine Verbindung zum Internet. Probiere es später erneut"
          
-         short_description: "Safify ist eine Passwort-Manager-App. Speichere deine wertvollen Passwörter sicher und von jedem Gerät erreichbar ab. &nbsp; <em>Registriere dich jetzt kostenlos.</em>"
+         short_description: "Safify ist eine Passwort-Manager-App. Speichere deine wertvollen Passwörter sicher und von jedem Gerät erreichbar ab. 
+         <br>
+         <em>Registriere dich jetzt kostenlos.</em>"
          install: "Installieren"
          security: "Sicherheit und Datenschutz"
          text_security: "
@@ -167,7 +174,9 @@ class Login
          Für die Verschlüsselung werden moderne, erprobte Verfahren verwendet: der <a href=\"https://de.wikipedia.org/wiki/Advanced_Encryption_Standard\" target=\"_blank\">Advanced Encryption Standard (AES)</a> und die <a href=\"https://de.wikipedia.org/wiki/PBKDF2\" target=\"_blank\">Password-Based Key Derivation Function 2 (PBKDF2)</a>.
          </p>
          <p>
-         Niemand gelangt an deine Daten im Klartext, inklusive dem Autor und Sicherheitsbehörden, solange sie nicht dein Masterpasswort erraten. <em>Also verwende ein sicheres.</em>
+         Niemand gelangt an deine Daten im Klartext, inklusive dem Autor und Sicherheitsbehörden, solange sie nicht dein Masterpasswort erraten. 
+         <br>
+         <em>Also verwende ein sicheres.</em>
          </p>
          <p>
          Die Daten werden für zusätzliche Sicherheit über <a href=\"https://en.wikipedia.org/wiki/Transport_Layer_Security\" target=\"_blank\">TLS</a> übertragen.
@@ -176,7 +185,7 @@ class Login
          Wir speichern nichts außer deinen verschlüsselten Daten und deinen Registrierdaten.
          </p>
          <p>
-         Um die App flüssig und immer erreichbar zu halten speichert unser Partner <a href=\"https://cloudflare.com\" target=\"_blank\">Cloudflare</a> die öffentlich zugänglichen Teile dieser App zwischen und setzt einen Cookie. Sie empfangen keinerlei privaten Daten.
+         Um die App flüssig und immer erreichbar zu halten speichert unser Partner <a href=\"https://cloudflare.com\" target=\"_blank\">Cloudflare</a> die öffentlich zugänglichen Teile dieser App zwischen und setzt einen Cookie. Cloudflare empfängt keinerlei private Daten.
          </p>
          <hr>
          <p>
@@ -205,9 +214,10 @@ class Login
          <a href=\"mailto: support@fortressofkeys.tk\">E-Mail schreiben</a>
          <br>
          <br>
-         Wir verwenden die folgenden Werke:
+         Wir verwenden die folgenden lizensierten Werke:
          <ul>
-           <li><a href=\"fonts/DejaVu_Sans_Mono/license.txt\" target=\"_blank\">Die DejaVu Sans Mono Bold</a> Schriftart</li>
+           <li> <a href=\"fonts/DejaVu_Sans_Mono/license.txt\" target=\"_blank\">Die DejaVu Sans Mono Bold</a> Schriftart </li>
+           <li> <a href=\"fonts/Bitstream_Vera/license.txt\"   target=\"_blank\">Die Bitstream Vera</a> Schriftart </li>
          </ul>
          <hr>
          Alle Inhalte © 2013 Erik Diessel
@@ -231,7 +241,9 @@ class Login
          username_already_used: "Ce nom d'utilisateur est déjà utilisé. Choisis un autre."
          no_connection: "Maintenant, tu n'as pas de connection à l'Internet. Essaies une autre fois dans une minute."
          
-         short_description: "Safify est une application pour administrer tes mots de passe. Sauvegardes tes mots de passe en sécurité et consultable sur tous les appareils. &nbsp; <em>Enregistre-toi maintenant gratuitement."
+         short_description: "Safify est une application pour administrer tes mots de passe. Sauvegardes tes mots de passe en sécurité et consultable sur tous les appareils.
+         <br>
+         <em>Enregistre-toi maintenant gratuitement."
          install: "Installer"
          security: "Sécurité et protection des données"
          text_security: "
@@ -243,7 +255,9 @@ class Login
          Afin que tes mots de passe soient bien sécurisés, nous utilisons des techniques modernes et performants : <a href=\"https://fr.wikipedia.org/wiki/Advanced_Encryption_Standard\" target=\"_blank\">l'Advanced Encryption Standart (AES)</a>, ainsi que la <a href=\"https://en.wikipedia.org/wiki/PBKDF2\" target=\"_blank\">Password-Based Key Derivation Function 2 (PBKDF2)</a>.
          </p>
          <p>
-         Personne n'accèdera à tes données, y compris l'auteur de l'application, et les autres personnes qui voudraient y accéder, à condition qu'ils ne trouvent pas ton mot de passe principal. <em>Ton mot de passe principal doit donc être sûr.</em>
+         Personne n'accèdera à tes données, y compris l'auteur de l'application, et les autres personnes qui voudraient y accéder, à condition qu'ils ne trouvent pas ton mot de passe principal. 
+         <br>
+         <em>Ton mot de passe principal doit donc être sûr.</em>
          </p>
          <p>
          Les données sont transférés sur TLS afin de garantir plus de sécurité.
@@ -252,7 +266,7 @@ class Login
          Nous ne sauvegardons rien sauf tes données sécurisées ainsi que tes données inscrites lors de ton inscription.
          </p>
          <p>
-         Afin que l'application soit rapide et toujours accessible, les données autres sont sauvegardées par notre partenaire Cloudfare, qui ajoute sur l'appareil un cookie. Ils ne récupèrent dans aucun cas des données privées.
+         Afin que l'application soit rapide et toujours accessible, les données autres sont sauvegardées par notre partenaire Cloudfare, qui ajoute sur l'appareil un cookie. Cloudflare ne récupère dans aucun cas des données privées.
          </p>
          <hr>
          <p>
@@ -281,9 +295,10 @@ class Login
          <a href=\"mailto: support@fortressofkeys.tk\">Envoyer un e-mail</a>
          <br>
          <br>
-         Nous utilisons les œuvres suivantes:
+         Nous utilisons les œuvres licensées suivantes:
          <ul>
-           <li>La police de charactères <a href=\"fonts/DejaVu_Sans_Mono/license.txt\" target=\"_blank\">DejaVu Sans Mono Bold</a></li>
+           <li> La police de charactères <a href=\"fonts/DejaVu_Sans_Mono/license.txt\" target=\"_blank\">DejaVu Sans Mono Bold</a></li>
+           <li> La police de charactères <a href=\"fonts/Bitstream_Vera/license.txt\"   target=\"_blank\">Bitstream Vera</a> </li>
          </ul>
          <hr>
          Tous les contenus © 2013 Erik Diessel

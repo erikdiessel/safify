@@ -14,11 +14,51 @@
 }
 
 @font-face {
-   font-family: 'DejaVu Sans Mono Bold';
+   font-family: 'DejaVu Sans Mono';
    src: url('../fonts/DejaVu_Sans_Mono/bold.woff') format('woff'),
         url('../fonts/DejaVu_Sans_Mono/bold.ttf')  format('truetype');
+   font-weight: bold;
+   font-style: normal;
+}
+
+/* Bitstream Vera is closely related to DejaVu Sans
+   (DejaVu Sans is an extension of Bitsteam Vera) */
+@font-face {
+   font-family: 'Bitstream Vera';
+   src: url('../fonts/Bitstream_Vera/roman.woff') format('woff'),
+        url('../fonts/Bitstream_Vera/roman.ttf') format('truetype');
    font-weight: normal;
    font-style: normal;
+}
+
+@font-face {
+   font-family: 'Bitstream Vera';
+   src: url('../fonts/Bitstream_Vera/bold.woff') format('woff'),
+        url('../fonts/Bitstream_Vera/bold.ttf') format('truetype');
+   font-weight: bold;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Bitstream Vera';
+   src: url('../fonts/Bitstream_Vera/italic.woff') format('woff'),
+        url('../fonts/Bitstream_Vera/italic.ttf') format('truetype');
+   font-weight: normal;
+   font-style: italic;
+}
+
+@font-face {
+   font-family: 'Bitstream Vera';
+   src: url('../fonts/Bitstream_Vera/bold-italic.woff') format('woff'),
+        url('../fonts/Bitstream_Vera/bold-italic.ttf') format('truetype');
+   font-weight: bold;
+   font-style: italic;
+}
+
+
+
+body, input, select, textarea, button, .ui-btn {
+   font-family: 'Bitstream Vera', 'DejaVu Sans', sans-serif;
 }
 
 dt {
@@ -70,8 +110,8 @@ dd {
 }
 
 .monospace {
-   font-family: "DejaVu Sans Mono Bold", monospace;
-   font-size: 120%;
+   font-family: "DejaVu Sans Mono", monospace;
+   font-weight: bold;
 }
 
 #edit  > .ui-content,
@@ -125,12 +165,18 @@ a {
 .important {
    display: block;
    box-shadow: 0 0 0.8rem #396FB4;
-   font-family: "DejaVu Sans Mono Bold", monospace;
    font-size: 150%;
    text-align: center;
    padding: 0.5rem;
    border-radius: 0.4rem;
    margin-top: 0.4rem;
+}
+
+.notes {
+   font-family: 'Bitstream Vera', 'DejaVu Sans', sans-serif;
+   font-weight: bold;
+   font-size: 100% !important;
+   text-align: left;
 }
 
 #details [data-role="content"] {
@@ -139,8 +185,7 @@ a {
 
 
 /* Fixes bug: active state isn't removed on touch devices */
-[data-role="content"] .ui-btn-active.ui-btn,
-[data-role="header"]  .ui-btn-active.ui-btn
+.ui-btn-active.ui-btn:not(.primary):not(.ui-state-persist)
 {
    background-color: #333 !important;
    text-shadow: none !important;
@@ -205,6 +250,20 @@ textarea {
    font-size: 100% !important;
 }
 
+[data-role="listview"] a {
+   padding-top: 0;
+}
+
+.ui-focus {
+   -webkit-box-shadow:  0 0 12px #3B82DD !important;
+   -moz-box-shadow:     0 0 12px #3B82DD !important;
+   box-shadow:          0 0 12px #3B82DD !important;
+}
+
+.ui-input-text {
+   font-size: 120%;
+}
+
 /* END Code for jquerymobile version 1.4 */
 
 
@@ -217,8 +276,8 @@ textarea {
 
 @media (max-width: 25em) {
    /* Stack username and password vertically */
-   #passwords [data-role="content"] .ui-block-a,
-   #passwords [data-role="content"] .ui-block-b {
+   [data-role="content"] .ui-block-a,
+   [data-role="content"] .ui-block-b {
       width: 100%;
       float: none;
    }
@@ -235,16 +294,30 @@ textarea {
 }
 
 @media (max-width: 35em) {
-   [data-role="listview"] dd {
-      font-size: 1.1rem;
+   [data-role="listview"] h1 {
+      font-size: 1.3rem !important;
    }
    
    [data-role="listview"] dt {
-      font-size: 0.8rem;
+      font-size: 0.8rem !important;
    }
    
+   [data-role="listview"] dd {
+      font-size: 1.2rem !important;
+   }
+}
+
+@media (min-width: 35em) {
    [data-role="listview"] h1 {
-      font-size: 1.2rem;
+      font-size: 1.4rem !important;
+   }
+   
+   [data-role="listview"] dt {
+      font-size: 0.9rem !important;
+   }
+   
+   [data-role="listview"] dd {
+      font-size: 1.3rem !important;
    }
    
 }
