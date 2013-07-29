@@ -1298,6 +1298,7 @@ if (typeof module !== 'undefined' && module.exports) {
 
   List = (function() {
     function List() {
+      this.length = __bind(this.length, this);
       this.get_entry = __bind(this.get_entry, this);
       this.new_entry = __bind(this.new_entry, this);
       this.fromJSON = __bind(this.fromJSON, this);
@@ -1380,6 +1381,10 @@ if (typeof module !== 'undefined' && module.exports) {
       return this.entries()[index];
     };
 
+    List.prototype.length = function() {
+      return this.entries().length;
+    };
+
     List.prototype.locales = {
       en: {
         username: "Username",
@@ -1433,7 +1438,7 @@ if (typeof module !== 'undefined' && module.exports) {
 
     Registration.prototype.locales = {
       en: {
-        registration_title: "Confirm Registration",
+        registration_title: "Registration",
         username: "Username",
         password_repetition: "Password Repetition",
         register: "Register",
@@ -1441,7 +1446,7 @@ if (typeof module !== 'undefined' && module.exports) {
         wrong_repetition: "Your repetition of the password is different from the password you entered before. Check if you made an error."
       },
       de: {
-        registration_title: "Registrierung bestätigen",
+        registration_title: "Registrierung",
         username: "Benutzername",
         register: "Registrieren",
         password_repetition: "Passwort-Wiederholung",
@@ -1449,7 +1454,7 @@ if (typeof module !== 'undefined' && module.exports) {
         wrong_repetition: "Deine Wiederholung des Passwortes unterscheidet sich vom vorher eingegebenen Passwort. Prüfe nach, ob du dich vertippt hast."
       },
       fr: {
-        registration_title: "Confirmer enregistration",
+        registration_title: "Enregistration",
         username: "Nom d'utilisateur",
         register: "Enregistrer",
         password_repetition: "Mot de passe - confirmation",
@@ -1557,7 +1562,7 @@ if (typeof module !== 'undefined' && module.exports) {
   routes = {
     'new': function() {
       if (check_for_login(this)) {
-        return current_entry.actualize_to(new Entry(-1));
+        return current_entry.actualize_to(new Entry(password_list.length));
       }
     },
     'save-current': function() {

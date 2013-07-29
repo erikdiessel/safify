@@ -15,7 +15,7 @@ class Registration
       
    locales:
       en:
-         registration_title: "Confirm Registration"
+         registration_title: "Registration"
          username: "Username"
          password_repetition: "Password Repetition"
          register: "Register"
@@ -23,7 +23,7 @@ class Registration
          wrong_repetition: "Your repetition of the password is different from the password you entered before. Check if you made an error."
          
       de:
-         registration_title: "Registrierung bestätigen"
+         registration_title: "Registrierung"
          username: "Benutzername"
          register: "Registrieren"
          password_repetition: "Passwort-Wiederholung"
@@ -31,7 +31,7 @@ class Registration
          wrong_repetition: "Deine Wiederholung des Passwortes unterscheidet sich vom vorher eingegebenen Passwort. Prüfe nach, ob du dich vertippt hast."
          
       fr:
-         registration_title: "Confirmer enregistration"
+         registration_title: "Enregistration"
          username: "Nom d'utilisateur"
          register: "Enregistrer"
          password_repetition: "Mot de passe - confirmation"

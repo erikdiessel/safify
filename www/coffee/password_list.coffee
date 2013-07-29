@@ -34,6 +34,9 @@ class List
    get_entry: (index) =>
       @entries()[index]
       
+   length: =>
+      @entries().length
+      
       
    locales:
       en:
