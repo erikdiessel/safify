@@ -276,6 +276,14 @@ textarea {
    font-size: 120%;
 }
 
+[data-role="content"] {
+   padding-top: 0;
+}
+
+.ui-listview-filter {
+   padding-top: 1em;
+}
+
 /* END Code for jquerymobile version 1.4 */
 
 
