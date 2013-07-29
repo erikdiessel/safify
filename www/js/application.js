@@ -159,7 +159,7 @@
         title: "Title",
         username: "Username",
         password: "Password",
-        notes: "Additional information",
+        notes: "Notes",
         details: "Details",
         share: "Send per Email",
         edit: "Edit",
