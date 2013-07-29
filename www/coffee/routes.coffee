@@ -25,7 +25,7 @@ toggle_loading = ->
 routes =
    'new': ->
       if check_for_login(this)
-         current_entry.actualize_to(new Entry(password_list.length))
+         current_entry.actualize_to(new Entry(password_list.length()))
       
    'save-current': ->
       password_list.save(current_entry)

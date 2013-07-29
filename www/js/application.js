@@ -705,7 +705,7 @@
   routes = {
     'new': function() {
       if (check_for_login(this)) {
-        return current_entry.actualize_to(new Entry(password_list.length));
+        return current_entry.actualize_to(new Entry(password_list.length()));
       }
     },
     'save-current': function() {
