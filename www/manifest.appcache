@@ -1,6 +1,6 @@
 CACHE MANIFEST
 # 2013-07-30
-# v2
+# v3
 
 CACHE:
 /index.html
@@ -12,6 +12,7 @@ CACHE:
 /fonts/Bitstream_Vera/bold.woff
 /fonts/Bitstream_Vera/italic.woff
 /fonts/Bitstream_Vera/bold-italic.woff
+/fonts/DejaVu_Sans_mono/bold.woff
 
 NETWORK:
 *
