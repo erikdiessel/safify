@@ -1,0 +1,16 @@
+CACHE MANIFEST
+# 2013-07-30
+# v1
+
+CACHE:
+/index.html
+/css/all.css
+/js/all.js
+/images/logo/128.png
+/fonts/Bitstream_Vera/roman.woff
+/fonts/Bitstream_Vera/bold.woff
+/fonts/Bitstream_Vera/italic.woff
+/fonts/Bitstream_Vera/bold-italic.woff
+
+NETWORK:
+*

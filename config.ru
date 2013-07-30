@@ -1,5 +1,6 @@
 Rack::Mime::MIME_TYPES.merge!({
-   '.webapp' => 'application/x-web-app-manifest+json'
+   '.webapp'   => 'application/x-web-app-manifest+json',
+   '.appcache' => 'text/cache-manifest'
 })
 
 use Rack::Deflater
