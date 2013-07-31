@@ -1,6 +1,6 @@
 {
    "name": "Safify",
-   "description": "Safify is a password manager app. Save your precious passwords securely and accessible from every device. Generate new secure passwords with the password generator. <br> Your list of passwords is encrypted directly on your device and your master password too. We only get your encrypted data.",
+   "description": "Safify is a password manager app. Save your precious passwords securely and accessible from every device. Generate new secure passwords with the password generator. Your list of passwords is encrypted directly on your device and your master password too. We only get your encrypted data.",
    "icons": {
       "30":  "images/logo/30.png",
       "32":  "images/logo/32.png",
@@ -14,10 +14,10 @@
    "default_locale": "en",
    "locales": {
       "de": {
-         "description": "Safify ist eine Passwort-Manager-App. Speichere deine wertvollen Passwörter sicher und von jedem Gerät erreichbar ab. Generiere neue sichere Passwörter mit dem Passwort-Generator. <br> Deine Passwortliste wird direkt auf deinem Gerät verschlüsselt, genauso wie dein Masterpasswort. Wir bekommen nur deine verschlüsselten Daten."
+         "description": "Safify ist eine Passwort-Manager-App. Speichere deine wertvollen Passwörter sicher und von jedem Gerät erreichbar ab. Generiere neue sichere Passwörter mit dem Passwort-Generator. Deine Passwortliste wird direkt auf deinem Gerät verschlüsselt, genauso wie dein Masterpasswort. Wir bekommen nur deine verschlüsselten Daten."
       },
       "fr": {
-         "description": "Safify est une application pour administrer tes mots de passe. Sauvegardes tes mots de passe en sécurité et consultable sur tous les appareils. Genéré nouveaux mots de passe sûrs avec le genératrice. <br> Ta liste de mots de passe ainsi que ton mot de passe principal est directement sécurisée sur ton appareil. Nous recevons que tes données sécurisées."
+         "description": "Safify est une application pour administrer tes mots de passe. Sauvegardes tes mots de passe en sécurité et consultable sur tous les appareils. Genéré nouveaux mots de passe sûrs avec le genératrice. Ta liste de mots de passe ainsi que ton mot de passe principal est directement sécurisée sur ton appareil. Nous recevons que tes données sécurisées."
       }
    }
 }
