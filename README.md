@@ -1,4 +1,4 @@
 fortressofkeys-app
 ==================
 
-Phonegap-App for the webservice fortressofkeys
+Frontend of <a href="http://safify.tk">safify.tk</a>, a password manager webapp.
