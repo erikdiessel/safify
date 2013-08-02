@@ -22,7 +22,7 @@
       <div data-role="header" data-position="fixed">
          <img src="images/logo/128.png" height="32">
          <h1> <span>Safify</span> </h1>
-         <a href="#login-server" class="ui-btn-right primary" data-icon="lock"> <span data-bind="text: l.sign_in_short"/> </a>
+         <a href="#login-server" data-role="button" class="ui-btn-right primary" data-icon="lock"> <span data-bind="text: l.sign_in_short"/> </a>
       </div>
       
       <div data-role="content">
@@ -62,7 +62,9 @@
          
          <hr>
          
-         <h4 data-bind="html: l.short_description"></h4>
+         <div class="text">
+            <h4 data-bind="html: l.short_description"></h4>
+         </div>   
          
          <div data-bind="visible: firefox_webapp_installable">
             <a href="#install_in_firefox" data-role="button" data-icon="arrow-d"> <span data-bind="text: l.install"/> </a>
@@ -71,12 +73,12 @@
          <div data-role="collapsible-set">
             <div data-role="collapsible" data-collapsed-icon="info" data-expanded-icon="arrow-d">
                <h3> <span data-bind="text: l.security"></span> </h3>
-               <p data-bind="html: l.text_security"></p>
+               <div data-bind="html: l.text_security" class="text"></div>
             </div>
             
             <div data-role="collapsible" data-collapsed-icon="tag" data-expanded-icon="arrow-d">
                <h3> <span data-bind="text: l.legal_notice"></span> </h3>
-               <p data-bind="html: l.text_legal_notice"></p>
+               <div data-bind="html: l.text_legal_notice" class="text"></div>
             </div>
          </div>
          
@@ -126,7 +128,7 @@
         <div data-role="header" data-position="fixed">
             <img src="images/logo/128.png" height="32">
             <h1> <span data-bind="text: l.passwords"></span> </h1>
-            <a href="#new" class="ui-btn-right primary" data-icon="plus" data-transition="none"> <span data-bind="text: l.new_entry"/> </a>
+            <a href="#new" data-role="button" class="ui-btn-right primary" data-icon="plus" data-transition="none"> <span data-bind="text: l.new_entry"/> </a>
         </div>
         
         <div data-role="content">
@@ -164,7 +166,7 @@
     
     <div id="new" data-role="page" data-theme="b">   
       <div data-role="header" data-position="fixed">
-         <a href="#passwords" data-icon="home" data-transition="none"> <span data-bind="text: l.back"/> </a>
+         <a href="#passwords" data-role="button" data-icon="home" data-transition="none"> <span data-bind="text: l.back"/> </a>
          <h1> <span data-bind="text: l.new_entry"></span> </h1>
          <a href="#save-current" data-role="button" data-icon="cloud" class="primary"> <span data-bind="text: l.create"/> </a>
       </div>
@@ -198,9 +200,9 @@
     
    <div id="edit" data-role="page" data-theme="b">
       <div data-role="header" data-position="fixed">
-         <a href="#passwords" data-icon="home" data-transition="none"> <span data-bind="text: l.back"/> </a>
+         <a href="#passwords" data-role="button" data-icon="home" data-transition="none"> <span data-bind="text: l.back"/> </a>
          <h1> <span data-bind="text: l.edit"></span> </h1>
-         <a href="#save-current" data-icon="cloud" class="primary"> <span data-bind="text: l.save"/> </a>
+         <a href="#save-current" data-role="button" data-icon="cloud" class="primary"> <span data-bind="text: l.save"/> </a>
       </div>
        
       <div data-role="content">
@@ -289,7 +291,7 @@
    
    <div id="generator" data-role="page" data-theme="b">
       <div data-role="header" data-position="fixed">
-         <a href="#passwords" data-icon="home" data-transition="none"> <span data-bind="text: l.back"/> </a>
+         <a href="#passwords" data-role="button" data-icon="home" data-transition="none"> <span data-bind="text: l.back"/> </a>
          <h1><span data-bind="text: l.generator"></span></h1>
          <img src="images/logo/128.png" height="32" class="ui-btn-right">
       </div>

@@ -14,10 +14,10 @@
    "default_locale": "en",
    "locales": {
       "de": {
-         "description": "Safify ist eine Passwort-Manager-App. Speichere deine wertvollen Passwörter sicher und von jedem Gerät erreichbar ab. Generiere neue sichere Passwörter mit dem Passwort-Generator. Deine Passwortliste wird direkt auf deinem Gerät verschlüsselt, genauso wie dein Masterpasswort. Wir bekommen nur deine verschlüsselten Daten."
+         "description": "Safify ist eine Passwort-Manager-App. Speichere deine wertvollen Passwörter sicher und von jedem Gerät erreichbar ab. Generiere neue sichere Passwörter mit dem Passwort-Generator. Deine Passwortliste wird direkt auf deinem Gerät verschlüsselt, genauso wie dein Masterpasswort. Wir bekommen nur deine verschlüsselten Daten. <b>Probiere es aus auf <a href=\"http://safify.tk\">safify.tk</a></b>."
       },
       "fr": {
-         "description": "Safify est une application pour administrer tes mots de passe. Sauvegardes tes mots de passe en sécurité et consultable sur tous les appareils. Genéré nouveaux mots de passe sûrs avec le genératrice. Ta liste de mots de passe ainsi que ton mot de passe principal est directement sécurisée sur ton appareil. Nous recevons que tes données sécurisées."
+         "description": "Safify est une application pour administrer tes mots de passe. Sauvegardes tes mots de passe en sécurité et consultable sur tous les appareils. Genéré nouveaux mots de passe sûrs avec le genératrice. Ta liste de mots de passe ainsi que ton mot de passe principal est directement sécurisée sur ton appareil. Nous recevons que tes données sécurisées. <b>Essaie-le sur <a href=\"http://safify.tk\">safify.tk</a></b>."
       }
    }
 }
