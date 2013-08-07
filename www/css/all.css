@@ -280,15 +280,8 @@ textarea {
    padding-top: 0;
 }
 
-.ui-listview-filter {
+.ui-filterable {
    padding-top: 1em;
-}
-
-
-* {
-   -moz-box-sizing:    border-box;
-   -webkit-box-sizing: border-box;
-   box-sizing:         border-box;
 }
 
 .text {
