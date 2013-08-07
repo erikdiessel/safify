@@ -59,8 +59,9 @@ routes =
    
             success: (data, textStatus, jqXHR) ->
                
-               decrypted = sjcl.decrypt(login.client_password(), data)
-               password_list.fromJSON(decrypted)
+               if data != "{}"
+                  decrypted = sjcl.decrypt(login.client_password(), data)
+                  password_list.fromJSON(decrypted)
                
                login.logged_in(true)
                $.mobile.changePage('#passwords', { transition: "none" })
