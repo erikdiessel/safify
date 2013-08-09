@@ -43,6 +43,8 @@ class Generator
          passwords: "Passwords"
          generator: "Generator"
          
+         create_entry_with_generated_password: "Create entry with this password"
+         
       de:
          generator: "Generator"      
          length: "Länge"
@@ -55,6 +57,8 @@ class Generator
          passwords: "Passwörter"
          generator: "Generator"
          
+         create_entry_with_generated_password: "Eintrag mit diesem Passwort erstellen"
+         
       fr:
          generator: "Génératrice"
          length: "Longueur"
@@ -66,3 +70,5 @@ class Generator
          back: "Retour"
          passwords: "Mots de passe"
          generator: "Génératrice"
+         
+         create_entry_with_generated_password: "Créer un article avec ce mot de passe"

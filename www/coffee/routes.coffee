@@ -132,3 +132,8 @@ routes =
          console.log 'Error during install'
       request.onsuccess = ->
          console.log 'Successfully installed'
+         
+   'create_entry_with_generated_password': ->
+      if check_for_login(this)
+         $.mobile.changePage('#new') # triggers creation of new entry
+         current_entry.password(generator.password())

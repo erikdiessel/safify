@@ -268,7 +268,8 @@
         generate: "Generate",
         back: "Back",
         passwords: "Passwords",
-        generator: "Generator"
+        generator: "Generator",
+        create_entry_with_generated_password: "Create entry with this password"
       },
       de: {
         generator: "Generator",
@@ -279,7 +280,8 @@
         generate: "Generieren",
         back: "Zurück",
         passwords: "Passwörter",
-        generator: "Generator"
+        generator: "Generator",
+        create_entry_with_generated_password: "Eintrag mit diesem Passwort erstellen"
       },
       fr: {
         generator: "Génératrice",
@@ -290,7 +292,8 @@
         generate: "Générer",
         back: "Retour",
         passwords: "Mots de passe",
-        generator: "Génératrice"
+        generator: "Génératrice",
+        create_entry_with_generated_password: "Créer un article avec ce mot de passe"
       }
     };
 
@@ -833,6 +836,12 @@
       return request.onsuccess = function() {
         return console.log('Successfully installed');
       };
+    },
+    'create_entry_with_generated_password': function() {
+      if (check_for_login(this)) {
+        $.mobile.changePage('#new');
+        return current_entry.password(generator.password());
+      }
     }
   };
 
