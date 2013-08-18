@@ -126,7 +126,7 @@
 
     <div id="passwords" data-role="page" data-theme="b">
         <div data-role="header" data-position="fixed">
-            <img src="images/logo/128.png" height="32">
+            <a href="#menu" data-role="button" data-icon="bullets" data-iconpos="notext" data-transition="none"> </a>
             <h1> <span data-bind="text: l.passwords"></span> </h1>
             <a href="#new" data-role="button" class="ui-btn-right primary" data-icon="plus" data-transition="none"> <span data-bind="text: l.new_entry"/> </a>
         </div>
@@ -329,8 +329,53 @@
          </div>
       </div>
       
+   </div>
+   
+   
+   
+   <div id="menu" data-role="dialog" data-theme="b" data-close-btn="right">
+      <div data-role="header">
+         <h1> <span data-bind="text: l.menu"></span> </h1>
+         <button data-role="button" class="ui-icon-nodisc ui-btn-left" data-icon="bullets" data-iconpos="notext"></button>
+      </div>
       
+      <div data-role="content">
+         <a href="#logout" class="danger" data-role="button"> <span data-bind="text: l.logout"></span> </a>
+         <a href="#change_password" data-role="button"> <span data-bind="text: l.change_password"></span> </a>
+         
+         <a href="#passwords" data-role="button" class="primary" data-icon="delete" data-transition="none"> <span data-bind="text: l.close"></span> </a>
+      </div>
       
    </div>
+   
+   <div id="change_password" data-role="dialog" data-theme="b" data-close-btn="right">
+      <div data-role="header">
+         <h1><span data-bind="text: l.change_password"></span></h1>
+         <button data-role="button" class="ui-icon-nodisc ui-btn-left" data-icon="edit" data-iconpos="notext"></button>
+      </div>
+   
+      <div data-role="content">
+         <div data-bind="if: repetition_wrong">
+            <span class="error" data-bind="text: l.repetition_wrong"></span>
+         </div>
+      
+         <div data-role="fieldcontain">
+            <label for="new_password" class="additional" data-bind="text: l.new_password"></label>
+            <input id ="new_password" type="password" class="monospace" data-bind="value: new_password, attr: {placeholder: l.new_password}">
+         </div>
+         
+         <div data-role="fieldcontain">
+            <label for="new_password_repetition" class="additional" data-bind="text: l.password_repetition"></label>
+            <input id ="new_password_repetition" type="password" class="monospace" data-bind="value: password_repetition, attr: {placeholder: l.password_repetition}">         
+         </div>
+         
+         <a href="#change_password_server" data-role="button" class="primary"> <span data-bind="text: l.change_password"></span> </a>
+         
+         <a href="#passwords" data-role="button" data-transition="none"> <span data-bind="text: l.cancel"></span> </a>
+      </div>
+
+   </div>
+   
+   
 </body>
 </html>

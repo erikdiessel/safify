@@ -856,7 +856,7 @@ if (typeof module !== 'undefined' && module.exports) {
 }
 
 (function() {
-  var Deletion, Entry, Generator, LETTERS, List, Login, NUMBERS, Registration, Router, SPECIALCHARS, UPPERCASE, check_for_login, get_API_URL, get_current_locale, letter, manifest_url, random, router, routes, save_changes, setupRoutes, toggle_loading,
+  var ChangePassword, Deletion, Entry, Generator, LETTERS, List, Login, Menu, NUMBERS, Registration, Router, SPECIALCHARS, UPPERCASE, check_for_login, get_API_URL, get_current_locale, letter, manifest_url, random, router, routes, save_changes, setupRoutes, toggle_loading,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   window.addEventListener('load', function() {
@@ -910,6 +910,8 @@ if (typeof module !== 'undefined' && module.exports) {
     window.current_entry = new Entry();
     window.deletion = new Deletion();
     window.generator = new Generator();
+    window.menu = new Menu();
+    window.change_password = new ChangePassword();
     ko.applyBindings(window.login, document.querySelector('#login'));
     ko.applyBindings(window.registration, document.querySelector('#registration'));
     ko.applyBindings(window.password_list, document.querySelector('#passwords'));
@@ -918,6 +920,8 @@ if (typeof module !== 'undefined' && module.exports) {
     ko.applyBindings(window.deletion, document.querySelector('#deletion'));
     ko.applyBindings(window.current_entry, document.querySelector('#details'));
     ko.applyBindings(window.generator, document.querySelector('#generator'));
+    ko.applyBindings(window.menu, document.querySelector('#menu'));
+    ko.applyBindings(window.change_password, document.querySelector('#change_password'));
     setupRoutes();
     login = function() {
       $('a[href="#login-server"]').focus();
@@ -929,6 +933,47 @@ if (typeof module !== 'undefined' && module.exports) {
       }
     });
   });
+
+  ChangePassword = (function() {
+    function ChangePassword() {
+      this.check = __bind(this.check, this);      this.new_password = ko.observable("");
+      this.password_repetition = ko.observable("");
+      this.repetition_wrong = ko.observable(false);
+      this.l = get_current_locale(this.locales);
+    }
+
+    ChangePassword.prototype.locales = {
+      en: {
+        change_password: "Change Password",
+        new_password: "New Password",
+        password_repetition: "Password Repetition",
+        cancel: "Cancel",
+        repetition_wrong: "The repetition of the password doesn't match the entered one."
+      },
+      de: {
+        change_password: "Passwort ändern",
+        new_password: "Neues Passwort",
+        password_repetition: "Wiederholung",
+        cancel: "Abbrechen",
+        repetition_wrong: "Die Wiederholung des Passwortes stimmt nicht mit dem eingegebenen überein"
+      },
+      fr: {
+        change_password: "Modifier mot de passe",
+        new_password: "Nouvel mot de passe",
+        password_repetition: "Répétition",
+        cancel: "Annuler",
+        repetition_wrong: "La répétition du mot de passe n'est pas conforme."
+      }
+    };
+
+    ChangePassword.prototype.check = function() {
+      this.repetition_wrong(this.new_password() !== this.password_repetition());
+      return !this.repetition_wrong();
+    };
+
+    return ChangePassword;
+
+  })();
 
   Deletion = (function() {
     function Deletion() {
@@ -1194,12 +1239,13 @@ if (typeof module !== 'undefined' && module.exports) {
       this.l = get_current_locale(this.locales);
     }
 
-    Login.prototype.server_password = function() {
+    Login.prototype.server_password = function(password) {
       var iterations, salt;
 
+      password || (password = this.password());
       salt = [184, 83, 26, 133, 22, 40, 115, 123, 141, 115, 39, 53, 168, 172, 49, 165, 106, 215, 114, 180].concat(sjcl.hash.sha256.hash(this.username()));
       iterations = 2347;
-      return JSON.stringify(sjcl.misc.pbkdf2(this.password(), salt, iterations));
+      return JSON.stringify(sjcl.misc.pbkdf2(password, salt, iterations));
     };
 
     Login.prototype.client_password = function() {
@@ -1296,6 +1342,36 @@ if (typeof module !== 'undefined' && module.exports) {
     };
 
     return Login;
+
+  })();
+
+  Menu = (function() {
+    function Menu() {
+      this.l = get_current_locale(this.locales);
+    }
+
+    Menu.prototype.locales = {
+      en: {
+        menu: "Menu",
+        logout: "Logout",
+        change_password: "Change Password",
+        close: "Close"
+      },
+      de: {
+        menu: "Menü",
+        logout: "Ausloggen",
+        change_password: "Passwort ändern",
+        close: "Schließen"
+      },
+      fr: {
+        menu: "Menu",
+        logout: "Quitter",
+        change_password: "Modifier mot de passe",
+        close: "Fermer"
+      }
+    };
+
+    return Menu;
 
   })();
 
@@ -1698,6 +1774,27 @@ if (typeof module !== 'undefined' && module.exports) {
       if (check_for_login(this)) {
         $.mobile.changePage('#new');
         return current_entry.password(generator.password());
+      }
+    },
+    'logout': function() {
+      return window.location.reload(true);
+    },
+    'change_password_server': function() {
+      if (change_password.check()) {
+        return $.ajax({
+          type: 'POST',
+          url: get_API_URL('change_password'),
+          data: {
+            username: login.username(),
+            password: login.server_password(),
+            new_password: login.server_password(change_password.new_password())
+          },
+          success: function() {
+            login.password(change_password.new_password());
+            save_changes();
+            return $.mobile.changePage('#passwords');
+          }
+        });
       }
     }
   };

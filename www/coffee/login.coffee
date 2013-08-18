@@ -24,14 +24,15 @@ class Login
       
       @l = get_current_locale(@locales)
 
-   server_password: =>
+   server_password: (password) =>
+      password ||= @password()
       salt = [184, 83, 26, 133, 22, 40, 115, 123, 141, 115,
                39, 53, 168, 172, 49, 165, 106, 215, 114, 180]
              .concat(sjcl.hash.sha256.hash(@username()))
          
       iterations = 2347
       JSON.stringify(
-         sjcl.misc.pbkdf2(@password(), salt, iterations)
+         sjcl.misc.pbkdf2(password, salt, iterations)
       )
 
    client_password: =>

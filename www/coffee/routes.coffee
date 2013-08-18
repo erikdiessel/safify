@@ -137,3 +137,20 @@ routes =
       if check_for_login(this)
          $.mobile.changePage('#new') # triggers creation of new entry
          current_entry.password(generator.password())
+         
+   'logout': ->
+      window.location.reload(true)
+   
+   'change_password_server': ->
+      if change_password.check()
+         $.ajax
+            type: 'POST'
+            url: get_API_URL('change_password')
+            data:
+               username: login.username()
+               password: login.server_password()
+               new_password: login.server_password(change_password.new_password())
+            success: ->
+               login.password(change_password.new_password())
+               save_changes()
+               $.mobile.changePage('#passwords')
