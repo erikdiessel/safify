@@ -17,5 +17,8 @@
   },
   "scripts": {
     "test": "grunt test"
+  },
+  "dependencies": {
+    "node-static": "~0.7.3"
   }
 }
