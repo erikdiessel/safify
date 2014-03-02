@@ -5,14 +5,15 @@
     "grunt": "~0.4.2",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-coffee": "~0.7.0",
-    "grunt-contrib-watch": "~0.4.4",
+    "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-jasmine": "~0.6.1",
     "grunt-phantom": "~0.2.0",
     "grunt-run": "~0.2.1",
     "node-static": "~0.7.3",
     "jasmine-node": "~1.13.1",
     "selenium-webdriver": "~2.40.0",
-    "grunt-cli": "~0.1.13"
+    "grunt-cli": "~0.1.13",
+    "grunt-jasmine-node": "~0.1.0"
   },
   "scripts": {
     "test": "grunt test"
