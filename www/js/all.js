@@ -869,7 +869,6 @@ if (typeof module !== 'undefined' && module.exports) {
 
   get_current_locale = function(locales) {
     var locale;
-
     locale = (navigator.language || navigator.userLanguage).substring(0, 2);
     return locales[locale] || locales['en'];
   };
@@ -878,12 +877,10 @@ if (typeof module !== 'undefined' && module.exports) {
 
   $(document).ready(function() {
     var login;
-
     ko.bindingHandlers.slider_value = {
       init: function(element, valueAccessor) {
         return setInterval(function() {
           var el, value;
-
           el = $(document.getElementById(element.id));
           value = valueAccessor()();
           if (value !== parseInt(el.val(), 10)) {
@@ -893,7 +890,6 @@ if (typeof module !== 'undefined' && module.exports) {
       },
       update: function(element, valueAccessor) {
         var el, value;
-
         el = $(element);
         if (el.is('.ui-slider-input')) {
           value = ko.utils.unwrapObservable(valueAccessor()());
@@ -936,7 +932,8 @@ if (typeof module !== 'undefined' && module.exports) {
 
   ChangePassword = (function() {
     function ChangePassword() {
-      this.check = __bind(this.check, this);      this.new_password = ko.observable("");
+      this.check = __bind(this.check, this);
+      this.new_password = ko.observable("");
       this.password_repetition = ko.observable("");
       this.repetition_wrong = ko.observable(false);
       this.l = get_current_locale(this.locales);
@@ -1014,7 +1011,6 @@ if (typeof module !== 'undefined' && module.exports) {
       this.to_mail = __bind(this.to_mail, this);
       this.toObject = __bind(this.toObject, this);
       var _this = this;
-
       this.index = ko.observable(index || 0);
       this.title = ko.observable(title || "");
       this.username = ko.observable(username || "");
@@ -1112,7 +1108,6 @@ if (typeof module !== 'undefined' && module.exports) {
 
   UPPERCASE = (function() {
     var _i, _len, _results;
-
     _results = [];
     for (_i = 0, _len = LETTERS.length; _i < _len; _i++) {
       letter = LETTERS[_i];
@@ -1134,7 +1129,6 @@ if (typeof module !== 'undefined' && module.exports) {
       this.regenerate = __bind(this.regenerate, this);
       this.generate = __bind(this.generate, this);
       var _this = this;
-
       this.length = ko.observable(8);
       this.uppercase = ko.observable(true);
       this.numbers = ko.observable(true);
@@ -1147,7 +1141,6 @@ if (typeof module !== 'undefined' && module.exports) {
 
     Generator.prototype.generate = function() {
       var allowed_characters, i, password, _i, _ref;
-
       allowed_characters = LETTERS.concat(this.uppercase() ? UPPERCASE : []).concat(this.numbers() ? NUMBERS : []).concat(this.special_characters() ? SPECIALCHARS : []);
       password = "";
       for (i = _i = 0, _ref = this.length() - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; i = 0 <= _ref ? ++_i : --_i) {
@@ -1212,7 +1205,6 @@ if (typeof module !== 'undefined' && module.exports) {
       this.server_password = __bind(this.server_password, this);
       var request,
         _this = this;
-
       this.username = ko.observable("");
       this.password = ko.observable("");
       this.logged_in = ko.observable(false);
@@ -1241,7 +1233,6 @@ if (typeof module !== 'undefined' && module.exports) {
 
     Login.prototype.server_password = function(password) {
       var iterations, salt;
-
       password || (password = this.password());
       salt = [184, 83, 26, 133, 22, 40, 115, 123, 141, 115, 39, 53, 168, 172, 49, 165, 106, 215, 114, 180].concat(sjcl.hash.sha256.hash(this.username()));
       iterations = 2347;
@@ -1250,7 +1241,6 @@ if (typeof module !== 'undefined' && module.exports) {
 
     Login.prototype.client_password = function() {
       var iterations, salt;
-
       salt = [71, 52, 235, 209, 156, 43, 102, 198, 190, 98, 3, 221, 187, 29, 74, 138, 50, 179, 179, 16].concat(sjcl.hash.sha256.hash(this.username()));
       iterations = 3497;
       return JSON.stringify(sjcl.misc.pbkdf2(this.password(), salt, iterations));
@@ -1384,13 +1374,13 @@ if (typeof module !== 'undefined' && module.exports) {
       this.toJSON = __bind(this.toJSON, this);
       this.actualize_indices = __bind(this.actualize_indices, this);
       this["delete"] = __bind(this["delete"], this);
-      this.save = __bind(this.save, this);      this.entries = ko.observableArray([]);
+      this.save = __bind(this.save, this);
+      this.entries = ko.observableArray([]);
       this.l = get_current_locale(this.locales);
     }
 
     List.prototype.save = function(entry) {
       var actualizing_entry;
-
       actualizing_entry = this.get_entry(entry.get_index()) || this.new_entry();
       return actualizing_entry.actualize_to(entry);
     };
@@ -1402,7 +1392,6 @@ if (typeof module !== 'undefined' && module.exports) {
 
     List.prototype.actualize_indices = function() {
       var entry, i, _i, _len, _ref, _results;
-
       _ref = this.entries();
       _results = [];
       for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
@@ -1418,10 +1407,8 @@ if (typeof module !== 'undefined' && module.exports) {
 
     List.prototype.toJSON = function() {
       var entry;
-
       return JSON.stringify((function() {
         var _i, _len, _ref, _results;
-
         _ref = this.entries();
         _results = [];
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -1434,11 +1421,9 @@ if (typeof module !== 'undefined' && module.exports) {
 
     List.prototype.fromJSON = function(data) {
       var entries, entry;
-
       entries = JSON.parse(data);
       return this.entries((function() {
         var _i, _len, _results;
-
         _results = [];
         for (_i = 0, _len = entries.length; _i < _len; _i++) {
           entry = entries[_i];
@@ -1450,7 +1435,6 @@ if (typeof module !== 'undefined' && module.exports) {
 
     List.prototype.new_entry = function() {
       var entry;
-
       entry = new Entry(this.entries().length);
       this.entries.push(entry);
       return entry;
@@ -1500,7 +1484,8 @@ if (typeof module !== 'undefined' && module.exports) {
 
   Registration = (function() {
     function Registration() {
-      this.check = __bind(this.check, this);      this.username = ko.observable("");
+      this.check = __bind(this.check, this);
+      this.username = ko.observable("");
       this.password_repetition = ko.observable("");
       this.repetition_wrong = ko.observable(false);
       this.l = get_current_locale(this.locales);
@@ -1558,10 +1543,8 @@ if (typeof module !== 'undefined' && module.exports) {
 
     Router.prototype.route = function(path, event_object) {
       var bindings, func, matchings, pattern, _ref, _results;
-
       matchings = function(pattern, path) {
         var parsed_pattern, result;
-
         parsed_pattern = new RegExp("" + (pattern.replace(/:([a-z]|[0-9])+/g, '([a-z]|[0-9])+')) + "\/?$", 'i');
         result = parsed_pattern.exec(path);
         if (result != null) {
@@ -1605,7 +1588,6 @@ if (typeof module !== 'undefined' && module.exports) {
 
   get_API_URL = function(path) {
     var baseURL;
-
     baseURL = 'https://safify-api.herokuapp.com/';
     return baseURL + path;
   };
@@ -1624,7 +1606,6 @@ if (typeof module !== 'undefined' && module.exports) {
 
   check_for_login = function(context) {
     var logged_in;
-
     logged_in = login.logged_in();
     if (!logged_in) {
       context.preventDefault();
@@ -1676,7 +1657,6 @@ if (typeof module !== 'undefined' && module.exports) {
           },
           success: function(data, textStatus, jqXHR) {
             var decrypted;
-
             if (data !== "{}") {
               decrypted = sjcl.decrypt(login.client_password(), data);
               password_list.fromJSON(decrypted);
@@ -1761,7 +1741,6 @@ if (typeof module !== 'undefined' && module.exports) {
     },
     'install_in_firefox': function() {
       var request;
-
       request = navigator.mozApps.install(manifest_url);
       request.onerror = function() {
         return console.log('Error during install');
