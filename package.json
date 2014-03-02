@@ -11,7 +11,8 @@
     "grunt-run": "~0.2.1",
     "node-static": "~0.7.3",
     "jasmine-node": "~1.13.1",
-    "selenium-webdriver": "~2.40.0"
+    "selenium-webdriver": "~2.40.0",
+    "grunt-cli": "~0.1.13"
   },
   "scripts": {
     "test": "grunt test"
