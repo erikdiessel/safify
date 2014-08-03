@@ -731,14 +731,14 @@
 
   get_API_URL = function(path) {
     var baseURL;
-    baseURL = 'https://safify-api.herokuapp.com/';
+    baseURL = 'https://safify-api-integration.herokuapp.com/';
     return baseURL + path;
   };
 
   save_changes = function() {
     return $.ajax({
       url: get_API_URL('passwords'),
-      type: 'PUT',
+      type: 'POST',
       data: {
         password_list: sjcl.encrypt(login.client_password(), password_list.toJSON()),
         username: login.sanitized_username(),

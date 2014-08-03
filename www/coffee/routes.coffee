@@ -1,11 +1,11 @@
 get_API_URL = (path) ->
-   baseURL = 'https://safify-api.herokuapp.com/'
+   baseURL = 'https://safify-api-integration.herokuapp.com/'
    baseURL + path
          
 save_changes = ->
    $.ajax
       url: get_API_URL('passwords')
-      type: 'PUT' 
+      type: 'POST' 
       data:
          password_list: sjcl.encrypt(login.client_password(), password_list.toJSON())
          username: login.sanitized_username()
