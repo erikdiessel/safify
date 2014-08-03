@@ -1588,7 +1588,7 @@ if (typeof module !== 'undefined' && module.exports) {
 
   get_API_URL = function(path) {
     var baseURL;
-    baseURL = 'https://safify-api-integration.herokuapp.com/';
+    baseURL = 'https://safify-api.herokuapp.com/';
     return baseURL + path;
   };
 
