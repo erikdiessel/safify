@@ -731,7 +731,7 @@
 
   get_API_URL = function(path) {
     var baseURL;
-    baseURL = 'https://safify-api.herokuapp.com/';
+    baseURL = 'https://safifyapi-diessel.rhcloud.com/';
     return baseURL + path;
   };
 
