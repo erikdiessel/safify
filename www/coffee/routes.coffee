@@ -1,5 +1,5 @@
 get_API_URL = (path) ->
-   baseURL = 'https://safify-api.herokuapp.com/'
+   baseURL = 'https://safifyapi-diessel.rhcloud.com/'
    baseURL + path
          
 save_changes = ->
